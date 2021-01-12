@@ -11,7 +11,6 @@
  */
 
 #include <Eigen/Core>
-#include <random> // std::random
 
 #include "calc.hpp"
 #include "data.hpp"
@@ -41,37 +40,27 @@ int main (int argc, char *argv[]) {
     const int         dataSize = stoi(args[3]);
     const int         dataDim  = stoi(args[4]);
 
-    // 変数の宣言
-    Eigen::MatrixXd data(dataSize, dataDim);
-    Eigen::VectorXd query(dataDim);
-
     // データセットの読み込み
+    Eigen::MatrixXd data(dataSize, dataDim);
     if (HS::readData(&data, dataPath, dataSize, dataDim) == NG) {
         std::cerr << "!Cannot read \"" << dataPath << "\"!" << std::endl;
         return 1;
     }
 
-    // クエリを設定
-    /* [0, 1] のランダムな実数 */
-    std::random_device seed;
-    std::mt19937 rand(seed());
-    std::uniform_real_distribution<> unif(0.0, 1.0);
-    query = Eigen::VectorXd::Zero(dataDim).unaryExpr([&](double dummy){return unif(rand);});
-
-    // 出力
+    // DNNH 検索
+    HS::DNNHSearch ds(data);
+    
     std::cout << std::endl;
     std::cout << "# Clustering way: " << clustWay << std::endl;
     std::cout << "# Dataset       : " << dataPath << " (" << dataSize << " pts, " << dataDim << " dims)" << std::endl;
-    std::cout << "# Query         : \n" << query << std::endl;
+    std::cout << "# Query         : \n" << ds.query() << std::endl;
     std::cout << std::endl;
 
-    // DNNH 検索
     std::cout << "Starting DNNH search ..." << std::endl;
-    HS::DNNHSearch ds(data, query);
     ds.run(clustWay);
     std::cout << "... Ended." << std::endl;
 
-    // 出力
+    /***** 結果の出力 *****/
     /*
     std::cout << std::endl;
     std::cout << "# Result: \n" << ds.result() << std::endl;

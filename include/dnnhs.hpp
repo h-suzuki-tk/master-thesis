@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <random>
 #include <Eigen/Core>
 
 #include "basic.hpp"
@@ -15,8 +16,9 @@ namespace HS {
 
   class DNNHSearch {
     public:
-      DNNHSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query);
+      DNNHSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query = Eigen::VectorXd(0));
       void run(std::string clustWay);
+      Eigen::VectorXd query() { return m_query; };
     
     private:
       Eigen::MatrixXd  m_data;
