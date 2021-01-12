@@ -15,16 +15,11 @@
 
 #include "calc.hpp"
 #include "data.hpp"
-//#include "basic.hpp"
-//#include "grid.hpp"
-//#include "split.hpp"
+#include "dnnhs.hpp"
 
 #define OK 1
 #define NG 0
 
-#define BASIC "basic"
-#define GRID "grid"
-#define SPLIT "split"
 const std::vector<std::string> _clustWays = {BASIC, GRID, SPLIT};
 
 void printArgError();
@@ -72,19 +67,16 @@ int main (int argc, char *argv[]) {
 
     // DNNH 検索
     std::cout << "Starting DNNH search ..." << std::endl;
-    if (clustWay == BASIC) {
-        /* code */
-    } else if (clustWay == GRID) {
-        /* code */
-    } else if (clustWay == SPLIT) {
-        /* code */
-    } else {
-        /* code */
-    }
+    HS::DNNHSearch ds(data, query);
+    ds.run(clustWay);
     std::cout << "... Ended." << std::endl;
 
     // 出力
-    /* code */
+    /*
+    std::cout << std::endl;
+    std::cout << "# Result: \n" << ds.result() << std::endl;
+    std::cout << std::endl;
+    */
 
     return 0;
 }
