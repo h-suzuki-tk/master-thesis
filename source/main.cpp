@@ -53,7 +53,7 @@ int main (int argc, char *argv[]) {
     std::cout << std::endl;
     std::cout << "# Clustering way: " << clustWay << std::endl;
     std::cout << "# Dataset       : " << dataPath << " (" << dataSize << " pts, " << dataDim << " dims)" << std::endl;
-    std::cout << "# Query         : \n" << ds.query() << std::endl;
+    std::cout << "# Query         : \n" << ds.query().transpose() << std::endl;
     std::cout << std::endl;
 
     std::cout << "Starting DNNH search ..." << std::endl;
