@@ -29,3 +29,5 @@ void HS::DNNHSearch::run(std::string clustWay) {
     std::cerr << "!Failed to run " << clustWay << " search!" << std::endl;
   }
 }
+
+

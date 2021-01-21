@@ -23,9 +23,12 @@ namespace HS {
     private:
       Eigen::MatrixXd  m_data;
       Eigen::VectorXd  m_query;
+      std::vector<std::vector<int>> m_group;
       std::vector<int> m_result;
 
       int basicSearch();
+      std::vector<int> findGroupBasic(const int id_core, std::vector<int> ids_data);
+      Eigen::VectorXd center(const std::vector<int> &ids);
       //int gridSearch();
       //int splitSearch();
   };
