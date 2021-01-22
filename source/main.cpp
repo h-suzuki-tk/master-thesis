@@ -48,7 +48,7 @@ int main (int argc, char *argv[]) {
     }
 
     // DNNH 検索
-    HS::DNNHSearch ds(data);
+    DNNHSearch ds(data);
     
     std::cout << std::endl;
     std::cout << "# Clustering way: " << clustWay << std::endl;
