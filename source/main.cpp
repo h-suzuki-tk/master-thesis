@@ -8,6 +8,8 @@
  *  - 'split': 分割フィルタリング手法
  * argv[2]: データセットのファイルパス
  * argv[3]: データセットのサイズ
+ * argv[4]: データセットの次元
+ * argv[5]: フィルタリング用パラメータ α
  */
 
 #include <Eigen/Core>
@@ -27,10 +29,11 @@ int main (int argc, char *argv[]) {
 
     // コマンドライン引数のチェック
     std::vector<std::string> args(argv, argv+argc);
-    if (args.size() != 5 
+    if (args.size() != 6
         || !std::any_of(_clustWays.begin(), _clustWays.end(), [&](std::string way){return way==args[1];})
         || !std::all_of(args[3].begin(), args[3].end(), isdigit)
         || !std::all_of(args[4].begin(), args[4].end(), isdigit)
+		|| !std::all_of(args[5].begin(), args[5].end(), isdigit)
         ) {
         printArgError();
         return 1;
@@ -39,6 +42,7 @@ int main (int argc, char *argv[]) {
     const std::string dataPath = args[2];
     const int         dataSize = stoi(args[3]);
     const int         dataDim  = stoi(args[4]);
+	const double      alpha    = stod(args[5]);
 
     // データセットの読み込み
     Eigen::MatrixXd data(dataSize, dataDim);
@@ -48,7 +52,7 @@ int main (int argc, char *argv[]) {
     }
 
     // DNNH 検索
-    DNNHSearch ds(data);
+    DNNHSearch ds(data, alpha);
     
     std::cout << std::endl;
     std::cout << "# Clustering way: " << clustWay << std::endl;
@@ -60,13 +64,14 @@ int main (int argc, char *argv[]) {
     ds.run(clustWay);
     std::cout << "... Ended." << std::endl;
 
-    /***** 結果の出力 *****/
-    /*
+    // 結果の出力
     std::cout << std::endl;
-    std::cout << "# Result: \n" << ds.result() << std::endl;
+    std::cout << "# Result:" << std::endl;
+	for (int id : ds.result().ids()) {
+		std::cout << id << ", ";
+	}
     std::cout << std::endl;
-    */
-
+   
     return 0;
 }
 

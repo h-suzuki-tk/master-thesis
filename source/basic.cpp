@@ -1,38 +1,34 @@
 #include "basic.hpp"
 
 int DNNHSearch::basicSearch() {
+	std::vector<int> ids_sorted(data().size());
 
-  // 距離が近い順にソート
-  std::vector<int> ids_sorted(m_data.rows());
-  for (int i=0; i<ids_sorted.size(); i++) { ids_sorted[i] = i; }
-  
-  Eigen::VectorXd dist_query = (m_data.rowwise() - m_query.transpose()).rowwise().norm();
-  std::sort(
-    ids_sorted.begin(), ids_sorted.end(),
-    [&](double a, double b) { return dist_query(a) < dist_query(b); }
-  );
+    // 距離が近い順にソート	
+    for (int i=0; i<data().size(); i++) { ids_sorted[i] = i; }
+    std::sort(
+        ids_sorted.begin(), ids_sorted.end(), [&](int a, int b) { 
+		return data(a).distFromQuery() < data(b).distFromQuery(); 
+	});
 
-  // 各点について処理
-  double bound = __DBL_MAX__;
-  Group *g_min;
-  for (auto p_id = ids_sorted.begin(); p_id != ids_sorted.end();) {
-    ids_sorted.erase(p_id);
+    // 各点について処理
+    while (!ids_sorted.empty()) {
 
-    // 所属グループを検索
-    m_group.push_back(findGroup(*p_id, ids_sorted));
+		// 先頭を取り出す
+		int id = ids_sorted.front();
+        ids_sorted.erase(ids_sorted.begin());
 
-    // 総合近似度を計算・フィルタリング
-    if (m_group.back().delta() < bound) {
-      bound = m_group.back().delta();
-      g_min = m_group.back();
-      //filterPts(bound, &ids_sorted, dist_query); /*****/
+        // 所属グループを検索
+        m_group.push_back(findGroup(id, ids_sorted));
+
+        // 総合近似度を計算・フィルタリング
+        if (m_group.back().delta() < m_result.delta()) {
+            
+			updateBound(m_group.back());
+            m_result = m_group.back();
+
+            filterPts(bound(), &ids_sorted);
+        }
     }
 
-    p_id++;
-  }
-
-  // 結果を格納
-
-
-  return 1;
+    return 1;
 }

@@ -1,68 +1,120 @@
 #include "dnnhs.hpp"
 
-DNNHSearch::DNNHSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query) {
-  m_data = data;
-  if (query.size() == 0) {
-    std::random_device seed;
-    std::mt19937 rand(seed());
-    std::uniform_real_distribution<> unif(0.0, 1.0);
-    m_query = Eigen::VectorXd::Zero(m_data.cols()).unaryExpr([&](double dummy){return unif(rand);});
-  } else {
-    m_query = query;
-  }
-  m_result = std::vector<int>(data.rows(), 0);
+DNNHSearch::DNNHSearch(
+	const Eigen::MatrixXd& data, 
+	const double           alpha,
+	const Eigen::VectorXd& query) {
+
+	m_data  = std::vector<Point>(data.rows());
+	m_n_dim = data.cols();
+    for (int i=0; i<data.rows(); i++) {
+		m_data[i] = Point(this, data.row(i));
+	}
+
+    if (query.size() == 0) {
+        std::random_device seed;
+        std::mt19937 rand(seed());
+        std::uniform_real_distribution<> unif(0.0, 1.0);
+        m_query =
+            Eigen::VectorXd::Zero(data.cols()).unaryExpr([&](double dummy) {
+                return unif(rand);
+            });
+    } else {
+        m_query = query;
+    }
+
+	m_alpha    = alpha;
+	m_distance = Eigen::MatrixXd::Constant(m_data.size(), m_data.size(), -1.0);
+    m_result   = std::vector<int>(data.rows(), 0);
 }
 
 
 void DNNHSearch::run(std::string clustWay) {
-  int isOK = 0;
+    int isOK = 0;
 
-  if (clustWay == BASIC) {
-    isOK = basicSearch();
-  } else if (clustWay == GRID) {
-    /*isOK = gridSearch();*/
-  } else if (clustWay == SPLIT) {
-    /*isOK = splitSearch();*/
-  }
-
-  if (isOK == 0) {
-    std::cerr << "!Failed to run " << clustWay << " search!" << std::endl;
-  }
-}
-
-
-
-int findNN(const Eigen::VectorXd &query, const std::vector<int> ids) {
-  std::pair<int, double> pt_min = std::make_pair(-1, __DBL_MAX__);
-
-  for (int id : ids) {
-    double dist = (m_data.row(ids) - query.transpose()).norm();
-    if (dist < pt_min.second) {
-      pt_min.first = id;
-      pt_min.second = dist;
+    if (clustWay == BASIC) {
+        isOK = basicSearch();
+    } else if (clustWay == GRID) {
+        /*isOK = gridSearch();*/
+    } else if (clustWay == SPLIT) {
+        /*isOK = splitSearch();*/
     }
-  }
 
-  return pt_min.first;
+    if (isOK == 0) {
+        std::cerr << "!Failed to run " << clustWay << " search!" << std::endl;
+    }
+}
+
+
+double DNNHSearch::distance(
+	int id1, 
+	int id2) {
+
+	if (m_distance(id1, id2) < 0.0 && m_distance(id2, id1) < 0.0) {
+		m_distance(id1, id2) = (data(id1).vec() - data(id2).vec()).norm();
+		m_distance(id2, id1) = m_distance(id1, id2);
+	}
+
+	return m_distance(id1, id2);
 }
 
 
 
-std::vector<int> DNNHSearch::findGroup(const int id_core, std::vector<int> ids_data) {
+int DNNHSearch::findNN(
+	const Eigen::VectorXd& query,
+	std::vector<int>      *ids,
+	const bool 			   shouldDelete) {
+	
+	int    id_NN   = -1;
+	double dist_NN = __DBL_MAX__;
+	std::vector<int>::iterator itr_NN;
 
-  Group g_min;
-  std::vector<Group> gs;
-  
-  for (auto id = ids_data.begin(); id != ids_data.end();) {
+	for (auto itr_id = ids->begin(); itr_id != ids->end(); ) {
+		double dist = ( data(*itr_id).vec()-query.transpose() ).norm();
+		if (dist < dist_NN) {
+			id_NN   = *itr_id;
+			dist_NN = dist;
+			itr_NN  = itr_id;
+		}
+	}
+	if (shouldDelete) { ids->erase(itr_NN); }
 
-    // 最近傍点を見つける
-    gs.back().add(findNN(gs.back().centroid(), ids_data));
-    // epΔ を計算して最小のものを保持
-    if (gs.back().epDelta() < g_min.epDelta()) { g_min = gs.back(); }
-    // 更新
-    gs.push_back(Group());
+	return id_NN;
+}
 
-  }
-  
-  return g_min;
+
+DNNHSearch::Group DNNHSearch::findGroup(
+	const int               id_core, 
+	const std::vector<int>& ids_data) {
+    
+	ExpansionGroup g_min;
+    ExpansionGroup g(this, id_core, ids_data);
+
+	g.expand();
+	g_min = g;
+	while (!g.isEnded()) {
+		// 拡大
+        g.expand();
+        // epΔ を計算して最小のものを保持
+        if (g.epDelta() < g_min.epDelta()) {
+            g_min = g;
+        }
+	}
+
+    return g_min;
+}
+
+
+void DNNHSearch::updateBound(Group& group) {
+	m_bound = ( 2 * m_alpha / (m_alpha + 1) ) * group.delta();
+}
+
+
+void DNNHSearch::filterPts(
+	const double      bound, 
+	std::vector<int> *ids) {
+
+	ids->erase(std::remove_if(ids->begin(), ids->end(),	[&](int id) { 
+		return data(id).distFromQuery() > bound; }), ids->end()
+	);
 }
