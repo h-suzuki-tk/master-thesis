@@ -1,6 +1,8 @@
 TARGET = ../search
 OBJDIR = ./obj
 
+OPTION = -O2
+
 PATH_EIGEN = /usr/include/eigen3
 PATH_OPENCV = /usr/local/include/opencv4 -lopencv_core -lopencv_flann -g
 INCLUDE = -I ../include -I $(PATH_EIGEN) -I $(PATH_OPENCV)
@@ -13,7 +15,7 @@ $(TARGET):	$(OBJECTS)
 
 $(OBJDIR)/%.o:	%.cpp
 	@[ -d $(OBJDIR) ]
-	g++ -O2 -o $@ -c $^ $(INCLUDE)
+	g++ $(OPTION) -o $@ -c $^ $(INCLUDE)
 
 clean:
 	rm -f $(OBJDIR)/*.o

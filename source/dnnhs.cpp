@@ -25,7 +25,6 @@ DNNHSearch::DNNHSearch(
 
 	m_alpha    = alpha;
 	m_distance = Eigen::MatrixXd::Constant(m_data.size(), m_data.size(), -1.0);
-    m_result   = std::vector<int>(data.rows(), 0);
 }
 
 
@@ -51,7 +50,7 @@ double DNNHSearch::distance(
 	int id2) {
 
 	if (m_distance(id1, id2) < 0.0 && m_distance(id2, id1) < 0.0) {
-		m_distance(id1, id2) = (data(id1).vec() - data(id2).vec()).norm();
+		m_distance(id1, id2) = (m_data[id1].vec() - m_data[id2].vec()).norm();
 		m_distance(id2, id1) = m_distance(id1, id2);
 	}
 
@@ -65,17 +64,20 @@ int DNNHSearch::findNN(
 	std::vector<int>      *ids,
 	const bool 			   shouldDelete) {
 	
+	assert(ids->size() > 0);
+	
 	int    id_NN   = -1;
 	double dist_NN = __DBL_MAX__;
 	std::vector<int>::iterator itr_NN;
 
 	for (auto itr_id = ids->begin(); itr_id != ids->end(); ) {
-		double dist = ( data(*itr_id).vec()-query.transpose() ).norm();
+		double dist = ( m_data[*itr_id].vec()-query ).norm();
 		if (dist < dist_NN) {
 			id_NN   = *itr_id;
 			dist_NN = dist;
 			itr_NN  = itr_id;
 		}
+		itr_id++;
 	}
 	if (shouldDelete) { ids->erase(itr_NN); }
 
@@ -86,15 +88,19 @@ int DNNHSearch::findNN(
 DNNHSearch::Group DNNHSearch::findGroup(
 	const int               id_core, 
 	const std::vector<int>& ids_data) {
+	
+	assert(ids_data.size() > 0);
     
 	ExpansionGroup g_min;
     ExpansionGroup g(this, id_core, ids_data);
 
 	g.expand();
 	g_min = g;
-	while (!g.isEnded()) {
+	while (!g.unprocdIds().empty()) {
 		// 拡大
         g.expand();
+		if (g.unprocdIds().empty()) { break; } // while 文と一緒で気持ち悪い
+
         // epΔ を計算して最小のものを保持
         if (g.epDelta() < g_min.epDelta()) {
             g_min = g;
@@ -115,6 +121,6 @@ void DNNHSearch::filterPts(
 	std::vector<int> *ids) {
 
 	ids->erase(std::remove_if(ids->begin(), ids->end(),	[&](int id) { 
-		return data(id).distFromQuery() > bound; }), ids->end()
+		return m_data[id].distFromQuery() > bound; }), ids->end()
 	);
 }

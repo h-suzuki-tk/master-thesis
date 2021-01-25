@@ -1,13 +1,13 @@
 #include "group.hpp"
 
 Eigen::VectorXd& DNNHSearch::Group::centroid() {
-	
+
     if (m_centroid.size() == 0) {
         Eigen::VectorXd temp;
 
-		temp = Eigen::VectorXd::Zero(m_ds->dims());
-        for (int id : ids()) {
-            temp += m_ds->data(id).vec();
+		temp = Eigen::VectorXd::Zero(m_ds->m_n_dim);
+        for (int id : m_ids) {
+            temp += m_ds->m_data[id].vec();
         }
         m_centroid = temp / size();
     }
@@ -25,10 +25,10 @@ double DNNHSearch::Group::sd() {
     double sd;
 
     double temp = 0.0;
-    for (int id : ids()) {
-        temp += (m_ds->data(id).vec() - centroid()).squaredNorm();
+    for (int id : m_ids) {
+        temp += (m_ds->m_data[id].vec() - centroid()).squaredNorm();
     }
-    sd = temp / size();
+    sd = sqrt(temp / size());
 
     return sd;
 }
@@ -36,7 +36,9 @@ double DNNHSearch::Group::sd() {
 
 double DNNHSearch::Group::delta() {
 
-	if (m_delta < 0.0) {
+	if (m_ids.size() == 0) {
+		m_delta = __DBL_MAX__;
+	} else if (m_delta < 0.0) {
 		m_delta = dist(m_ds->query()) + sd();
 	}
 

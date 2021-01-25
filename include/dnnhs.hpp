@@ -21,7 +21,7 @@ class DNNHSearch {
 		Point(){}
 		Point(DNNHSearch* ds, const Eigen::VectorXd& vec) { m_ds = ds; m_vector = vec; }
 	
-		Eigen::VectorXd& vec() { return m_vector; }
+		Eigen::VectorXd& vec          () { return m_vector; }
 		double           distFromQuery();
 
 	private:
@@ -41,26 +41,22 @@ class DNNHSearch {
 	public:
 		Group(){}
 		Group(DNNHSearch* ds, int id) { m_ds = ds; m_ids.push_back(id); }
-		Group(int id)                 { m_ids.push_back(id); }
-		Group(std::vector<int> ids)   { m_ids = ids; }
-
-		std::vector<int>& ids()           { return m_ids; }
-		int               id(const int i) { return ids()[i]; }
-		int               size()          { return ids().size(); }
+		
+		std::vector<int>& ids     () { return m_ids; }
 		Eigen::VectorXd&  centroid();
-		double            dist(const Eigen::VectorXd &v);
-		double            sd();
-		double            delta();
+		double            dist    (const Eigen::VectorXd &v);
+		double            sd      ();
+		double            delta   ();
 
 		void add(const int id) { m_ids.push_back(id); }
-
-	private:
-		std::vector<int> m_ids;
-		Eigen::VectorXd  m_centroid;
-		double           m_delta   = -1.0;
 	
 	protected:
 		DNNHSearch*      m_ds;
+		std::vector<int> m_ids;
+		Eigen::VectorXd  m_centroid;
+		double           m_delta = -1.0;
+
+		int size() { return m_ids.size(); }
 
 	};
 	
@@ -73,34 +69,33 @@ class DNNHSearch {
 		ExpansionGroup(){}
 		ExpansionGroup(DNNHSearch* ds, const int id, const std::vector<int>& ids_data);
 
-		bool   isEnded() { return dataIds().empty(); }
-		double epDelta();
-
+		std::vector<int>& unprocdIds() { return m_ids_unprocd; }
+		double            epDelta   ();
+		
 		void expand();
 
 	private:
-		std::vector<int> m_ids_data;
+		std::vector<int> m_ids_unprocd;
 		int 			 m_id_next = -1;
 		double 			 m_epDelta = -1.0;
-		double			 m_pd_sum  = -1.0;
+		double			 m_pd_sum;
 		double           m_nd_sum  = -1.0;
 		int              m_n_pair  = -1;
 
-		std::vector<int>& dataIds() { return m_ids_data; }
 		int               nextId();
-		double            pdSum();
-		double            ndSum();
-		int               pairs();
+		double            pdSum ();
+		double            ndSum ();
+		int               pairs ();
 
 	};
 	
-
 public:
 	DNNHSearch(const Eigen::MatrixXd& data, const double alpha, const Eigen::VectorXd& query = Eigen::VectorXd(0));
-	void run(std::string clustWay);
-
-	Eigen::VectorXd& query()  { return m_query; }
+	
+	Eigen::VectorXd& query () { return m_query; }
 	Group&           result() { return m_result; }
+
+	void run(std::string clustWay);
 
 private:
 	std::vector<Point> m_data;
@@ -112,22 +107,16 @@ private:
 	double             m_bound = __DBL_MAX__;
 	Group              m_result;
 
-	std::vector<Point>& data()        { return m_data; }
-	Point&              data(int id)  { return m_data[id]; }
-	int                 dims()        { return m_n_dim; }
-	double              distance(int id1, int id2);
-	std::vector<Group>& group()       { return m_group; }
-	double              bound()       { return m_bound; }
-	
-	int   findNN     (const Eigen::VectorXd &query, std::vector<int> *ids, const bool shouldDelete = false);
-	Group findGroup  (const int id_core, const std::vector<int>& ids_data);
-	void  updateBound();
-	void  updateBound(Group& group);
-	void  filterPts  (const double bound, std::vector<int> *ids);
-
 	int basicSearch();
 	//int gridSearch();
 	//int splitSearch();
+	
+	double distance   (int id1, int id2);
+	int    findNN     (const Eigen::VectorXd &query, std::vector<int> *ids, const bool shouldDelete = false);
+	Group  findGroup  (const int id_core, const std::vector<int>& ids_data);
+	void   updateBound(Group& group);
+	void   filterPts  (const double bound, std::vector<int> *ids);
+
 };
 
 
