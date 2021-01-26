@@ -11,12 +11,12 @@ int DNNHSearch::basicSearch() {
 	});
 
     // 各点について処理
-	int id = ids_sorted.front();
-	ids_sorted.erase(ids_sorted.begin());
-    while (!ids_sorted.empty()) {
+    for (auto itr_id = ids_sorted.begin(); 
+        itr_id != ids_sorted.end(); itr_id++) {
+        int index = std::distance(ids_sorted.begin(), itr_id);
 
         // 所属グループを検索
-        m_group.push_back(findGroup(id, ids_sorted));
+        m_group.push_back(findGroup(index, ids_sorted));
 
         // 総合近似度を計算・フィルタリング
         if (m_group.back().delta() < m_result.delta()) {
@@ -26,10 +26,6 @@ int DNNHSearch::basicSearch() {
 
             filterPts(m_bound, &ids_sorted);
         }
-		
-		// 先頭を取り出す
-		id = ids_sorted.front();
-        ids_sorted.erase(ids_sorted.begin());
     }
 
     return 1;

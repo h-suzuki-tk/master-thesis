@@ -86,13 +86,13 @@ int DNNHSearch::findNN(
 
 
 DNNHSearch::Group DNNHSearch::findGroup(
-	const int               id_core, 
+	const int               index, 
 	const std::vector<int>& ids_data) {
 	
 	assert(ids_data.size() > 0);
     
 	ExpansionGroup g_min;
-    ExpansionGroup g(this, id_core, ids_data);
+    ExpansionGroup g(this, index, ids_data, false);
 
 	g.expand();
 	g_min = g;
@@ -102,7 +102,7 @@ DNNHSearch::Group DNNHSearch::findGroup(
 		if (g.unprocdIds().empty()) { break; } // while 文と一緒で気持ち悪い
 
         // epΔ を計算して最小のものを保持
-        if (g.epDelta() < g_min.epDelta()) {
+		if (g.epDelta() < g_min.epDelta()) {
             g_min = g;
         }
 	}

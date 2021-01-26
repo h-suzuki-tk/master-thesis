@@ -66,8 +66,8 @@ class DNNHSearch {
 	class ExpansionGroup : public Group {
 	
 	public:	
-		ExpansionGroup(){}
-		ExpansionGroup(DNNHSearch* ds, const int id, const std::vector<int>& ids_data);
+		ExpansionGroup() : Group() {}
+		ExpansionGroup(DNNHSearch* ds, const int index_core, const std::vector<int>& ids_data, bool isCorePruned);
 
 		std::vector<int>& unprocdIds() { return m_ids_unprocd; }
 		double            epDelta   ();
@@ -80,7 +80,7 @@ class DNNHSearch {
 		double 			 m_epDelta = -1.0;
 		double			 m_pd_sum;
 		double           m_nd_sum  = -1.0;
-		int              m_n_pair  = -1;
+		int              m_n_pair  = 0;
 
 		int               nextId();
 		double            pdSum ();

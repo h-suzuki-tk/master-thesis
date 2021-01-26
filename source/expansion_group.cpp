@@ -3,17 +3,23 @@
 
 DNNHSearch::ExpansionGroup::ExpansionGroup(
 	DNNHSearch*             ds,
-	const int 			    id, 
-	const std::vector<int>& ids_data) : Group(ds, id) {
+	const int 			    index_core, 
+	const std::vector<int>& ids_data,
+	bool                    isCorePruned) : Group(ds, ids_data[index_core]) {
 
 	m_ids_unprocd = ids_data;
 	m_pd_sum      = 0.0;
+	if (!isCorePruned) {
+		m_ids_unprocd.erase(m_ids_unprocd.begin() + index_core);
+	}
 }
 
 
 double DNNHSearch::ExpansionGroup::epDelta() {
 
-	if (m_epDelta < 0.0) {
+	if (size() <= 1) {
+		m_epDelta = __DBL_MAX__;
+	} else if (m_epDelta < 0.0) {
 		double pdmean = pdSum() / pairs();
 		double ndmean = ndSum() / size();
 		m_epDelta = (pdmean / (pdmean + ndmean)) * delta();
@@ -79,6 +85,7 @@ double DNNHSearch::ExpansionGroup::ndSum() {
 
 
 int DNNHSearch::ExpansionGroup::pairs() {
+	assert(size() > 1);
 
 	if (m_n_pair < 0) {
 		m_n_pair = size() * (size()-1) / 2;
