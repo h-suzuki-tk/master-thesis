@@ -10,19 +10,7 @@ DNNHSearch::DNNHSearch(
     for (int i=0; i<data.rows(); i++) {
 		m_data[i] = Point(this, data.row(i));
 	}
-
-    if (query.size() == 0) {
-        std::random_device seed;
-        std::mt19937 rand(seed());
-        std::uniform_real_distribution<> unif(0.0, 1.0);
-        m_query =
-            Eigen::VectorXd::Zero(data.cols()).unaryExpr([&](double dummy) {
-                return unif(rand);
-            });
-    } else {
-        m_query = query;
-    }
-
+	m_query = query;
 	m_alpha    = alpha;
 	m_distance = Eigen::MatrixXd::Constant(m_data.size(), m_data.size(), -1.0);
 }
@@ -31,13 +19,7 @@ DNNHSearch::DNNHSearch(
 void DNNHSearch::run(std::string clustWay) {
     int isOK = 0;
 
-    if (clustWay == BASIC) {
-        isOK = basicSearch();
-    } else if (clustWay == GRID) {
-        /*isOK = gridSearch();*/
-    } else if (clustWay == SPLIT) {
-        /*isOK = splitSearch();*/
-    }
+	isOK = basicSearch();
 
     if (isOK == 0) {
         std::cerr << "!Failed to run " << clustWay << " search!" << std::endl;

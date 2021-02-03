@@ -1,13 +1,8 @@
 #ifndef _DNNHS_HPP_
 #define _DNNHS_HPP_
 
-#define BASIC "basic"
-#define GRID "grid"
-#define SPLIT "split"
-
 #include <iostream>
 #include <vector>
-#include <random>
 #include <Eigen/Core>
 
 class DNNHSearch {
@@ -90,7 +85,7 @@ class DNNHSearch {
 	};
 	
 public:
-	DNNHSearch(const Eigen::MatrixXd& data, const double alpha, const Eigen::VectorXd& query = Eigen::VectorXd(0));
+	DNNHSearch(const Eigen::MatrixXd& data, const double alpha, const Eigen::VectorXd& query);
 	
 	Eigen::VectorXd& query () { return m_query; }
 	Group&           result() { return m_result; }

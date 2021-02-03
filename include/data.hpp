@@ -6,6 +6,7 @@
 #define _DATA_H_
 
 #include <iostream>
+#include <random>
 #include <fstream>
 #include <opencv2/core.hpp>
 
@@ -29,6 +30,7 @@ int arrangeClustersToClusSet(cv::Mat clusters, std::vector<std::vector<int>>& cl
 void arrangeClustersToClusSetWithParentIndex(std::vector<int> parentClusSet, cv::Mat clusters, std::vector<std::vector<int>>& clusSet);
 void showClusSet(std::vector<std::vector<int>> clusSet);
 void cvToEigenVec(cv::Mat cvVec, Eigen::VectorXd& eigenVec);
+Eigen::VectorXd randomVector(const int n_dim, const double min = 0.0, const double max = 1.0);
 
 }
 

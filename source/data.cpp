@@ -260,3 +260,17 @@ void cvToEigenVec(cv::Mat cvVec, Eigen::VectorXd& eigenVec) {
 		exit(1);
 	}
 }
+
+Eigen::VectorXd HS::randomVector(const int n_dim, const double min, const double max) {
+	assert(n_dim > 0);
+	assert(min <= max);
+
+	Eigen::VectorXd vec;
+
+	std::random_device seed;
+    std::mt19937 rand(seed());
+    std::uniform_real_distribution<> unif(min, max);
+    vec = Eigen::VectorXd::Zero(n_dim).unaryExpr([&](double dummy) { return unif(rand); });
+
+	return vec;
+}
