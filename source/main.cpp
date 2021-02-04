@@ -2,7 +2,8 @@
 
 #include "calc.hpp"
 #include "data.hpp"
-#include "dnnhs.hpp"
+#include "dnnhs.hpp" /*** 古いコードなのでそのうち新しくする ***/
+#include "grid-dnnhs.hpp"
 
 #define OK 1
 #define NG 0
@@ -30,7 +31,6 @@ int main (int argc, char *argv[]) {
         printArgError();
         return 1;
     }
-	std::cout << "hoge" << std::endl;
 	if (args[1] == GRID && (args.size() != 7 
 		|| !std::all_of(args[6].begin(), args[6].end(), isdigit)
 		|| stoi(args[6]) <= 0)) { 
@@ -42,22 +42,28 @@ int main (int argc, char *argv[]) {
     const int         dataSize = stoi(args[3]);
     const int         dataDim  = stoi(args[4]);
 	const double      alpha    = stod(args[5]);
-	const int         n_grid   = args[1] == GRID ? stoi(args[6]) : 0;
+	const int         gridSize   = args[1] == GRID ? stoi(args[6]) : 0;
+
 
 	// クエリの設定
 	/*** コマンドライン引数でも指定できるようにする ***/
 	Eigen::VectorXd query = HS::randomVector(dataDim);
 
+
+	// 引数の出力
+	std::cout << "Arguments:" << std::endl;
+    std::cout << "* Clustering way: " << clustWay << std::endl;
+    std::cout << "* Dataset: " << dataPath << " (" << dataSize << " pts, " << dataDim << " dims)" << std::endl;
+    std::cout << "* Query: " << query.transpose() << std::endl;
+	if (clustWay == GRID) {	std::cout << "* Grid size: " << gridSize << std::endl; }
 	std::cout << std::endl;
-    std::cout << "# Clustering way: " << clustWay << std::endl;
-    std::cout << "# Dataset       : " << dataPath << " (" << dataSize << " pts, " << dataDim << " dims)" << std::endl;
-    std::cout << "# Query         : \n" << query.transpose() << std::endl;
-    std::cout << std::endl;
+
 
 	// DNNH 検索
-    std::cout << "Starting DNNH search ..." << std::endl;
 	if (clustWay == BASIC) {
-		// *** 古いコードなので新しくする ***
+		
+		// ベーシック手法
+		/*** 古いコードなのでそのうち新しくする ***/
 		Eigen::MatrixXd data(dataSize, dataDim);
 		if (HS::readData(&data, dataPath, dataSize, dataDim) == NG) {
 			std::cerr << "!Cannot read \"" << dataPath << "\"!" << std::endl;
@@ -74,14 +80,27 @@ int main (int argc, char *argv[]) {
 		std::cout << std::endl;
 
 	} else if (clustWay == GRID) {
-		std::cout << "グリッド手法です。" << std::endl;
+		
+		// グリッド手法
+		HS::GridDNNHSearch gds; /******/
+		gds.setData(dataPath, dataSize, dataDim, gridSize); /******/
+		//gds.setQuery(query); /******/
+		std::cout << "Starting grid DNNH search ..." << std::endl;
+		gds.run(alpha); /*****/
+		std::cout << "... Ended." << std::endl << std::endl;
+		//gds.printResult(); /******/
 
 	} else if (clustWay == SPLIT) {
+		
+		// 分割フィルタリング手法
 		std::cout << "スプリット手法です。" << std::endl;
 
 	} else { assert(!"clustWay should be one of _clustWays."); }
-    std::cout << "... Ended." << std::endl;
-   
+
+
+	
+	
+
     return 0;
 }
 
