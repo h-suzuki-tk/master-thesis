@@ -2,11 +2,8 @@
 
 #include "calc.hpp"
 #include "data.hpp"
-#include "dnnhs.hpp" /*** 古いコードなのでそのうち新しくする ***/
+#include "basic-dnnhs.hpp"
 #include "grid-dnnhs.hpp"
-
-#define OK 1
-#define NG 0
 
 #define BASIC "basic"
 #define GRID  "grid"
@@ -17,6 +14,7 @@ static const std::vector<std::string> _clustWays = {
 };
 
 void printArgError();
+
 
 int main (int argc, char *argv[]) {
 
@@ -46,7 +44,6 @@ int main (int argc, char *argv[]) {
 
 
 	// クエリの設定
-	/*** コマンドライン引数でも指定できるようにする ***/
 	Eigen::VectorXd query = HS::randomVector(dataDim);
 
 
@@ -61,23 +58,17 @@ int main (int argc, char *argv[]) {
 
 	// DNNH 検索
 	if (clustWay == BASIC) {
+
+		HS::BasicDNNHSearch bds;
+
+		bds.setData(dataPath, dataSize, dataDim);
+		bds.setQuery(query);
 		
-		// ベーシック手法
-		/*** 古いコードなのでそのうち新しくする ***/
-		Eigen::MatrixXd data(dataSize, dataDim);
-		if (HS::readData(&data, dataPath, dataSize, dataDim) == NG) {
-			std::cerr << "!Cannot read \"" << dataPath << "\"!" << std::endl;
-			return 1;
-		}
-		DNNHSearch ds(data, alpha, query);
-		ds.run(clustWay);
-		std::cout << "... Ended." << std::endl;
-		std::cout << std::endl;
-		std::cout << "# Result:" << std::endl;
-		for (int id : ds.result().ids()) {
-			std::cout << id << ", ";
-		}
-		std::cout << std::endl;
+		std::cout << "Starting basic DNNH search ..." << std::endl;
+		bds.run(alpha);
+		std::cout << "... Ended." << std::endl << std::endl;
+		
+		bds.printResult();
 
 	} else if (clustWay == GRID) {
 		

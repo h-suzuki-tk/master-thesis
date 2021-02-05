@@ -1,6 +1,6 @@
 #include "group.hpp"
 
-Eigen::VectorXd& DNNHSearch::Group::centroid() {
+Eigen::VectorXd& HS::BasicDNNHSearch::Group::centroid() {
 
     if (m_centroid.size() == 0) {
         Eigen::VectorXd temp;
@@ -16,12 +16,12 @@ Eigen::VectorXd& DNNHSearch::Group::centroid() {
 }
 
 
-double DNNHSearch::Group::dist(const Eigen::VectorXd &v) {
+double HS::BasicDNNHSearch::Group::dist(const Eigen::VectorXd &v) {
     return (centroid() - v).norm();
 }
 
 
-double DNNHSearch::Group::sd() {
+double HS::BasicDNNHSearch::Group::sd() {
     double sd;
 
     double temp = 0.0;
@@ -34,12 +34,12 @@ double DNNHSearch::Group::sd() {
 }
 
 
-double DNNHSearch::Group::delta() {
+double HS::BasicDNNHSearch::Group::delta() {
 
 	if (m_ids.size() == 0) {
 		m_delta = __DBL_MAX__;
 	} else if (m_delta < 0.0) {
-		m_delta = dist(m_ds->query()) + sd();
+		m_delta = dist(m_ds->m_query) + sd();
 	}
 
     return m_delta;
