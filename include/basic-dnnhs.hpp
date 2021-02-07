@@ -8,14 +8,14 @@
 #include "data.hpp"
 
 
-namespace HS {
-class BasicDNNHSearch {
+namespace HS::DNNHS {
+class Basic {
 
 	class Point {
 	
 	public:
 		Point(){}
-		Point(BasicDNNHSearch* ds, const Eigen::VectorXd& vec) { m_ds = ds; m_vector = vec; }
+		Point(Basic* ds, const Eigen::VectorXd& vec) { m_ds = ds; m_vector = vec; }
 	
 		Eigen::VectorXd& vec          () { return m_vector; }
 		double           distFromQuery();
@@ -25,7 +25,7 @@ class BasicDNNHSearch {
 		double          m_dist_from_query = -1.0;
 
 	protected:
-		BasicDNNHSearch* m_ds;
+		Basic* m_ds;
 
 	};
 
@@ -33,7 +33,7 @@ class BasicDNNHSearch {
 	
 	public:
 		Group(){}
-		Group(BasicDNNHSearch* ds, int id) { m_ds = ds; m_ids.push_back(id); }
+		Group(Basic* ds, int id) { m_ds = ds; m_ids.push_back(id); }
 		
 		std::vector<int>& ids     () { return m_ids; }
 		Eigen::VectorXd&  centroid();
@@ -44,7 +44,7 @@ class BasicDNNHSearch {
 		void add(const int id) { m_ids.push_back(id); }
 	
 	protected:
-		BasicDNNHSearch*      m_ds;
+		Basic*      m_ds;
 		std::vector<int> m_ids;
 		Eigen::VectorXd  m_centroid;
 		double           m_delta = -1.0;
@@ -57,7 +57,7 @@ class BasicDNNHSearch {
 	
 	public:	
 		ExpansionGroup() : Group() {}
-		ExpansionGroup(BasicDNNHSearch* ds, const int index_core, const std::vector<int>& ids_data, bool isCorePruned);
+		ExpansionGroup(Basic* ds, const int index_core, const std::vector<int>& ids_data, bool isCorePruned);
 
 		std::vector<int>& unprocdIds() { return m_ids_unprocd; }
 		double            epDelta   ();
@@ -80,11 +80,9 @@ class BasicDNNHSearch {
 	};
 
     public:
-        BasicDNNHSearch();
-        void setData(const std::string dataPath, const int dataSize, const int dataDim);
-        void setQuery(const Eigen::VectorXd& query);
-        void run(const double alpha = 2.0);
-        void printResult();
+        Basic(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha);
+        int              run();
+		std::vector<int> result();
 
     protected:
 
@@ -95,7 +93,7 @@ class BasicDNNHSearch {
 		double             m_alpha;
 		Eigen::MatrixXd    m_distance;
 		std::vector<Group> m_group;
-		double             m_bound = __DBL_MAX__;
+		double             m_bound;
 		Group              m_result;
 		
 		double distance   (int id1, int id2);

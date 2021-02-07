@@ -1,9 +1,6 @@
 #include "data.hpp"
 
-// --------------------------------------------------
-//  readData
-//  - データ読み込み
-// --------------------------------------------------
+
 cv::Mat readData(std::string dataPath) {
 	
 	cv::Mat dataSet;
@@ -47,13 +44,20 @@ cv::Mat readData(std::string dataPath) {
 	return dataSet;
 }
 
-int HS::readData(Eigen::MatrixXd *buf, std::string dataPath, int dataSize, int dataDim, char split) {
-			
+
+int HS::readData(
+	Eigen::MatrixXd*   buf, 
+	const std::string& dataPath, 
+	const int&         dataSize, 
+	const int&         dataDim) {
+	
+	*buf = Eigen::MatrixXd(dataSize, dataDim);
+
 	// 読み込みモードでファイルをオープン
 	std::ifstream ifs(dataPath);
 	if (ifs.fail()) {
 		std::cerr << "Failed to open file." << std::endl;
-		return 0;
+		return 1;
 	}
 	
 	// 読み込みと格納
@@ -65,7 +69,7 @@ int HS::readData(Eigen::MatrixXd *buf, std::string dataPath, int dataSize, int d
 
 		j=0;
 		std::istringstream ss(line);
-		while (getline(ss, s, split)) {
+		while (getline(ss, s, ',')) {
 			(*buf)(i, j) = stod(s);
 			j++;
 		}
@@ -76,7 +80,52 @@ int HS::readData(Eigen::MatrixXd *buf, std::string dataPath, int dataSize, int d
 	// データサイズや次元が合っているかチェック
 	if (i != dataSize || j != dataDim) {
 		std::cerr << "!Uncorrect data size or dimension!" << std::endl;
-		return 0;
+		return 1;
+	}
+
+	ifs.close();
+
+	return 0;
+}	
+
+
+int HS::readData(
+	std::vector<std::vector<double>>* buf, 
+	const std::string&                dataPath, 
+	const int&                        dataSize, 
+	const int&                        dataDim) {
+			
+	// 読み込みモードでファイルをオープン
+	std::ifstream ifs(dataPath);
+	if (ifs.fail()) {
+		std::cerr << "Failed to open file." << std::endl;
+		return 1;
+	}
+	
+	// 読み込みと格納
+	int i = 0;
+	int j = 0;
+	std::string line;
+	std::string s;
+	std::vector<double> vec;
+	while (getline(ifs, line)) {
+
+		j = 0;
+		std::istringstream ss(line);
+		while (getline(ss, s, ',')) {
+			vec.emplace_back(stod(s));
+			j++;
+		}
+		buf->emplace_back(vec);
+		
+		vec.clear();
+		i++;
+	}
+
+	// データサイズや次元が合っているかチェック
+	if (i != dataSize || j != dataDim) {
+		std::cerr << "!Uncorrect data size or dimension!" << std::endl;
+		return 1;
 	}
 
 	ifs.close();
@@ -84,11 +133,10 @@ int HS::readData(Eigen::MatrixXd *buf, std::string dataPath, int dataSize, int d
 	return 1;
 }	
 
-// --------------------------------------------------
-//  writeData
-//  - データ書き出し
-// --------------------------------------------------
-int writeData(cv::Mat dataSet, std::string fileName) {
+
+int writeData(
+	cv::Mat     dataSet, 
+	std::string outPath) {
 	
 	// 引数チェック
 	if (dataSet.rows <= 0 || dataSet.cols <= 0) {
@@ -97,8 +145,7 @@ int writeData(cv::Mat dataSet, std::string fileName) {
 	}
 	
 	// 書き込みモードでファイルをオープン
-	std::string dataPath = (std::string)DATA_DIR + "/" + fileName;
-	std::ofstream ofs(dataPath);
+	std::ofstream ofs(outPath);
 	if (ofs.fail()) {
 		std::cerr << "Failed to open file." << std::endl;
 		exit(1);
@@ -120,7 +167,10 @@ int writeData(cv::Mat dataSet, std::string fileName) {
 	return 0;
 }
 
-int writeData(Eigen::MatrixXd dataSet, std::string fileName) {
+
+int writeData(
+	Eigen::MatrixXd dataSet, 
+	std::string outPath) {
 	
 	// 引数チェック
 	if (dataSet.rows() <= 0 || dataSet.cols() <= 0) {
@@ -129,8 +179,7 @@ int writeData(Eigen::MatrixXd dataSet, std::string fileName) {
 	}
 	
 	// 書き込みモードでファイルをオープン
-	std::string dataPath = (std::string)DATA_DIR + "/" + fileName;
-	std::ofstream ofs(dataPath);
+	std::ofstream ofs(outPath);
 	if (ofs.fail()) {
 		std::cerr << "Failed to open file." << std::endl;
 		exit(1);

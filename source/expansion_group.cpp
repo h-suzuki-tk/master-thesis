@@ -1,8 +1,8 @@
 #include "expansion_group.hpp"
 
 
-HS::BasicDNNHSearch::ExpansionGroup::ExpansionGroup(
-	HS::BasicDNNHSearch*             ds,
+HS::DNNHS::Basic::ExpansionGroup::ExpansionGroup(
+	HS::DNNHS::Basic*             ds,
 	const int 			    index_core, 
 	const std::vector<int>& ids_data,
 	bool                    isCorePruned) : Group(ds, ids_data[index_core]) {
@@ -15,7 +15,7 @@ HS::BasicDNNHSearch::ExpansionGroup::ExpansionGroup(
 }
 
 
-double HS::BasicDNNHSearch::ExpansionGroup::epDelta() {
+double HS::DNNHS::Basic::ExpansionGroup::epDelta() {
 
 	if (size() <= 1) {
 		m_epDelta = __DBL_MAX__;
@@ -29,7 +29,7 @@ double HS::BasicDNNHSearch::ExpansionGroup::epDelta() {
 }
 
 
-void HS::BasicDNNHSearch::ExpansionGroup::expand() {
+void HS::DNNHS::Basic::ExpansionGroup::expand() {
 	assert(m_ids_unprocd.size() > 0 || m_id_next >= 0);
 
 	m_pd_sum += ndSum();
@@ -42,7 +42,7 @@ void HS::BasicDNNHSearch::ExpansionGroup::expand() {
 }
 
 
-int HS::BasicDNNHSearch::ExpansionGroup::nextId() {
+int HS::DNNHS::Basic::ExpansionGroup::nextId() {
 	assert(m_ids_unprocd.size() > 0 || m_id_next >= 0);
 
 	if (m_id_next < 0) {
@@ -53,7 +53,7 @@ int HS::BasicDNNHSearch::ExpansionGroup::nextId() {
 }
 
 
-double HS::BasicDNNHSearch::ExpansionGroup::pdSum() {
+double HS::DNNHS::Basic::ExpansionGroup::pdSum() {
 
 	if (m_pd_sum < 0.0) {
 		double pd_sum = 0.0;
@@ -69,7 +69,7 @@ double HS::BasicDNNHSearch::ExpansionGroup::pdSum() {
 }
 
 
-double HS::BasicDNNHSearch::ExpansionGroup::ndSum() {
+double HS::DNNHS::Basic::ExpansionGroup::ndSum() {
 	assert(m_ids_unprocd.size() > 0 || m_id_next >= 0);
 
 	if (m_nd_sum < 0.0) {
@@ -84,7 +84,7 @@ double HS::BasicDNNHSearch::ExpansionGroup::ndSum() {
 }
 
 
-int HS::BasicDNNHSearch::ExpansionGroup::pairs() {
+int HS::DNNHS::Basic::ExpansionGroup::pairs() {
 	assert(size() > 1);
 
 	if (m_n_pair < 0) {

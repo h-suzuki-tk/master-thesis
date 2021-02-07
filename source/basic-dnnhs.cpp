@@ -1,49 +1,29 @@
 #include "basic-dnnhs.hpp"
 
 
-
-HS::BasicDNNHSearch::BasicDNNHSearch() {
-
-	m_bound = __DBL_MAX__;
-}
-
-
-void HS::BasicDNNHSearch::setData(
-	const std::string dataPath, 
-	const int         dataSize, 
-	const int         dataDim) {
-
-	assert(dataSize > 0);
-	assert(dataDim > 0);
-
-	/*** とても気持ちわるいコード ***/
-	Eigen::MatrixXd d(dataSize, dataDim);
-	HS::readData(&d, dataPath, dataSize, dataDim);
+HS::DNNHS::Basic::Basic(
+	const Eigen::MatrixXd& data, 
+	const Eigen::VectorXd& query, 
+	const int&             alpha) {
 	
-	m_data = std::vector<Point>(d.rows());
-	for (int i=0; i<d.rows(); i++) {
-		m_data[i] = Point(this, d.row(i));
-	}
+	assert(data.rows() > 1 && data.cols() > 0);
+	assert(query.size() > 0);
+	assert(data.cols() == query.size());
+	assert(alpha > 0);
 
-	m_n_dim = d.cols();
+	for (int i=0; i<data.rows(); i++) { m_data.emplace_back(Point(this, data.row(i))); }
+	m_query    = query;
+	m_bound    = __DBL_MAX__;
+	m_n_dim    = data.cols();
 	m_distance = Eigen::MatrixXd::Constant(m_data.size(), m_data.size(), -1.0);
+	m_alpha    = alpha;
 }
 
 
-void HS::BasicDNNHSearch::setQuery(
-	const Eigen::VectorXd& query) {
-
-	m_query = query;
-}
-
-
-void HS::BasicDNNHSearch::run(
-	const double alpha) {
-	
-	m_alpha = alpha;
-	std::vector<int> ids_sorted(m_data.size());
+int HS::DNNHS::Basic::run() {
 
     // 距離が近い順にソート	
+	std::vector<int> ids_sorted(m_data.size());
     for (int i=0; i<m_data.size(); i++) { ids_sorted[i] = i; }
     std::sort(
         ids_sorted.begin(), ids_sorted.end(), [&](int a, int b) { 
@@ -67,21 +47,18 @@ void HS::BasicDNNHSearch::run(
             filterPts(m_bound, &ids_sorted);
         }
     }
+
+	return 0;
 }
 
 
-void HS::BasicDNNHSearch::printResult() {
-	
-	std::cout << std::endl;
-	std::cout << "# Result:" << std::endl;
-	for (int id : m_result.ids()) {
-		std::cout << id << ", ";
-	}
-	std::cout << std::endl;
+std::vector<int> HS::DNNHS::Basic::result() {
+	assert(m_result.ids().size() > 0);
+	return m_result.ids();
 }
 
 
-double HS::BasicDNNHSearch::distance(
+double HS::DNNHS::Basic::distance(
 	int id1, 
 	int id2) {
 
@@ -95,7 +72,7 @@ double HS::BasicDNNHSearch::distance(
 
 
 
-int HS::BasicDNNHSearch::findNN(
+int HS::DNNHS::Basic::findNN(
 	const Eigen::VectorXd& query,
 	std::vector<int>      *ids,
 	const bool 			   shouldDelete) {
@@ -121,7 +98,7 @@ int HS::BasicDNNHSearch::findNN(
 }
 
 
-HS::BasicDNNHSearch::Group HS::BasicDNNHSearch::findGroup(
+HS::DNNHS::Basic::Group HS::DNNHS::Basic::findGroup(
 	const int               index, 
 	const std::vector<int>& ids_data) {
 	
@@ -147,12 +124,12 @@ HS::BasicDNNHSearch::Group HS::BasicDNNHSearch::findGroup(
 }
 
 
-void HS::BasicDNNHSearch::updateBound(Group& group) {
+void HS::DNNHS::Basic::updateBound(Group& group) {
 	m_bound = ( 2 * m_alpha / (m_alpha + 1) ) * group.delta();
 }
 
 
-void HS::BasicDNNHSearch::filterPts(
+void HS::DNNHS::Basic::filterPts(
 	const double      bound, 
 	std::vector<int> *ids) {
 

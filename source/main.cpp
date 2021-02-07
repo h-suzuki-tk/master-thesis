@@ -1,7 +1,6 @@
-#include <Eigen/Core>
-
 #include "calc.hpp"
 #include "data.hpp"
+#include "dnnhs.hpp"
 #include "basic-dnnhs.hpp"
 #include "grid-dnnhs.hpp"
 
@@ -14,6 +13,9 @@ static const std::vector<std::string> _clustWays = {
 };
 
 void printArgError();
+void runBasicSearch(const std::string& dataPath, const int& dataSize, const int& dataDim, const Eigen::VectorXd& query, const double& alpha);
+void runGridSearch();
+void runSplitSearch();
 
 
 int main (int argc, char *argv[]) {
@@ -40,7 +42,7 @@ int main (int argc, char *argv[]) {
     const int         dataSize = stoi(args[3]);
     const int         dataDim  = stoi(args[4]);
 	const double      alpha    = stod(args[5]);
-	const int         gridSize   = args[1] == GRID ? stoi(args[6]) : 0;
+	const int         gridSize = args[1] == GRID ? stoi(args[6]) : 0;
 
 
 	// クエリの設定
@@ -56,44 +58,15 @@ int main (int argc, char *argv[]) {
 	std::cout << std::endl;
 
 
-	// DNNH 検索
-	if (clustWay == BASIC) {
-
-		HS::BasicDNNHSearch bds;
-
-		bds.setData(dataPath, dataSize, dataDim);
-		bds.setQuery(query);
-		
-		std::cout << "Starting basic DNNH search ..." << std::endl;
-		bds.run(alpha);
-		std::cout << "... Ended." << std::endl << std::endl;
-		
-		bds.printResult();
-
-	} else if (clustWay == GRID) {
-		
-		// グリッド手法
-		HS::GridDNNHSearch gds; /******/
-		gds.setData(dataPath, dataSize, dataDim, gridSize); /******/
-		//gds.setQuery(query); /******/
-		std::cout << "Starting grid DNNH search ..." << std::endl;
-		gds.run(alpha); /*****/
-		std::cout << "... Ended." << std::endl << std::endl;
-		//gds.printResult(); /******/
-
-	} else if (clustWay == SPLIT) {
-		
-		// 分割フィルタリング手法
-		std::cout << "スプリット手法です。" << std::endl;
-
-	} else { assert(!"clustWay should be one of _clustWays."); }
-
-
-	
-	
+	// DNNH 検索	
+	if      (clustWay == BASIC) { runBasicSearch(dataPath, dataSize, dataDim, query, alpha); } 
+	else if (clustWay == GRID)  { runGridSearch(); } 
+	else if (clustWay == SPLIT) { runSplitSearch(); } 
+	else { assert(!"clustWay should be one of _clustWays."); }
 
     return 0;
 }
+
 
 void printArgError() {
     std::cerr << 
@@ -106,5 +79,45 @@ void printArgError() {
         "# Dataset size (int)\n" <<
         "# Dataset dimension (int)\n" <<
 		"# [Only grid way] Grid size (int)"
-        << std::endl;
+    << std::endl;
 }
+
+
+void runBasicSearch(
+	const std::string&     dataPath, 
+	const int&             dataSize, 
+	const int&             dataDim, 
+	const Eigen::VectorXd& query,
+	const double&          alpha) {
+
+	assert(dataSize > 0);
+	assert(dataDim > 0);
+
+	// データ読み込み・整形
+	Eigen::MatrixXd data;
+	if (HS::readData(&data, dataPath, dataSize, dataDim) != 0) {
+		std::cerr << "[E] Failed to read data." << std::endl;
+		return;
+	}
+	
+	// 検索
+	std::cout << "Starting basic DNNH search..." << std::endl;
+	HS::DNNHS::Basic dsb(data, query, alpha);
+	if (dsb.run() != 0) {
+		std::cerr << "[E] Failed to run basic DNNH search." << std::endl;
+		return;
+	}
+	std::cout << "Ended basic DNNH search." << std::endl << std::endl;
+
+	// 出力
+	std::cout << "Result:" << std::endl;
+	HS::printVector(dsb.result());
+	std::cout << std::endl;
+}
+
+
+void runGridSearch() { /***/ }
+void runSplitSearch() { /***/ }
+
+
+
