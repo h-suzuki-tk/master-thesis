@@ -3,40 +3,34 @@
 
 #include <iostream>
 #include <cassert>
+#include "data.hpp"
 
 #define DEFAULT_DIM 2
 
-namespace HS {
-class GridDNNHSearch {
+namespace HS::DNNHS {
+class Grid : public DNNHS {
+
+    class Cell {
+
+        public:
+            Cell();
+            Cell(DNNHS* ds);
+
+        private:
+          DNNHS* m_ds;  
+
+    };
 
     public:
-        GridDNNHSearch() { }
-        void setData(const std::string dataPath, const int dataSize, const int dataDim, const int gridSize);
-        //setQuery();
-        void run(const double alpha = 2.0);
+        Grid(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha, const int&             gridSize);
+        //void run();
         //void printResult();
 
     protected:
 
     private:
-        //multiVector<Cell> m_cells; /***/
-
-        /*
-        template <class T, size_t Dim>
-        class multi_vector : public std::vector<multi_vector<T, Dim-1> > {
-            public:
-                template <typename N, typename... Sizes>
-                multi_vector(T i, N n, Sizes... sizes) : std::vector<multi_vector<T, Dim-1> >(n, multi_vector<T, Dim-1>(i, sizes...)) { }
-        };
-
-        template <class T>
-        class multi_vector<T, 1> : public std::vector<T> {
-            public:
-                template <typename N>
-                multi_vector(T i, N n) : std::vector<T>(n, i) { }
-        };
-        */
-
+        HS::MultiVector<Cell> m_cells;
+        const int             m_grid_size;
 
 };
 }

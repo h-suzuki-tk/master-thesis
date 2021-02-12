@@ -1,16 +1,24 @@
 #include "grid.hpp"
 
 
-void HS::GridDNNHSearch::run(const double alpha) {
-    assert(alpha > 0.0);
-
+HS::DNNHS::Grid::Cell::Cell() :
+    m_ds(nullptr) {    
 }
 
 
-void HS::GridDNNHSearch::setData(
-    const std::string dataPath, 
-    const int dataSize, 
-    const int dataDim, 
-    const int gridSize) {
+HS::DNNHS::Grid::Cell::Cell(
+    DNNHS* ds) :
+    m_ds(ds) {
+}
 
+
+HS::DNNHS::Grid::Grid(
+    const Eigen::MatrixXd& data, 
+	const Eigen::VectorXd& query, 
+	const int&             alpha,
+    const int&             gridSize) :
+    m_grid_size(gridSize) 
+    : DNNHS(data, query, alpha) {
+    
+    /*** m_cellsの初期化 ***/
 }

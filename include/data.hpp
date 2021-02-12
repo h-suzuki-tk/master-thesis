@@ -45,4 +45,18 @@ void HS::printVector(const std::vector<T>& vec) {
 	while (++itr != vec.end()) { std::cout << ", " << *itr; }
 }
 
+template <class T, size_t Dim>
+class HS::MultiVector : public std::vector<HS::MultiVector<T, Dim-1> > {
+	public:
+		template <typename N, typename... Sizes>
+		HS::MultiVector(T i, N n, Sizes... sizes) : std::vector<HS::MultiVector<T, Dim-1> >(n, HS::MultiVector<T, Dim-1>(i, sizes...)) { }
+};
+
+template <class T>
+class HS::MultiVector<T, 1> : public std::vector<T> {
+	public:
+		template <typename N>
+		HS::MultiVector(T i, N n) : std::vector<T>(n, i) { }
+};
+
 #endif
