@@ -1,8 +1,7 @@
-#include "calc.hpp"
 #include "data.hpp"
 #include "dnnhs.hpp"
-#include "basic-dnnhs.hpp"
-#include "grid-dnnhs.hpp"
+#include "basic.hpp"
+#include "grid.hpp"
 
 #define BASIC "basic"
 #define GRID  "grid"

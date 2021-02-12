@@ -1,4 +1,4 @@
-TARGET = ../search
+TARGET = ../dnnhs
 OBJDIR = ./obj
 
 OPTION = -O2

@@ -1,4 +1,4 @@
-#include "grid-dnnhs.hpp"
+#include "grid.hpp"
 
 
 void HS::GridDNNHSearch::run(const double alpha) {

@@ -1,5 +1,5 @@
-#ifndef _GRID_DNNHS_HPP_
-#define _GRID_DNNHS_HPP_
+#ifndef _GRID_HPP_
+#define _GRID_HPP_
 
 #include <iostream>
 #include <cassert>
