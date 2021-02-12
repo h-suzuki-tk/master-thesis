@@ -3,11 +3,11 @@
 
 HS::DNNHS::Points::Points(
 	const Eigen::MatrixXd& pts) :
-	m_pts(pts); {
+	m_pts(pts) {
 }
 
-Eigen::VectorXd& HS::DNNHS::Points::operator[](
-	const int& id) const {
+Eigen::VectorXd HS::DNNHS::Points::operator[](
+	const int& id) {
 	
 	assert(id < size());
 	return m_pts.row(id);
@@ -23,10 +23,16 @@ int HS::DNNHS::Points::dims() const {
 }
 
 
+HS::DNNHS::Group::Group() :
+	m_delta(-1.0) {
+}
+
+
 HS::DNNHS::Group::Group(
-	const DNNHS& ds,
-	const int&   id) :
-	m_ds(ds) {
+	DNNHS*     ds,
+	const int& id) :
+	m_ds(ds),
+	m_delta(-1.0) {
 	
 	m_ids.emplace_back(id);
 }
@@ -37,9 +43,9 @@ Eigen::VectorXd& HS::DNNHS::Group::centroid() {
     if (m_centroid.size() == 0) {
         Eigen::VectorXd temp;
 
-		temp = Eigen::VectorXd::Zero(m_data.dims());
+		temp = Eigen::VectorXd::Zero(m_ds->data().dims());
         for (int id : m_ids) {
-            temp += m_data.pt(id).vec();
+            temp += m_ds->data(id);
         }
         m_centroid = temp / size();
     }
@@ -58,7 +64,7 @@ double HS::DNNHS::Group::sd() {
 
     double temp = 0.0;
     for (int id : m_ids) {
-        temp += (m_data.pt(id).vec() - centroid()).squaredNorm();
+        temp += (m_ds->data(id) - centroid()).squaredNorm();
     }
     sd = sqrt(temp / size());
 
@@ -68,10 +74,9 @@ double HS::DNNHS::Group::sd() {
 
 double HS::DNNHS::Group::delta() {
 
-	if (m_ids.size() == 0) {
-		m_delta = __DBL_MAX__;
-	} else if (m_delta < 0.0) {
-		m_delta = dist(m_ds.m_query) + sd();
+	if (m_delta < 0.0) {
+		if (m_ids.size() <= 1) { m_delta = __DBL_MAX__; } 
+		else { m_delta = dist(m_ds->query()) + sd(); }
 	}
 
     return m_delta;
@@ -79,7 +84,7 @@ double HS::DNNHS::Group::delta() {
 
 
 HS::DNNHS::ExpansionGroup::ExpansionGroup(
-	const DNNHS&            ds;
+	DNNHS*                  ds,
 	const int 			    index_core, 
 	const std::vector<int>& ids_data,
 	bool                    isCorePruned) : Group(ds, ids_data[index_core]) {
@@ -89,7 +94,7 @@ HS::DNNHS::ExpansionGroup::ExpansionGroup(
 	if (!isCorePruned) {
 		m_ids_unprocd.erase(m_ids_unprocd.begin() + index_core);
 	}
-	m_data_pw_dist = Eigen::MatrixXd::Constant(m_data.size(), m_data.size(), -1.0);
+	m_data_pw_dist = Eigen::MatrixXd::Constant(m_ds->data().size(), m_ds->data().size(), -1.0);
 }
 
 
@@ -113,10 +118,12 @@ void HS::DNNHS::ExpansionGroup::expand() {
 	m_pd_sum += ndSum();
 	m_n_pair += size();
 	m_ids.push_back(nextId());
+	
 	m_centroid = Eigen::VectorXd(0);
-	m_id_next = -1;
-	m_epDelta = -1.0;
-	m_nd_sum = -1.0;
+	m_id_next  = -1;
+	m_epDelta  = -1.0;
+	m_nd_sum   = -1.0;
+	m_delta    = -1.0;
 }
 
 
@@ -124,7 +131,7 @@ int HS::DNNHS::ExpansionGroup::nextId() {
 	assert(m_ids_unprocd.size() > 0 || m_id_next >= 0);
 
 	if (m_id_next < 0) {
-		m_id_next = findNN(centroid(), &m_ids_unprocd, true);
+		m_id_next = m_ds->findNN(centroid(), &m_ids_unprocd, true);
 	}
 	
 	return m_id_next;
@@ -153,7 +160,7 @@ double HS::DNNHS::ExpansionGroup::ndSum() {
 	if (m_nd_sum < 0.0) {
 		double nd_sum = 0.0;
 		for (int id : m_ids) {
-			nd_sum += m_ds->distBetw(id, nextId());
+			nd_sum += distBetw(id, nextId());
 		}
 		m_nd_sum = nd_sum;
 	}
@@ -173,16 +180,16 @@ int HS::DNNHS::ExpansionGroup::pairs() {
 }
 
 
-ouble HS::DNNHS::ExpansionGroup::distBetw(
+double HS::DNNHS::ExpansionGroup::distBetw(
 	const int id1, 
 	const int id2) {
 
 	if (m_data_pw_dist(id1, id2) < 0.0 && m_data_pw_dist(id2, id1) < 0.0) {
-		m_data_pw_dist(id1, id2) = (m_data[id1] - m_data[id2]).norm();
+		m_data_pw_dist(id1, id2) = (m_ds->data(id1) - m_ds->data(id2)).norm();
 		m_data_pw_dist(id2, id1) = m_data_pw_dist(id1, id2);
 	}
 
-	return m_distance(id1, id2);
+	return m_data_pw_dist(id1, id2);
 }
 
 
@@ -202,7 +209,7 @@ HS::DNNHS::DNNHS::DNNHS(
 
 
 int HS::DNNHS::DNNHS::findNN(
-	const Eigen::VectorXd& query
+	const Eigen::VectorXd& query,
 	std::vector<int>*      ids,
 	const bool             shouldDelete) {
 	
@@ -213,7 +220,7 @@ int HS::DNNHS::DNNHS::findNN(
 	std::vector<int>::iterator itr_NN;
 
 	for (auto itr_id = ids->begin(); itr_id != ids->end(); ) {
-		double dist = ( m_data[*itr_id]-query ).norm();
+		double dist = ( m_data[*itr_id]-m_query ).norm();
 		if (dist < dist_NN) {
 			id_NN   = *itr_id;
 			dist_NN = dist;

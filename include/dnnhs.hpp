@@ -1,6 +1,7 @@
 #ifndef _DNNHS_HPP_
 #define _DNNHS_HPP_
 
+#include<vector>
 #include<Eigen/Core>
 
 namespace HS::DNNHS {
@@ -15,9 +16,9 @@ class Points {
 	public:
 		Points(const Eigen::MatrixXd& pts);
 		
-		Eigen::VectorXd& operator[](const int& id) const;
-		int              size() const;
-		int              dims() const;
+		Eigen::VectorXd operator[](const int& id);
+		int             size() const;
+		int             dims() const;
 
 	protected:
 		Eigen::MatrixXd m_pts;
@@ -27,7 +28,8 @@ class Points {
 class Group {
 
 	public:
-		Group(const DNNHS& ds, const int& id);
+		Group();
+		Group(DNNHS* ds, const int& id);
 		
 		std::vector<int>& ids     () { return m_ids; }
 		Eigen::VectorXd&  centroid();
@@ -38,10 +40,10 @@ class Group {
 		void add(const int id) { m_ids.push_back(id); }
 	
 	protected:
-		const DNNHS&     m_ds;
+		DNNHS*           m_ds;
 		std::vector<int> m_ids;
 		Eigen::VectorXd  m_centroid;
-		double           m_delta = -1.0;
+		double           m_delta;
 
 		int size() { return m_ids.size(); }
 
@@ -49,8 +51,9 @@ class Group {
 
 class ExpansionGroup : public Group {
 
-	public:	
-		ExpansionGroup(const DNNHS& ds, const int index_core, const std::vector<int>& ids_data, bool isCorePruned);
+	public:
+		ExpansionGroup() { }
+		ExpansionGroup(DNNHS* ds, const int index_core, const std::vector<int>& ids_data, bool isCorePruned);
 
 		std::vector<int>& unprocdIds() { return m_ids_unprocd; }
 		double            epDelta   ();
@@ -80,15 +83,19 @@ class DNNHS {
 		DNNHS(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha);
 		int  findNN     (const Eigen::VectorXd& query, std::vector<int>* ids, const bool shouldDelete = false);
 		void filterPts  (std::vector<int> *ids);
-		void updateBound(const Group& group);
+		void updateBound(Group& group);
+
+		Points&          data()              { return m_data; }
+		Eigen::VectorXd  data(const int& id) { return m_data[id]; }
+		Eigen::VectorXd& query()             { return m_query; }
 
 	protected:
-		const Points          m_data;
-		const Eigen::VectorXd m_query;
-		const double          m_alpha;
-		double                m_bound;
-		std::vector<Group>    m_groups;
-		Group                 m_result;
+		Points             m_data;
+		Eigen::VectorXd    m_query;
+		double             m_alpha;
+		double             m_bound;
+		std::vector<Group> m_groups;
+		Group              m_result;
 };
 }
 
