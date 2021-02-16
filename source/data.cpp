@@ -134,6 +134,51 @@ int HS::readData(
 }	
 
 
+int HS::readData(
+	std::vector<std::vector<int>>* buf, 
+	const std::string&             dataPath, 
+	const int&                     dataSize, 
+	const int&                     dataDim) {
+			
+	// 読み込みモードでファイルをオープン
+	std::ifstream ifs(dataPath);
+	if (ifs.fail()) {
+		std::cerr << "Failed to open file." << std::endl;
+		return 1;
+	}
+	
+	// 読み込みと格納
+	int i = 0;
+	int j = 0;
+	std::string line;
+	std::string s;
+	std::vector<int> vec;
+	while (getline(ifs, line)) {
+
+		j = 0;
+		std::istringstream ss(line);
+		while (getline(ss, s, ',')) {
+			vec.emplace_back(stoi(s));
+			j++;
+		}
+		buf->emplace_back(vec);
+		
+		vec.clear();
+		i++;
+	}
+
+	// データサイズや次元が合っているかチェック
+	if (i != dataSize || j != dataDim) {
+		std::cerr << "!Uncorrect data size or dimension!" << std::endl;
+		return 1;
+	}
+
+	ifs.close();
+
+	return 1;
+}	
+
+
 int writeData(
 	cv::Mat     dataSet, 
 	std::string outPath) {
@@ -323,3 +368,6 @@ Eigen::VectorXd HS::randomVector(const int n_dim, const double min, const double
 
 	return vec;
 }
+
+
+

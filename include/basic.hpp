@@ -11,9 +11,9 @@ namespace HS::DNNHS {
 class Basic : public DNNHS {
 
     public:
-      Basic(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha);
-      int              run();
-		  std::vector<int> result();
+      	Basic(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha);
+      	int              run();
+		std::vector<int> result();
 
     private:
 		Eigen::VectorXd    m_data_query_dist;
