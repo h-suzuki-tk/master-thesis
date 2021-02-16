@@ -41,9 +41,12 @@ template <class T> void printVector(const std::vector<T>& vec);
 
 template <class T>
 void HS::printVector(const std::vector<T>& vec) {
-	auto itr = vec.begin();
-	std::cout << *itr;
-	while (++itr != vec.end()) { std::cout << ", " << *itr; }
+
+	if (vec.size() != 0) {
+		auto itr = vec.begin();
+		std::cout << *itr;
+		while (++itr != vec.end()) { std::cout << ", " << *itr; }
+	} else { }
 }
 
 #endif

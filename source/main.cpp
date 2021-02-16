@@ -21,7 +21,7 @@ int main (int argc, char *argv[]) {
 
     // コマンドライン引数のチェック
     std::vector<std::string> args(argv, argv+argc);
-    if (args.size() <= 6 || args.size() >= 9
+    if (args.size() <= 5 || args.size() >= 9
         || !std::any_of(_clustWays.begin(), _clustWays.end(), [&](std::string way){return way==args[1];})
         || !std::all_of(args[3].begin(), args[3].end(), isdigit)
         || !std::all_of(args[4].begin(), args[4].end(), isdigit)
@@ -30,9 +30,9 @@ int main (int argc, char *argv[]) {
         printArgError();
         return 1;
     }
-	if (args[1] == GRID && (args.size() != 7 
+	if (args[1] == GRID && (args.size() != 8 
 		|| !std::all_of(args[7].begin(), args[7].end(), isdigit)
-		|| stoi(args[7]) <= 0))) { 
+		|| stoi(args[7]) <= 0)) { 
 		printArgError();
 		return 1;
 	}
@@ -60,7 +60,7 @@ int main (int argc, char *argv[]) {
 
 	// DNNH 検索	
 	if      (clustWay == BASIC) { runBasicSearch(dataPath, dataSize, dataDim, query, alpha); } 
-	else if (clustWay == GRID)  { runGridSearch(dataPath, dataSize, dataDim, query, alpha, gridSize); } 
+	else if (clustWay == GRID)  { runGridSearch(dataPath, dataSize, dataDim, query, alpha, gridSize, gridDataPath); } 
 	else if (clustWay == SPLIT) { runSplitSearch(); } 
 	else { assert(!"clustWay should be one of _clustWays."); }
 
@@ -78,7 +78,8 @@ void printArgError() {
         "# Dataset file path (string)\n" <<
         "# Dataset size (int)\n" <<
         "# Dataset dimension (int)\n" <<
-		"# [Only grid way] Grid data file path (string)"\n <<
+		"# Parameter alpha (double)\n" <<
+		"# [Only grid way] Grid data file path (string)\n" <<
 		"# [Only grid way] Grid size (int)"
     << std::endl;
 }
@@ -134,13 +135,13 @@ void runGridSearch(
 	}
 	std::vector<std::vector<int>> belongGrid;
 	if (HS::readData(&belongGrid, gridDataPath, dataSize, dataDim) != 0) {
-		std::cerr << "[E] Failed to read data." << std::endl;
+		std::cerr << "[E] Failed to read grid data." << std::endl;
 		return;
 	}
 
 	// 検索
 	std::cout << "Starting grid DNNH search..." << std::endl;
-	HS::DNNHS::Grid dsg(data, query, alpha);
+	HS::DNNHS::Grid dsg(data, query, alpha, gridSize, belongGrid);
 	if (dsg.run() != 0) {
 		std::cerr << "[E] Failed to run grid DNNH search." << std::endl;
 		return;

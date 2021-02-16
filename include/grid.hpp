@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include <cassert>
+#include <queue>
 #include "data.hpp"
-
-#define DEFAULT_DIM 2
+#include "dnnhs.hpp"
 
 namespace HS::DNNHS {
 class Grid : public DNNHS {
@@ -14,12 +14,13 @@ class Grid : public DNNHS {
 
         public:
             Cell(const std::vector<int> index);
+			Cell(const std::vector<int>& parent_entry, const int& index);
 			std::vector<int>& index() { return m_index; }
 			std::vector<int>& pts()   { return m_pts; }
 
         private:
-			const std::vector<int> m_index;
-			std::vector<int>       m_pts;
+			std::vector<int> m_index;
+			std::vector<int> m_pts;
     };
 
 	class Cells {
@@ -30,19 +31,24 @@ class Grid : public DNNHS {
 				Node();
 				Node(const std::vector<int>& parent_entry,	const int& index);
 
+				std::vector<int>&  entry()                { return m_entry; }
+				std::vector<Node>& next()                 { return m_next; }
+				Node&              next(const int& index) { return m_next[index]; }
+				std::vector<Cell>& cell()                 { return m_cell; }
+				Cell&              cell(const int& index) { return m_cell[index]; }
+
 			private:
-				union Child {
-					Node next;
-					Cell cell;
-				};
-				std::vector<int>   m_entry;
-				std::vector<Child> m_children;
+				std::vector<int>  m_entry;
+				std::vector<Node> m_next;
+				std::vector<Cell> m_cell;
+
 		};
 
 		public:
+			Cells();
 			Cells(Grid* gds, const std::vector<std::vector<int>>& belongGrid);
 			std::vector<int>& pts(const std::vector<int>& index);
-			std::vector<Cell&> all(); 
+			std::vector<Cell*> all(); 
 
 		private:
 			Grid* m_gds;

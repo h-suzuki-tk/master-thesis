@@ -175,7 +175,7 @@ int HS::readData(
 
 	ifs.close();
 
-	return 1;
+	return 0;
 }	
 
 
