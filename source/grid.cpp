@@ -18,7 +18,7 @@ HS::DNNHS::Grid::Cell::Cell(
 
 HS::DNNHS::Grid::Cells::Cells() :
 	m_gds(nullptr),
-	m_root(Node()) {
+	m_root(nullptr) {
 }
 
 
@@ -26,29 +26,30 @@ HS::DNNHS::Grid::Cells::Cells(
 	Grid*                                gds,
 	const std::vector<std::vector<int>>& belongGrid) :
 	m_gds (gds),
-	m_root(Node()) {
-
-	int va = 0;
+	m_root(new Node()) {
 
 	// セルの生成
 	std::queue<Node*> que;
-	que.push(&m_root);
+	que.push(m_root);
 	while (!que.empty()) {
 		
-		Node* n = que.front();
-		
-		std::cout << va++ << std::endl;
-		std::cout << n->entry().size() << std::endl;
+		Node* nd = que.front();
 
-		if (n->entry().size() < m_gds->m_data.dims()-1) {
-			for (int i=0; i<m_gds->m_grid_size; i++) {
-				n->next().emplace_back(Node(n->entry(), i));
-				que.push(&(n->next(i)));
+		if (nd->depth() < m_gds->dims()-1) {
+			for (int i=0; i<m_gds->gridSize(); ++i) {
+				nd->children().emplace_back(
+					HS::DNNHS::Grid::Cells::Node::Child(new Node(nd->entry(), i))
+				);
+				que.push(nd->child(i).node);
 			}
-		} else if (n->entry().size() == m_gds->m_data.dims()-1) {
-			for (int i=0; i<m_gds->m_grid_size; i++) {
-				n->cell().emplace_back(Cell(n->entry(), i));
+
+		} else if (nd->depth() == m_gds->dims()-1) {
+			for (int i=0; i<m_gds->gridSize(); ++i) {
+				nd->children().emplace_back(
+					HS::DNNHS::Grid::Cells::Node::Child(new Cell(nd->entry(), i))
+				);
 			}
+
 		} else { assert(true); }
 
 		que.pop();
@@ -66,13 +67,13 @@ std::vector<int>& HS::DNNHS::Grid::Cells::pts(
 	const std::vector<int>& index) {
 	assert(index.size() == m_gds->m_data.dims());
 
-	Node& n = m_root;
+	Node* nd = m_root;
 	for (auto itr = index.begin(); itr != index.end()-1; ++itr) {
-		n = n.next(*itr);
+		nd = nd->child(*itr).node;
 	}
-	Cell& c = n.cell(index.back());
+	Cell* c = nd->child(index.back()).cell;
 
-	return c.pts();
+	return c->pts();
 }
 
 
@@ -81,22 +82,22 @@ std::vector<HS::DNNHS::Grid::Cell*> HS::DNNHS::Grid::Cells::all() {
 	std::vector<Cell*> cells;
 
 	std::queue<Node*> que;
-	que.push(&m_root);
+	que.push(m_root);
 	while (!que.empty()) {
 		
-		Node* n = que.front();
-		que.pop();
+		Node* nd = que.front();
 
-		if (n->entry().size() < m_gds->m_data.dims()-1) {
+		if (nd->entry().size() < m_gds->m_data.dims()-1) {
 			for (int i=0; i<m_gds->m_grid_size; i++) {
-				que.push(&(n->next(i)));
+				que.push(nd->child(i).node);
 			}
-		} else if (n->entry().size() == m_gds->m_data.dims()-1) {
+		} else if (nd->entry().size() == m_gds->m_data.dims()-1) {
 			for (int i=0; i<m_gds->m_grid_size; i++) {
-				cells.emplace_back(&(n->cell(i)));
+				cells.emplace_back(nd->child(i).cell);
 			}
 		} else { assert(true); }
 
+		que.pop();
 	}
 	
 	return cells;
@@ -111,9 +112,20 @@ HS::DNNHS::Grid::Cells::Node::Node(
 	const std::vector<int>& parent_entry,
 	const int&              index) {
 
-	/***/
-	entry() = parent_entry;
-	entry().emplace_back(index);
+	m_entry = parent_entry;
+	m_entry.emplace_back(index);
+
+}
+
+
+HS::DNNHS::Grid::Cells::Node::~Node() {
+	if (!m_children.empty()) {
+		for (auto child : m_children) {
+			if (child.node != nullptr) { delete child.node; }
+			else if (child.cell != nullptr) { delete child.cell; }
+			else { assert(true); }
+		}
+	}
 }
 
 

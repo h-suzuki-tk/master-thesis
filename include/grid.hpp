@@ -28,37 +28,48 @@ class Grid : public DNNHS {
 		class Node {
 
 			public:
+			union Child {
+				Node* node;
+				Cell* cell;
+
+				public:
+					Child(Node* node) { this->node = node; }
+					Child(Cell* cell) { this->cell = cell; }
+			};
+
+			public:
 				Node();
 				Node(const std::vector<int>& parent_entry,	const int& index);
+				~Node();
 
-				std::vector<int>&  entry()                { return m_entry; }
-				std::vector<Node>& next()                 { return m_next; }
-				Node&              next(const int& index) { return m_next[index]; }
-				std::vector<Cell>& cell()                 { return m_cell; }
-				Cell&              cell(const int& index) { return m_cell[index]; }
+				std::vector<int>&   entry   ()                 { return m_entry; }
+				std::vector<Child>& children()                 { return m_children; }
+				union Child&        child   (const int& index) { return m_children[index]; }
+				
+				int depth() { return m_entry.size(); }
 
 			private:
-				std::vector<int>  m_entry;
-				std::vector<Node> m_next;
-				std::vector<Cell> m_cell;
+				std::vector<int>   m_entry;
+				std::vector<Child> m_children;
 
 		};
 
 		public:
 			Cells();
 			Cells(Grid* gds, const std::vector<std::vector<int>>& belongGrid);
-			std::vector<int>& pts(const std::vector<int>& index);
+			std::vector<int>&  pts(const std::vector<int>& index);
 			std::vector<Cell*> all(); 
 
 		private:
 			Grid* m_gds;
-			Node  m_root;
+			Node* m_root;
 			
 	};
 
     public:
         Grid(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha, const int& gridSize, const std::vector<std::vector<int>>& belongGrid);
         int run();
+		int gridSize() const { return m_grid_size; }
         //void printResult();
 
     protected:

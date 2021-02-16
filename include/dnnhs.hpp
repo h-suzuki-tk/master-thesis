@@ -88,6 +88,7 @@ class DNNHS {
 		Points&          data()              { return m_data; }
 		Eigen::VectorXd  data(const int& id) { return m_data[id]; }
 		Eigen::VectorXd& query()             { return m_query; }
+		int              dims() const        { return m_data.dims(); }
 
 	protected:
 		Points             m_data;
