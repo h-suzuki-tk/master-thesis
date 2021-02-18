@@ -77,6 +77,22 @@ std::vector<int>& HS::DNNHS::Grid::Cells::pts(
 }
 
 
+/*
+HS::DNNHS::Grid::Cell& HS::DNNHS::Grid::Cells::operator()(
+	const std::vector<int>& index) {
+
+	assert(index.size() == m_gds->dims());
+	Node* nd = m_root;
+	for (auto itr = index.begin(); itr != index.end()-1; ++itr) {
+		nd = nd->child(*itr).node;
+	}
+	Cell* cl = nd->child(index.back()).cell;
+
+	return *cl;
+}
+*/
+
+
 std::vector<HS::DNNHS::Grid::Cell*> HS::DNNHS::Grid::Cells::all() {
 
 	std::vector<Cell*> cells;

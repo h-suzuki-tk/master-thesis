@@ -70,7 +70,6 @@ class Grid : public DNNHS {
         Grid(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha, const int& gridSize, const std::vector<std::vector<int>>& belongGrid);
         int run();
 		int gridSize() const { return m_grid_size; }
-        //void printResult();
 
     protected:
 
