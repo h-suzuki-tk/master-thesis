@@ -85,10 +85,12 @@ class DNNHS {
 		void filterPts  (std::vector<int> *ids);
 		void updateBound(Group& group);
 
-		Points&          data()              { return m_data; }
-		Eigen::VectorXd  data(const int& id) { return m_data[id]; }
-		Eigen::VectorXd& query()             { return m_query; }
-		int              dims() const        { return m_data.dims(); }
+		Points&             data()              { return m_data; }
+		Eigen::VectorXd     data(const int& id) { return m_data[id]; }
+		Eigen::VectorXd&    query()             { return m_query; }
+		int                 dims() const        { return m_data.dims(); }
+		std::vector<Group>& groups()            { return m_groups; }      
+		Group&              result()            { return m_result; } 
 
 	protected:
 		Points             m_data;

@@ -113,7 +113,7 @@ void runBasicSearch(
 
 	// 出力
 	std::cout << "Result:" << std::endl;
-	HS::printVector(dsb.result());
+	HS::printVector(dsb.result().ids());
 	std::cout << std::endl;
 }
 

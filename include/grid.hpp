@@ -59,17 +59,21 @@ class Grid : public DNNHS {
 			Cells(Grid* gds, const std::vector<std::vector<int>>& belongGrid);
 			std::vector<int>&  pts(const std::vector<int>& index);
 			std::vector<Cell*> all(); 
+			double             side() const { return m_side; }
 
 		private:
-			Grid* m_gds;
-			Node* m_root;
+			Grid*        m_gds;
+			Node*        m_root;
+			double m_side;
 			
 	};
 
     public:
         Grid(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha, const int& gridSize, const std::vector<std::vector<int>>& belongGrid);
         int run();
-		int gridSize() const { return m_grid_size; }
+		
+		int    gridSize() const { return m_grid_size; }
+		Cells& cells()          { return m_cells; }
 
     protected:
 
@@ -77,6 +81,8 @@ class Grid : public DNNHS {
         Cells     m_cells;
         const int m_grid_size;
 
+		std::vector<int> belongCell(const Eigen::VectorXd& pt);
+		std::vector<int> expandCellPts(const std::vector<int>& coreCellIdx, const int stage);
 };
 }
 
