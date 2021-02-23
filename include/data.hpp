@@ -32,6 +32,8 @@ int arrangeClustersToClusSet(cv::Mat clusters, std::vector<std::vector<int>>& cl
 void arrangeClustersToClusSetWithParentIndex(std::vector<int> parentClusSet, cv::Mat clusters, std::vector<std::vector<int>>& clusSet);
 void cvToEigenVec(cv::Mat cvVec, Eigen::VectorXd& eigenVec);
 Eigen::VectorXd randomVector(const int n_dim, const double min = 0.0, const double max = 1.0);
+template <class T> void insert(std::vector<T>& intoVec, const std::vector<T>& vec);
+bool combInc(std::vector<int>& comb, const std::vector<int>& lower, const std::vector<int>& upper);
 
 void showClusSet(std::vector<std::vector<int>> clusSet);
 template <class T> void printVector(const std::vector<T>& vec);
@@ -40,13 +42,21 @@ template <class T> void printVector(const std::vector<T>& vec);
 
 
 template <class T>
-void HS::printVector(const std::vector<T>& vec) {
+void HS::insert(std::vector<T>& intoVec, const std::vector<T>& vec) {
+	intoVec.reserve(intoVec.size() + vec.size());
+	intoVec.insert(intoVec.end(), vec.begin(), vec.end());
+}
 
+
+template <class T>
+void HS::printVector(const std::vector<T>& vec) {
 	if (vec.size() != 0) {
 		auto itr = vec.begin();
 		std::cout << *itr;
 		while (++itr != vec.end()) { std::cout << ", " << *itr; }
 	} else { }
 }
+
+
 
 #endif

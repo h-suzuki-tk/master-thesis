@@ -80,6 +80,8 @@ class Grid : public DNNHS {
     private:
         Cells     m_cells;
         const int m_grid_size;
+		std::vector<int> m_lower_bound_cell_index;
+		std::vector<int> m_upper_bound_cell_index;
 
 		std::vector<int> belongCell(const Eigen::VectorXd& pt);
 		std::vector<int> expandCellPts(const std::vector<int>& coreCellIdx, const int stage);

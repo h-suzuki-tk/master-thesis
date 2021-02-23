@@ -154,7 +154,7 @@ void runGridSearch(
 	HS::printVector(dsg.result());
 	std::cout << std::endl;
 	*/
- }
+}
 
 
 void runSplitSearch() { /***/ }

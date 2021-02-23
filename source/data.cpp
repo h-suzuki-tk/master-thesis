@@ -370,4 +370,38 @@ Eigen::VectorXd HS::randomVector(const int n_dim, const double min, const double
 }
 
 
+bool combInc(
+	std::vector<int>&       comb, 
+	const std::vector<int>& lower, 
+	const std::vector<int>& upper) {
+
+	assert(comb.size() == lower.size());
+	assert(comb.size() == upper.size());
+
+	int scan_pos = 0;
+	while ( scan_pos < comb.size() ) {
+		
+		if ( comb[scan_pos] < upper[scan_pos] ) {
+			++comb[scan_pos];
+			break;
+
+		} else if ( comb[scan_pos] == upper[scan_pos] ) {
+			comb[scan_pos] = lower[scan_pos];
+
+		} else { assert(true); }
+	
+		++scan_pos;
+	}
+
+	bool is_covered;
+	if ( scan_pos == comb.size() ) {
+		is_covered = true;
+
+	} else if ( scan_pos < comb.size() ) {
+		is_covered = false;
+
+	} else { assert(true); };
+
+	return is_covered; 
+}
 

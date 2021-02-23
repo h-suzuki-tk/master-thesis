@@ -157,19 +157,18 @@ HS::DNNHS::Grid::Grid(
 	m_grid_size(gridSize) {
 
 	m_cells = Cells(this, belongGrid);
+	m_lower_bound_cell_index = std::vector<int>(dims(), 0);
+	m_upper_bound_cell_index = std::vector<int>(dims(), gridSize-1);
 }
 
 
 int HS::DNNHS::Grid::run() {
-	
-	std::vector<int> min_bound_idx(dims(), -__INT_MAX__);
-	std::vector<int> max_bound_idx(dims(), gridSize());
 
 	const double side = 1.0 / gridSize();
 
 	const std::vector<int> query_belong_cell = belongCell(query());
 
-	/*** std::vector<int> pts = expandCellPts(query_belong_cell, 0); ***/
+	//std::vector<int> pts = expandCellPts(query_belong_cell, 0);
 	/*
 	while (!pts.empty()) {
 
@@ -221,52 +220,190 @@ std::vector<int> HS::DNNHS::Grid::belongCell(
 }
 
 
+//*** 要リファクタリング ***
 std::vector<int> HS::DNNHS::Grid::expandCellPts(
 	const std::vector<int>& coreCellIdx,
 	const int               stage) {
 	assert(stage >= 0);
-	
-	std::vector<int> pts;
 
-	std::tuple<std::pair<int, int>, int, std::vector<int>> offset = std::make_tuple(
-		std::make_pair(-stage, stage),
-		-(stage-1),
-		std::vector<int>(dims()-2, -stage)
-	);
-	//*** offset_list ***
+	std::vector<std::vector<int>> crit_idx(dims());
+	std::vector<std::vector<int>> lower_idx(2, std::vector<int>(dims()));
+	std::vector<std::vector<int>> upper_idx(2, std::vector<int>(dims()));
 
 	// 初期化
-	std::vector<int> cell_idx = coreCellIdx;
-	cell_idx[0] =  coreCellIdx[0] + std::get<0>(offset).first; 
-	cell_idx[1] += std::get<1>(offset);
-	//***　[2] 以降 ***
-
+	int l, u;
 	for (int i=0; i<dims(); ++i) {
+		l = coreCellIdx[i] - stage;
+		u = coreCellIdx[i] + stage;
 
-		// 参照の張替え
-		//***
-
-		while (std::get<1>(offset) <= stage-1) {
-
-			// cell_idx の更新
-			//***
-			
-			while (std::get<2>(offset) != std::vector<int>(dims()-2, stage)) { //*** !offset.isFilledWith(stage) ***
-
-				// cell_idx の更新
-				//***
-
-				// pts の更新
-				//***
-
-				// offset の更新
-				//*** HS::inc(offset, -stage, stage); ***
-			}
-
-			++itr.second;
+		if ( l >= m_lower_bound_cell_index[i] ) {
+			crit_idx[i].emplace_back(l);
+			lower_idx[0][i] = l+1;
+		} else {
+			l = m_lower_bound_cell_index[i];
+			lower_idx[0][i] = l;
+		}
+		if ( u <= m_upper_bound_cell_index[i] ) {
+			crit_idx[i].emplace_back(u);
+			upper_idx[0][i] = u-1;
+		} else {
+			u = m_upper_bound_cell_index[i];
+			upper_idx[0][i] = u;
 		}
 
-		++itr.first;
+		lower_idx[1][i] = l;
+		upper_idx[1][i] = u;
+	}
+
+	std::vector<int> pts;
+	std::vector<int> cell_idx(dims());
+
+	// ==================================================
+	//
+	// セルの探索
+	//
+	// ==================================================
+	if ( stage == 0 ) {
+		HS::insert(pts, cells().pts(coreCellIdx));
+
+	} else {
+
+		if (dims() == 1) {
+			// --------------------------------------------------
+			//  1 次元の場合
+			// --------------------------------------------------
+			for (auto&& idx : crit_idx[0]) {
+				cell_idx[0] = idx;
+				HS::insert(pts, cells().pts(cell_idx));
+			}
+
+		} else {
+			// --------------------------------------------------
+			//  2 次元以上の場合
+			// --------------------------------------------------
+
+			// --- 基準次元 = 0 の処理 ---
+			if (crit_idx[0].size() != 0) {
+
+				cell_idx.back() = lower_idx[0].back();
+				while (cell_idx.back() <= upper_idx[0].back()) {
+
+					while (1) {
+						// pts の更新
+						for (auto&& idx : crit_idx[0]) {
+							cell_idx[0] = idx;
+							HS::insert(pts, cells().pts(cell_idx));
+						}
+						// cell_idx の更新
+						int scan_dim = 1;
+						while (scan_dim < dims()-1) {
+							if (cell_idx[scan_dim] < upper_idx[1][scan_dim]) {
+								++cell_idx[scan_dim];
+								break;
+							} else {
+								cell_idx[scan_dim] = lower_idx[1][scan_dim];
+							}
+							++scan_dim;
+						}
+						if (scan_dim >= dims() -1) { break; }
+
+					}
+
+					for (int i=1; i<dims()-1; ++i) { cell_idx[i] = lower_idx[1][i]; }
+					++cell_idx.back();
+				}
+
+			}
+
+			// --- 基準次元 >= 1 の処理 ---
+			int crit = 1;
+			while (crit < dims()) {
+
+				if (crit_idx[crit].size() == 0) { continue; }
+
+				cell_idx[crit-1] = lower_idx[0][crit-1];
+				while (cell_idx[crit-1] <= upper_idx[0][crit-1]) {
+
+					while (1) {
+						// pts の更新
+						for (auto&& idx: crit_idx[crit]) {
+							cell_idx[crit] = idx;
+							HS::insert(pts, cells().pts(cell_idx));
+						}
+						// cell_idx の更新
+						int scan_dim = 0;
+						while (scan_dim < crit-1) {
+							if (cell_idx[scan_dim] < upper_idx[1][scan_dim]) {
+								++cell_idx[scan_dim];
+								break;
+							} else {
+								cell_idx[scan_dim] = lower_idx[1][scan_dim];
+							}
+							++scan_dim;
+						}
+						if (scan_dim == crit-1) {
+							scan_dim = crit + 1;
+							while (scan_dim < dims()) {
+								if (cell_idx[scan_dim] < upper_idx[1][scan_dim]) {
+									++cell_idx[scan_dim];
+									break;
+								} else {
+									cell_idx[scan_dim] = lower_idx[1][scan_dim];
+								}
+								++scan_dim;
+							}
+							if (scan_dim >= dims()) { break; }
+						}
+					}
+
+					for (int i=0;      i<crit-1; ++i) { cell_idx[i] = lower_idx[1][i]; }
+					for (int i=crit+1; i<dims(); ++i) { cell_idx[i] = lower_idx[1][i]; }
+					++cell_idx[crit-1];
+				}
+
+				++crit;
+			}
+
+			bool existCorner = true;
+			for ( auto&& idx : crit_idx ) {
+				if ( idx.empty() ) { 
+					existCorner = false;
+					break; 
+				}
+			}
+			if ( existCorner ) {
+				
+				std::vector<std::vector<int>::iterator> cell_idx_ref(dims());
+				for ( int i=0; i<dims(); ++i ) {
+					cell_idx_ref[i] = crit_idx[i].begin();
+				}
+
+				while (1) {
+
+					// pts の更新
+					std::vector<int> idx(dims());
+					std::transform( cell_idx_ref.begin(), cell_idx_ref.end(),
+						idx.begin(), [](std::vector<int>::iterator itr) { return *itr; } 
+					);
+					HS::insert(pts, cells().pts(idx));
+
+					// cell_idx の更新
+					int scan_dim = 0;
+					while ( scan_dim < dims() ) {
+						if ( cell_idx_ref[scan_dim] != crit_idx[scan_dim].end()-1 ) {
+							++cell_idx_ref[scan_dim];
+							break;
+						} else {
+							cell_idx_ref[scan_dim] = crit_idx[scan_dim].begin();
+						}
+						++scan_dim;
+					}
+					if ( scan_dim >= dims() ) { break; }
+
+				}
+			}
+
+		}
 	}
 
 	return pts;
