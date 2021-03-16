@@ -18,6 +18,7 @@ class Basic : public DNNHS {
 		Eigen::VectorXd    m_data_query_dist;
 		double distFromQuery(const int id);
 		Group  findGroup    (const int id_core, const std::vector<int>& ids_data);
+		Group  newFindGroup (const int core_pt, std::vector<int> pts);
 
 };
 }

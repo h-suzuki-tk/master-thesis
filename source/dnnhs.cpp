@@ -193,6 +193,84 @@ double HS::DNNHS::ExpansionGroup::distBetw(
 }
 
 
+HS::DNNHS::NewExpansionGroup::NewExpansionGroup() :
+	m_metric(nullptr),
+	m_next_pt(PT_UNSET),
+	m_epd(EPD_UNSET) {
+}
+
+
+HS::DNNHS::NewExpansionGroup::NewExpansionGroup(
+	DNNHS*    ds,
+	const int core_pt) : 
+	Group(ds, core_pt),
+	m_metric( ExpansionMetric::create( ds ) ),
+	m_next_pt( PT_UNSET ),
+	m_epd( EPD_UNSET ) {
+}
+
+
+HS::DNNHS::NewExpansionGroup::~NewExpansionGroup() {
+	delete m_metric;
+}
+
+
+int HS::DNNHS::NewExpansionGroup::setNextPt(
+	const int pt) {
+	
+	if ( pt < 0 || m_ds->data().size() <= pt ) { return 1; }
+	return 0;
+}
+
+
+double HS::DNNHS::NewExpansionGroup::epd() {
+
+	if ( m_epd == EPD_UNSET ) {
+		//m_epd = m_metric->value( this, m_next_pt ); /** TODO: m_metric->value **/
+	}
+	return m_epd;
+}
+
+
+int HS::DNNHS::NewExpansionGroup::expand() {
+	
+	if ( m_next_pt == PT_UNSET ) { return 1; }
+	ids().emplace_back(m_next_pt);
+	m_next_pt = PT_UNSET;
+	m_epd     = EPD_UNSET;
+	//m_metric->expansionReset(); /** TODO: m_metric->reset **/
+
+	return 0;
+}
+
+
+HS::DNNHS::ExpansionMetric* HS::DNNHS::ExpansionMetric::create(
+	DNNHS* ds) {
+
+	switch ( ds->expansionMetric() ) {
+	case Metric::PAIRWISE:
+		return new PairwiseExpansionMetric( ds );
+		break;
+	default:
+		return nullptr;
+		break;
+	}
+
+}
+
+
+HS::DNNHS::ExpansionMetric::ExpansionMetric(
+	DNNHS* ds) :
+	m_ds( ds ) {	
+}
+
+
+HS::DNNHS::PairwiseExpansionMetric::PairwiseExpansionMetric(
+	DNNHS* ds) :
+	ExpansionMetric( ds ) {
+}
+
+
 HS::DNNHS::DNNHS::DNNHS(
 	const Eigen::MatrixXd& data, 
 	const Eigen::VectorXd& query, 
@@ -231,6 +309,19 @@ int HS::DNNHS::DNNHS::findNN(
 	if (shouldDelete) { ids->erase(itr_NN); }
 
 	return id_NN;
+}
+
+
+std::tuple<int, double> HS::DNNHS::DNNHS::newFindNN(
+	const Eigen::VectorXd&  query, 
+	const std::vector<int>& pts) {
+
+	int    index = -1;
+	double dist  = -1.0;
+
+	/** TODO: **/
+
+	return { index, dist };
 }
 
 

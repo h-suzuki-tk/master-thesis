@@ -9,7 +9,9 @@ namespace HS::DNNHS {
 class DNNHS;
 class Points;
 class Group;
+class ExpansionMetric;
 class ExpansionGroup;
+class NewExpansionGroup;
 
 class Points {
 
@@ -49,6 +51,38 @@ class Group {
 
 };
 
+class ExpansionMetric {
+
+	public:
+	enum class Metric {
+		PAIRWISE
+	};
+	static ExpansionMetric* create(DNNHS* ds);
+
+	ExpansionMetric(DNNHS* ds);
+
+	//double value();
+	//int expansionReset();
+
+	protected:
+
+	private:
+	DNNHS* m_ds;
+
+};
+
+class PairwiseExpansionMetric : public ExpansionMetric {
+
+	public:
+	PairwiseExpansionMetric(DNNHS* ds);	
+
+	protected:
+
+	private:
+	double prev_nd_sum;
+	double prev_pd_sum;
+};
+
 class ExpansionGroup : public Group {
 
 	public:
@@ -77,14 +111,42 @@ class ExpansionGroup : public Group {
 
 };
 
+class NewExpansionGroup : public Group {
+
+	public:
+	NewExpansionGroup();
+	NewExpansionGroup(DNNHS* ds, const int core_pt);
+	~NewExpansionGroup();
+
+	int    setNextPt(const int pt);
+	double epd      ();
+	int    expand   ();
+
+	protected:
+
+	private:
+	static constexpr int    PT_UNSET  = -1;
+	static constexpr double EPD_UNSET = -1.0;
+
+	ExpansionMetric* m_metric;
+	int              m_next_pt;
+	double           m_epd;
+
+};
+//const int    NewExpansionGroup::PT_UNSET  = -1;
+//const double NewExpansionGroup::EPD_UNSET = -1.0;
+
+
 class DNNHS {
 
 	public:
 		DNNHS(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha);
-		int  findNN     (const Eigen::VectorXd& query, std::vector<int>* ids, const bool shouldDelete = false);
+		int                     findNN   (const Eigen::VectorXd& query, std::vector<int>* ids, const bool shouldDelete = false);
+		std::tuple<int, double> newFindNN(const Eigen::VectorXd& query, const std::vector<int>& pts);
 		void filterPts  (std::vector<int> *ids);
 		void updateBound(Group& group);
 
+		ExpansionMetric::Metric expansionMetric() { return m_expansion_metric; }
 		Points&             data()              { return m_data; }
 		Eigen::VectorXd     data(const int& id) { return m_data[id]; }
 		Eigen::VectorXd&    query()             { return m_query; }
@@ -93,12 +155,13 @@ class DNNHS {
 		Group&              result()            { return m_result; } 
 
 	protected:
-		Points             m_data;
-		Eigen::VectorXd    m_query;
-		double             m_alpha;
-		double             m_bound;
-		std::vector<Group> m_groups;
-		Group              m_result;
+		ExpansionMetric::Metric m_expansion_metric = ExpansionMetric::Metric::PAIRWISE;
+		Points                  m_data;
+		Eigen::VectorXd         m_query;
+		double                  m_alpha;
+		double                  m_bound;
+		std::vector<Group>      m_groups;
+		Group                   m_result;
 };
 }
 

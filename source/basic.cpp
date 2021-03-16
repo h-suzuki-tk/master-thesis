@@ -43,12 +43,6 @@ int HS::DNNHS::Basic::run() {
 }
 
 
-std::vector<int> HS::DNNHS::Basic::result() {
-	assert(m_result.ids().size() > 0);
-	return m_result.ids();
-}
-
-
 double HS::DNNHS::Basic::distFromQuery(
 	const int id) {
 	
@@ -83,4 +77,32 @@ HS::DNNHS::Group HS::DNNHS::Basic::findGroup(
 	}
 
     return g_min;
+}
+
+
+HS::DNNHS::Group HS::DNNHS::Basic::newFindGroup(
+	const int        core_pt,
+	std::vector<int> pts) { // core_pt を除いたもの
+	
+	NewExpansionGroup cur_group( this, core_pt );
+	NewExpansionGroup best_group; // epd = ∞ になるようにする
+
+	while ( pts.size() > 0 ) {
+
+		// 拡大点を見つける
+		auto [idx, dist] = newFindNN( cur_group.centroid(), pts );
+		cur_group.setNextPt( pts[idx] );
+		pts.erase( pts.begin() + idx );
+
+		// 拡大指標の計算
+		if ( cur_group.epd() < best_group.epd() ) {
+			best_group = cur_group;
+		}
+
+		// 拡大
+		cur_group.expand();
+
+	}
+
+	return best_group;
 }
