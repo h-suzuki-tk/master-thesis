@@ -34,10 +34,12 @@ class Group {
 		Group(DNNHS* ds, const int& id);
 		
 		std::vector<int>& ids     () { return m_ids; }
+		int               size    () { return m_ids.size(); }
 		Eigen::VectorXd&  centroid();
 		double            dist    (const Eigen::VectorXd &v);
 		double            sd      ();
 		double            delta   ();
+		DNNHS&            ds      () { return *m_ds; } 
 
 		void add(const int id) { m_ids.push_back(id); }
 	
@@ -47,8 +49,6 @@ class Group {
 		Eigen::VectorXd  m_centroid;
 		double           m_delta;
 
-		int size() { return m_ids.size(); }
-
 };
 
 class ExpansionMetric {
@@ -57,30 +57,40 @@ class ExpansionMetric {
 	enum class Metric {
 		PAIRWISE
 	};
-	static ExpansionMetric* create(DNNHS* ds);
+	static ExpansionMetric* create(NewExpansionGroup* ep_group);
 
-	ExpansionMetric(DNNHS* ds);
+	ExpansionMetric(NewExpansionGroup* ep_group);
 
-	//double value();
-	//int expansionReset();
+	virtual double value () { return -1.0; }
+	virtual int    update() { return -1; }
+
+	NewExpansionGroup& epGroup() { return *m_ep_group; }
 
 	protected:
 
 	private:
-	DNNHS* m_ds;
+	NewExpansionGroup* m_ep_group;
 
 };
 
 class PairwiseExpansionMetric : public ExpansionMetric {
 
+	static constexpr double VALUE_UNCALC = -1.0;
+
 	public:
-	PairwiseExpansionMetric(DNNHS* ds);	
+	PairwiseExpansionMetric(NewExpansionGroup* ep_group);
+
+	double value () override;
+	int    update() override;
 
 	protected:
 
 	private:
-	double prev_nd_sum;
-	double prev_pd_sum;
+	double m_value;
+	double m_pd_sum;
+	double m_nd_sum;
+	int    m_pd_pairs_num;
+	int    m_nd_pairs_num;
 };
 
 class ExpansionGroup : public Group {
@@ -121,6 +131,7 @@ class NewExpansionGroup : public Group {
 	int    setNextPt(const int pt);
 	double epd      ();
 	int    expand   ();
+	int    nextPt   () { return m_next_pt; }
 
 	protected:
 
