@@ -275,7 +275,8 @@ HS::DNNHS::DNNHS::DNNHS(
 	const Eigen::MatrixXd& data, 
 	const Eigen::VectorXd& query, 
 	const int&             alpha) :
-	m_data(Points(data)), m_query(query), m_alpha(alpha) {
+	m_data(Points(data)), m_query(query), m_alpha(alpha), 
+	m_betw_dist( Eigen::MatrixXd::Constant( data.rows(), data.rows(), DIST_UNCALC ) ) {
 
 	assert(data.rows() > 1 && data.cols() > 0);
 	assert(query.size() > 0);
@@ -337,4 +338,20 @@ void HS::DNNHS::DNNHS::updateBound(
 	Group& group) {
 	
 	m_bound = ( 2 * m_alpha / (m_alpha + 1) ) * group.delta();
+}
+
+
+double HS::DNNHS::DNNHS::betwDist(
+	const int pt1, 
+	const int pt2) {
+	
+	assert( 0 <= pt1 && pt1 < data().size() );
+	assert( 0 <= pt2 && pt2 < data().size() );
+
+	if ( m_betw_dist(pt1, pt2) == DIST_UNCALC ) {
+		m_betw_dist(pt1, pt2) = ( data(pt1) - data(pt2) ).norm();
+		m_betw_dist(pt2, pt1) = m_betw_dist(pt1, pt2);
+	}
+
+	return m_betw_dist(pt1, pt2);
 }

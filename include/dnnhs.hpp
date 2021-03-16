@@ -133,26 +133,29 @@ class NewExpansionGroup : public Group {
 	double           m_epd;
 
 };
-//const int    NewExpansionGroup::PT_UNSET  = -1;
-//const double NewExpansionGroup::EPD_UNSET = -1.0;
 
 
 class DNNHS {
 
+	static constexpr int DIST_UNCALC = -1.0;
+
 	public:
 		DNNHS(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha);
-		int                     findNN   (const Eigen::VectorXd& query, std::vector<int>* ids, const bool shouldDelete = false);
-		std::tuple<int, double> newFindNN(const Eigen::VectorXd& query, const std::vector<int>& pts);
-		void filterPts  (std::vector<int> *ids);
-		void updateBound(Group& group);
 
-		ExpansionMetric::Metric expansionMetric() { return m_expansion_metric; }
-		Points&             data()              { return m_data; }
-		Eigen::VectorXd     data(const int& id) { return m_data[id]; }
-		Eigen::VectorXd&    query()             { return m_query; }
-		int                 dims() const        { return m_data.dims(); }
-		std::vector<Group>& groups()            { return m_groups; }      
-		Group&              result()            { return m_result; } 
+		int                     findNN     (const Eigen::VectorXd& query, std::vector<int>* ids, const bool shouldDelete = false);
+		std::tuple<int, double> newFindNN  (const Eigen::VectorXd& query, const std::vector<int>& pts);
+		void                    filterPts  (std::vector<int> *ids);
+		void                    updateBound(Group& group);
+
+		ExpansionMetric::Metric expansionMetric()   { return m_expansion_metric; }
+		Points&                 data()              { return m_data; }
+		Eigen::VectorXd         data(const int& id) { return m_data[id]; }
+		Eigen::VectorXd&        query()             { return m_query; }
+		int                     dims() const        { return m_data.dims(); }
+		std::vector<Group>&     groups()            { return m_groups; }      
+		Group&                  result()            { return m_result; }
+
+		double                  betwDist(const int pt1, const int pt2);
 
 	protected:
 		ExpansionMetric::Metric m_expansion_metric = ExpansionMetric::Metric::PAIRWISE;
@@ -162,6 +165,8 @@ class DNNHS {
 		double                  m_bound;
 		std::vector<Group>      m_groups;
 		Group                   m_result;
+
+		Eigen::MatrixXd         m_betw_dist;
 };
 }
 
