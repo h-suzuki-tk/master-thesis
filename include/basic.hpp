@@ -12,7 +12,8 @@ class Basic : public DNNHS {
 
     public:
       	Basic(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha);
-      	int              run();
+      	int run();
+		int newRun();
 
     private:
 		Eigen::VectorXd    m_data_query_dist;

@@ -43,6 +43,39 @@ int HS::DNNHS::Basic::run() {
 }
 
 
+int HS::DNNHS::Basic::newRun() {
+
+	// 距離が近い順にソート	
+	std::vector<int> ids_sorted(m_data.size());
+    for (int i=0; i<m_data.size(); i++) { ids_sorted[i] = i; }
+    std::sort(
+        ids_sorted.begin(), ids_sorted.end(), [&](int a, int b) { 
+		return fromQueryDist(a) < fromQueryDist(b); 
+	});
+
+    // 各点について処理
+    for (auto itr_id = ids_sorted.begin(); 
+        itr_id != ids_sorted.end(); itr_id++) {
+
+        int index = std::distance(ids_sorted.begin(), itr_id);
+
+        // 所属グループを検索
+        m_groups.push_back(findGroup(index, ids_sorted));
+
+        // 総合近似度を計算・フィルタリング
+        if (m_groups.back().delta() < m_result.delta()) {
+
+			updateBound(m_groups.back());
+            m_result = m_groups.back();
+
+            filterPts(&ids_sorted);
+        }
+    }
+
+	return 0;
+}
+
+
 double HS::DNNHS::Basic::distFromQuery(
 	const int id) {
 	
@@ -81,19 +114,20 @@ HS::DNNHS::Group HS::DNNHS::Basic::findGroup(
 
 
 HS::DNNHS::Group HS::DNNHS::Basic::newFindGroup(
-	const int        core_pt,
-	std::vector<int> pts) { // core_pt を除いたもの
+	const int        core_idx,
+	std::vector<int> pts) {
 	
-	NewExpansionGroup cur_group( this, core_pt );
-	NewExpansionGroup best_group; // epd = ∞ になるようにする
+	NewExpansionGroup cur_group( this, pts[core_idx] );
+	NewExpansionGroup best_group;
+
+	pts.erase( pts.begin() + core_idx );
 
 	while ( pts.size() > 0 ) {
 
 		// 拡大点を見つける
-		auto [idx, dist] = newFindNN( cur_group.centroid(), pts );
-		cur_group.setNextPt( pts[idx] );
-		pts.erase( pts.begin() + idx );
-
+		auto [nn_idx, nn_dist] = newFindNN( cur_group.centroid(), pts );
+		cur_group.setNextPt( pts[nn_idx] );
+	
 		// 拡大指標の計算
 		if ( cur_group.epd() < best_group.epd() ) {
 			best_group = cur_group;
@@ -101,6 +135,9 @@ HS::DNNHS::Group HS::DNNHS::Basic::newFindGroup(
 
 		// 拡大
 		cur_group.expand();
+
+		// 更新
+		pts.erase( pts.begin() + nn_idx );
 
 	}
 

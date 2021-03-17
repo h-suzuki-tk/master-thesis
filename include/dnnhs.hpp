@@ -167,6 +167,7 @@ class DNNHS {
 		Group&                  result()            { return m_result; }
 
 		double                  betwDist(const int pt1, const int pt2);
+		double                  fromQueryDist(const int pt);
 
 	protected:
 		ExpansionMetric::Metric m_expansion_metric = ExpansionMetric::Metric::PAIRWISE;
@@ -178,6 +179,7 @@ class DNNHS {
 		Group                   m_result;
 
 		Eigen::MatrixXd         m_betw_dist;
+		Eigen::VectorXd         m_from_query_dist;
 };
 }
 
