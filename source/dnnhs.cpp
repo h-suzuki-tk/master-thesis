@@ -220,13 +220,16 @@ int HS::DNNHS::NewExpansionGroup::setNextPt(
 	const int pt) {
 	
 	if ( pt < 0 || ds().data().size() <= pt ) { return 1; }
+	m_next_pt = pt;
 	return 0;
 }
 
 
 double HS::DNNHS::NewExpansionGroup::epd() {
 
-	if ( m_epd == EPD_UNSET ) {
+	if ( m_metric == nullptr ) {
+		m_epd = __DBL_MAX__;
+	} else if ( m_epd == EPD_UNSET ) {
 		m_epd = m_metric->value();
 	}
 	return m_epd;
