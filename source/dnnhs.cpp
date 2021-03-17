@@ -216,6 +216,24 @@ HS::DNNHS::NewExpansionGroup::~NewExpansionGroup() {
 }
 
 
+HS::DNNHS::NewExpansionGroup& HS::DNNHS::NewExpansionGroup::operator=(
+	const NewExpansionGroup& ep_group) {
+
+	if ( this != &ep_group ) {
+		this->m_ds          = ep_group.m_ds;
+		this->m_ids         = ep_group.m_ids;
+		this->m_centroid    = ep_group.m_centroid;
+		this->m_delta       = ep_group.m_delta;
+		this->m_metric      = ExpansionMetric::create( ep_group.ds().expansionMetric(), this );
+		*( this->m_metric ) = *( ep_group.m_metric );
+		m_next_pt           = ep_group.m_next_pt;
+		m_epd               = ep_group.m_epd;
+	}
+
+	return *this;
+}
+
+
 int HS::DNNHS::NewExpansionGroup::setNextPt(
 	const int pt) {
 	
@@ -240,12 +258,27 @@ int HS::DNNHS::NewExpansionGroup::expand() {
 	
 	if ( m_next_pt == PT_UNSET ) { return 1; }
 	
-	ids().emplace_back(m_next_pt);
 	m_metric->update();
+	ids().emplace_back(m_next_pt);
 	m_next_pt = PT_UNSET;
 	m_epd     = EPD_UNSET;
 
 	return 0;
+}
+
+HS::DNNHS::ExpansionMetric* HS::DNNHS::ExpansionMetric::create(
+	Metric             metric, 
+	NewExpansionGroup* ep_group) {
+
+	switch ( metric ) {
+	case Metric::PAIRWISE:
+		return new PairwiseExpansionMetric( ep_group );
+		break;
+	default:
+		return nullptr;
+		break;
+	}
+
 }
 
 
@@ -274,10 +307,11 @@ HS::DNNHS::PairwiseExpansionMetric::PairwiseExpansionMetric(
 	NewExpansionGroup* ep_group) :
 	ExpansionMetric( ep_group ),
 	m_value( VALUE_UNCALC ),
-	m_nd_sum( 0.0 ),
-	m_pd_sum( 0.0 ),
-	m_pd_pairs_num( 0 ),
-	m_nd_pairs_num( 0 ) {
+	m_nd_sum( VALUE_UNCALC ),
+	m_pd_sum( VALUE_UNCALC ),
+	m_nd_pairs_num( NUM_UNCALC ),
+	m_pd_pairs_num( NUM_UNCALC ) {
+
 }
 
 
@@ -287,12 +321,8 @@ double HS::DNNHS::PairwiseExpansionMetric::value() {
 		m_value = __DBL_MAX__;
 	} else if ( m_value == VALUE_UNCALC ) {
 
-		for ( const auto& pt : epGroup().ids() ) {
-			m_nd_sum += epGroup().ds().betwDist( pt, epGroup().nextPt() );
-		}
-		m_nd_pairs_num = epGroup().size();
-		double pdmean = m_pd_sum / m_pd_pairs_num;
-		double ndmean = m_nd_sum / m_nd_pairs_num; 
+		double pdmean = pdSum() / pdPairsNum();
+		double ndmean = ndSum() / ndPairsNum(); 
 		m_value = ( pdmean / ( pdmean + ndmean ) ) * epGroup().delta();
 
 	}
@@ -304,13 +334,62 @@ double HS::DNNHS::PairwiseExpansionMetric::value() {
 int HS::DNNHS::PairwiseExpansionMetric::update() {
 
 	m_value        = VALUE_UNCALC;
-	m_pd_sum       = m_pd_sum + m_nd_sum;
-	m_nd_sum       = 0.0;
-	m_pd_pairs_num = m_pd_pairs_num + m_nd_pairs_num;
-	m_nd_pairs_num = 0;
+	pdSum()        = pdSum() + ndSum();
+	ndSum()        = VALUE_UNCALC;
+	pdPairsNum()   = pdPairsNum() + ndPairsNum();
+	ndPairsNum()   = NUM_UNCALC;
 
 	return 0;
 } 
+
+
+double& HS::DNNHS::PairwiseExpansionMetric::pdSum() {
+
+	if ( m_pd_sum == VALUE_UNCALC ) {
+		m_pd_sum = 0.0;
+		for ( int id1=0; id1<epGroup().size(); ++id1 ) {
+			for ( int id2=id1+1; id2<epGroup().size(); ++id2  ) {
+				m_pd_sum += epGroup().ds().betwDist( id1, id2 );
+			}
+		}
+	}
+
+	return m_pd_sum;
+}
+
+
+double& HS::DNNHS::PairwiseExpansionMetric::ndSum() {
+
+	if ( m_nd_sum == VALUE_UNCALC ) {
+		m_nd_sum = 0.0;
+		for ( const auto& pt : epGroup().ids() ) {
+			m_nd_sum += epGroup().ds().betwDist( pt, epGroup().nextPt() );
+		}
+	}
+
+	return m_nd_sum;
+}
+
+
+int& HS::DNNHS::PairwiseExpansionMetric::pdPairsNum() {
+
+	if ( m_pd_pairs_num == NUM_UNCALC ) {
+		m_pd_pairs_num = ( epGroup().size() * ( epGroup().size() - 1) ) / 2.0; 
+	}
+
+	return m_pd_pairs_num;
+}
+
+
+int& HS::DNNHS::PairwiseExpansionMetric::ndPairsNum() {
+
+	if ( m_nd_pairs_num == NUM_UNCALC ) {
+		m_nd_pairs_num = epGroup().size();
+	}
+
+	return m_nd_pairs_num;
+}
+
 
 
 HS::DNNHS::DNNHS::DNNHS(

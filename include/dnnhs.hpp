@@ -39,7 +39,7 @@ class Group {
 		double            dist    (const Eigen::VectorXd &v);
 		double            sd      ();
 		double            delta   ();
-		DNNHS&            ds      () { return *m_ds; } 
+		DNNHS&            ds      () const { return *m_ds; } 
 
 		void add(const int id) { m_ids.push_back(id); }
 	
@@ -57,6 +57,7 @@ class ExpansionMetric {
 	enum class Metric {
 		PAIRWISE
 	};
+	static ExpansionMetric* create(ExpansionMetric::Metric metric, NewExpansionGroup* ep_group);
 	static ExpansionMetric* create(NewExpansionGroup* ep_group);
 
 	ExpansionMetric(NewExpansionGroup* ep_group);
@@ -76,6 +77,7 @@ class ExpansionMetric {
 class PairwiseExpansionMetric : public ExpansionMetric {
 
 	static constexpr double VALUE_UNCALC = -1.0;
+	static constexpr int    NUM_UNCALC   = -1;
 
 	public:
 	PairwiseExpansionMetric(NewExpansionGroup* ep_group);
@@ -84,6 +86,10 @@ class PairwiseExpansionMetric : public ExpansionMetric {
 	int    update() override;
 
 	protected:
+	double& pdSum();
+	double& ndSum();
+	int&    pdPairsNum();
+	int&    ndPairsNum();
 
 	private:
 	double m_value;
@@ -92,6 +98,7 @@ class PairwiseExpansionMetric : public ExpansionMetric {
 	int    m_pd_pairs_num;
 	int    m_nd_pairs_num;
 };
+
 
 class ExpansionGroup : public Group {
 
@@ -127,6 +134,9 @@ class NewExpansionGroup : public Group {
 	NewExpansionGroup();
 	NewExpansionGroup(DNNHS* ds, const int core_pt);
 	~NewExpansionGroup();
+
+	//NewExpansionGroup(const ExpansionGroup& obj);
+	NewExpansionGroup &operator=(const NewExpansionGroup& ep_group);
 
 	int    setNextPt(const int pt);
 	double epd      ();

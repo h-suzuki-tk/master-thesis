@@ -60,7 +60,7 @@ int HS::DNNHS::Basic::newRun() {
         int index = std::distance(ids_sorted.begin(), itr_id);
 
         // 所属グループを検索
-        m_groups.push_back(findGroup(index, ids_sorted));
+        m_groups.push_back(newFindGroup(index, ids_sorted));
 
         // 総合近似度を計算・フィルタリング
         if (m_groups.back().delta() < m_result.delta()) {
