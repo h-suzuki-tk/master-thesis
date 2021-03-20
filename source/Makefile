@@ -10,12 +10,18 @@ INCLUDE = -I ../include -I $(PATH_EIGEN) -I $(PATH_OPENCV)
 SOURCES  = $(wildcard *.cpp)
 OBJECTS  = $(addprefix $(OBJDIR)/, $(SOURCES:.cpp=.o))
 
+all:
+	mkdir -p $(OBJDIR)
+	$(MAKE) build
+
 $(TARGET):	$(OBJECTS)
 	g++ -o $@ $^ $(INCLUDE)
 
 $(OBJDIR)/%.o:	%.cpp
 	@[ -d $(OBJDIR) ]
 	g++ $(OPTION) -o $@ -c $^ $(INCLUDE)
+
+build: $(TARGET)
 
 clean:
 	rm -f $(OBJDIR)/*.o
