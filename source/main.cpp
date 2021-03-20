@@ -113,6 +113,8 @@ void runBasicSearch(
 
 	// 出力
 	std::cout << "Result:" << std::endl;
+	std::cout << "* Total processed points (filterd): " << dsb.procdPtCount() << " (" << dsb.data().size() - dsb.procdPtCount() << ")" << std::endl;
+	std::cout << "* Points: " << std::endl;
 	HS::printVector(dsb.result().ids());
 	std::cout << std::endl;
 }
