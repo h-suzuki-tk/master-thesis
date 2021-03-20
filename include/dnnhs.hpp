@@ -11,7 +11,7 @@ class Points;
 class Group;
 class ExpansionMetric;
 class ExpansionGroup;
-class NewExpansionGroup;
+class ExpansionGroup;
 
 class Points {
 
@@ -57,20 +57,20 @@ class ExpansionMetric {
 	enum class Metric {
 		PAIRWISE
 	};
-	static ExpansionMetric* create(ExpansionMetric::Metric metric, NewExpansionGroup* ep_group);
-	static ExpansionMetric* create(NewExpansionGroup* ep_group);
+	static ExpansionMetric* create(ExpansionMetric::Metric metric, ExpansionGroup* ep_group);
+	static ExpansionMetric* create(ExpansionGroup* ep_group);
 
-	ExpansionMetric(NewExpansionGroup* ep_group);
+	ExpansionMetric(ExpansionGroup* ep_group);
 
 	virtual double value () { return -1.0; }
 	virtual int    update() { return -1; }
 
-	NewExpansionGroup& epGroup() { return *m_ep_group; }
+	ExpansionGroup& epGroup() { return *m_ep_group; }
 
 	protected:
 
 	private:
-	NewExpansionGroup* m_ep_group;
+	ExpansionGroup* m_ep_group;
 
 };
 
@@ -80,7 +80,7 @@ class PairwiseExpansionMetric : public ExpansionMetric {
 	static constexpr int    NUM_UNCALC   = -1;
 
 	public:
-	PairwiseExpansionMetric(NewExpansionGroup* ep_group);
+	PairwiseExpansionMetric(ExpansionGroup* ep_group);
 
 	double value () override;
 	int    update() override;
@@ -103,39 +103,11 @@ class PairwiseExpansionMetric : public ExpansionMetric {
 class ExpansionGroup : public Group {
 
 	public:
-		ExpansionGroup() { }
-		ExpansionGroup(DNNHS* ds, const int index_core, const std::vector<int>& ids_data, bool isCorePruned);
+	ExpansionGroup();
+	ExpansionGroup(DNNHS* ds, const int core_pt);
+	~ExpansionGroup();
 
-		std::vector<int>& unprocdIds() { return m_ids_unprocd; }
-		double            epDelta   ();
-		
-		void expand();
-
-	private:
-		std::vector<int> m_ids_unprocd;
-		int 			 m_id_next = -1;
-		double 			 m_epDelta = -1.0;
-		double			 m_pd_sum;
-		double           m_nd_sum  = -1.0;
-		int              m_n_pair  = 0;
-		Eigen::MatrixXd  m_data_pw_dist; // pw: pairwise
-
-		int               nextId();
-		double            pdSum ();
-		double            ndSum ();
-		int               pairs ();
-		double            distBetw(const int id1, const int id2);
-
-};
-
-class NewExpansionGroup : public Group {
-
-	public:
-	NewExpansionGroup();
-	NewExpansionGroup(DNNHS* ds, const int core_pt);
-	~NewExpansionGroup();
-
-	NewExpansionGroup &operator=(const NewExpansionGroup& ep_group);
+	ExpansionGroup &operator=(const ExpansionGroup& ep_group);
 
 	int    setNextPt(const int pt);
 	double epd      ();
