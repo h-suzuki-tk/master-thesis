@@ -12,13 +12,13 @@ class Basic : public DNNHS {
 
     public:
       	Basic(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha);
-      	int              run();
+      	int run();
+		
+		int procdPtCount() const { return m_procd_pt_count; }
 
-    private:
-		Eigen::VectorXd    m_data_query_dist;
-		double distFromQuery(const int id);
-		Group  findGroup    (const int id_core, const std::vector<int>& ids_data);
-
+    private:		
+		int m_procd_pt_count;
+		Group findGroup (const int core_pt, std::vector<int> pts);
 };
 }
 

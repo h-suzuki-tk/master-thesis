@@ -43,9 +43,9 @@ Eigen::VectorXd& HS::DNNHS::Group::centroid() {
     if (m_centroid.size() == 0) {
         Eigen::VectorXd temp;
 
-		temp = Eigen::VectorXd::Zero(m_ds->data().dims());
+		temp = Eigen::VectorXd::Zero(ds().data().dims());
         for (int id : m_ids) {
-            temp += m_ds->data(id);
+            temp += ds().data(id);
         }
         m_centroid = temp / size();
     }
@@ -64,7 +64,7 @@ double HS::DNNHS::Group::sd() {
 
     double temp = 0.0;
     for (int id : m_ids) {
-        temp += (m_ds->data(id) - centroid()).squaredNorm();
+        temp += (ds().data(id) - centroid()).squaredNorm();
     }
     sd = sqrt(temp / size());
 
@@ -76,128 +76,220 @@ double HS::DNNHS::Group::delta() {
 
 	if (m_delta < 0.0) {
 		if (m_ids.size() <= 1) { m_delta = __DBL_MAX__; } 
-		else { m_delta = dist(m_ds->query()) + sd(); }
+		else { m_delta = dist(ds().query()) + sd(); }
 	}
 
     return m_delta;
 }
 
 
+HS::DNNHS::ExpansionGroup::ExpansionGroup() :
+	m_metric(nullptr),
+	m_next_pt(PT_UNSET),
+	m_epd(EPD_UNSET) {
+}
+
+
 HS::DNNHS::ExpansionGroup::ExpansionGroup(
-	DNNHS*                  ds,
-	const int 			    index_core, 
-	const std::vector<int>& ids_data,
-	bool                    isCorePruned) : Group(ds, ids_data[index_core]) {
+	DNNHS*    ds,
+	const int core_pt) : 
+	Group(ds, core_pt),
+	m_next_pt( PT_UNSET ),
+	m_epd( EPD_UNSET ) {
 
-	m_ids_unprocd = ids_data;
-	m_pd_sum      = 0.0;
-	if (!isCorePruned) {
-		m_ids_unprocd.erase(m_ids_unprocd.begin() + index_core);
-	}
-	m_data_pw_dist = Eigen::MatrixXd::Constant(m_ds->data().size(), m_ds->data().size(), -1.0);
+	m_metric = ExpansionMetric::create( this );
 }
 
 
-double HS::DNNHS::ExpansionGroup::epDelta() {
-
-	if (size() <= 1) {
-		m_epDelta = __DBL_MAX__;
-	} else if (m_epDelta < 0.0) {
-		double pdmean = pdSum() / pairs();
-		double ndmean = ndSum() / size();
-		m_epDelta = (pdmean / (pdmean + ndmean)) * delta();
-	}
-
-	return m_epDelta;
+HS::DNNHS::ExpansionGroup::~ExpansionGroup() {
+	delete m_metric;
 }
 
 
-void HS::DNNHS::ExpansionGroup::expand() {
-	assert(m_ids_unprocd.size() > 0 || m_id_next >= 0);
+HS::DNNHS::ExpansionGroup& HS::DNNHS::ExpansionGroup::operator=(
+	const ExpansionGroup& ep_group) {
 
-	m_pd_sum += ndSum();
-	m_n_pair += size();
-	m_ids.push_back(nextId());
+	if ( this != &ep_group ) {
+		this->m_ds          = ep_group.m_ds;
+		this->m_ids         = ep_group.m_ids;
+		this->m_centroid    = ep_group.m_centroid;
+		this->m_delta       = ep_group.m_delta;
+		this->m_metric      = ExpansionMetric::create( ep_group.ds().expansionMetric(), this );
+		*( this->m_metric ) = *( ep_group.m_metric );
+		m_next_pt           = ep_group.m_next_pt;
+		m_epd               = ep_group.m_epd;
+	}
+
+	return *this;
+}
+
+
+int HS::DNNHS::ExpansionGroup::setNextPt(
+	const int pt) {
 	
-	m_centroid = Eigen::VectorXd(0);
-	m_id_next  = -1;
-	m_epDelta  = -1.0;
-	m_nd_sum   = -1.0;
-	m_delta    = -1.0;
+	if ( pt < 0 || ds().data().size() <= pt ) { return 1; }
+	m_next_pt = pt;
+	return 0;
 }
 
 
-int HS::DNNHS::ExpansionGroup::nextId() {
-	assert(m_ids_unprocd.size() > 0 || m_id_next >= 0);
+double HS::DNNHS::ExpansionGroup::epd() {
 
-	if (m_id_next < 0) {
-		m_id_next = m_ds->findNN(centroid(), &m_ids_unprocd, true);
+	if ( m_metric == nullptr ) {
+		m_epd = __DBL_MAX__;
+	} else if ( m_epd == EPD_UNSET ) {
+		m_epd = m_metric->value();
 	}
-	
-	return m_id_next;
+	return m_epd;
 }
 
 
-double HS::DNNHS::ExpansionGroup::pdSum() {
+int HS::DNNHS::ExpansionGroup::expand() {
+	
+	if ( m_next_pt == PT_UNSET ) { return 1; }
+	
+	m_metric->update();
+	ids().emplace_back(m_next_pt);
+	m_next_pt = PT_UNSET;
+	m_epd     = EPD_UNSET;
 
-	if (m_pd_sum < 0.0) {
-		double pd_sum = 0.0;
-		for (int i=0; i<size(); i++) {
-			for (int j=i+1; j<size(); j++) {
-				pd_sum += distBetw(m_ids[i], m_ids[j]);
+	return 0;
+}
+
+HS::DNNHS::ExpansionMetric* HS::DNNHS::ExpansionMetric::create(
+	Metric             metric, 
+	ExpansionGroup* ep_group) {
+
+	switch ( metric ) {
+	case Metric::PAIRWISE:
+		return new PairwiseExpansionMetric( ep_group );
+		break;
+	default:
+		return nullptr;
+		break;
+	}
+
+}
+
+
+HS::DNNHS::ExpansionMetric* HS::DNNHS::ExpansionMetric::create(
+	ExpansionGroup* ep_group) {
+
+	switch ( ep_group->ds().expansionMetric() ) {
+	case Metric::PAIRWISE:
+		return new PairwiseExpansionMetric( ep_group );
+		break;
+	default:
+		return nullptr;
+		break;
+	}
+
+}
+
+
+HS::DNNHS::ExpansionMetric::ExpansionMetric(
+	ExpansionGroup* ep_group) :
+	m_ep_group( ep_group ) {	
+}
+
+
+HS::DNNHS::PairwiseExpansionMetric::PairwiseExpansionMetric(
+	ExpansionGroup* ep_group) :
+	ExpansionMetric( ep_group ),
+	m_value( VALUE_UNCALC ),
+	m_nd_sum( VALUE_UNCALC ),
+	m_pd_sum( VALUE_UNCALC ),
+	m_nd_pairs_num( NUM_UNCALC ),
+	m_pd_pairs_num( NUM_UNCALC ) {
+
+}
+
+
+double HS::DNNHS::PairwiseExpansionMetric::value() {
+
+	if ( epGroup().size() <= 1 ) {
+		m_value = __DBL_MAX__;
+	} else if ( m_value == VALUE_UNCALC ) {
+
+		double pdmean = pdSum() / pdPairsNum();
+		double ndmean = ndSum() / ndPairsNum(); 
+		m_value = ( pdmean / ( pdmean + ndmean ) ) * epGroup().delta();
+
+	}
+
+	return m_value;
+}
+
+
+int HS::DNNHS::PairwiseExpansionMetric::update() {
+
+	m_value        = VALUE_UNCALC;
+	pdSum()        = pdSum() + ndSum();
+	ndSum()        = VALUE_UNCALC;
+	pdPairsNum()   = pdPairsNum() + ndPairsNum();
+	ndPairsNum()   = NUM_UNCALC;
+
+	return 0;
+} 
+
+
+double& HS::DNNHS::PairwiseExpansionMetric::pdSum() {
+
+	if ( m_pd_sum == VALUE_UNCALC ) {
+		m_pd_sum = 0.0;
+		for ( int id1=0; id1<epGroup().size(); ++id1 ) {
+			for ( int id2=id1+1; id2<epGroup().size(); ++id2  ) {
+				m_pd_sum += epGroup().ds().betwDist( id1, id2 );
 			}
 		}
-		m_pd_sum = pd_sum;
 	}
 
 	return m_pd_sum;
 }
 
 
-double HS::DNNHS::ExpansionGroup::ndSum() {
-	assert(m_ids_unprocd.size() > 0 || m_id_next >= 0);
+double& HS::DNNHS::PairwiseExpansionMetric::ndSum() {
 
-	if (m_nd_sum < 0.0) {
-		double nd_sum = 0.0;
-		for (int id : m_ids) {
-			nd_sum += distBetw(id, nextId());
+	if ( m_nd_sum == VALUE_UNCALC ) {
+		m_nd_sum = 0.0;
+		for ( const auto& pt : epGroup().ids() ) {
+			m_nd_sum += epGroup().ds().betwDist( pt, epGroup().nextPt() );
 		}
-		m_nd_sum = nd_sum;
 	}
 
 	return m_nd_sum;
 }
 
 
-int HS::DNNHS::ExpansionGroup::pairs() {
-	assert(size() > 1);
+int& HS::DNNHS::PairwiseExpansionMetric::pdPairsNum() {
 
-	if (m_n_pair < 0) {
-		m_n_pair = size() * (size()-1) / 2;
+	if ( m_pd_pairs_num == NUM_UNCALC ) {
+		m_pd_pairs_num = ( epGroup().size() * ( epGroup().size() - 1) ) / 2.0; 
 	}
 
-	return m_n_pair;
+	return m_pd_pairs_num;
 }
 
 
-double HS::DNNHS::ExpansionGroup::distBetw(
-	const int id1, 
-	const int id2) {
+int& HS::DNNHS::PairwiseExpansionMetric::ndPairsNum() {
 
-	if (m_data_pw_dist(id1, id2) < 0.0 && m_data_pw_dist(id2, id1) < 0.0) {
-		m_data_pw_dist(id1, id2) = (m_ds->data(id1) - m_ds->data(id2)).norm();
-		m_data_pw_dist(id2, id1) = m_data_pw_dist(id1, id2);
+	if ( m_nd_pairs_num == NUM_UNCALC ) {
+		m_nd_pairs_num = epGroup().size();
 	}
 
-	return m_data_pw_dist(id1, id2);
+	return m_nd_pairs_num;
 }
+
 
 
 HS::DNNHS::DNNHS::DNNHS(
 	const Eigen::MatrixXd& data, 
 	const Eigen::VectorXd& query, 
 	const int&             alpha) :
-	m_data(Points(data)), m_query(query), m_alpha(alpha) {
+	m_data(Points(data)), 
+	m_query(query), 
+	m_alpha(alpha),
+	m_from_query_dist( Eigen::VectorXd::Constant( data.rows(), DIST_UNCALC ) ) {
 
 	assert(data.rows() > 1 && data.cols() > 0);
 	assert(query.size() > 0);
@@ -234,6 +326,26 @@ int HS::DNNHS::DNNHS::findNN(
 }
 
 
+/** TODO: 三角不等式を用いた効率化 **/
+std::tuple<int, double> HS::DNNHS::DNNHS::newFindNN(
+	const Eigen::VectorXd&  query, 
+	const std::vector<int>& pts) {
+
+	int    nn_index = -1;
+	double nn_dist  = __DBL_MAX__;
+
+	for ( size_t i=0; i<pts.size(); ++i ) {
+		double d = ( data(i) - query ).norm();
+		if ( d < nn_dist ) {
+			nn_index = i;
+			nn_dist  = d;
+		}
+	}
+
+	return { nn_index, nn_dist };
+}
+
+
 void HS::DNNHS::DNNHS::filterPts(
 	std::vector<int>* ids) {
 
@@ -246,4 +358,28 @@ void HS::DNNHS::DNNHS::updateBound(
 	Group& group) {
 	
 	m_bound = ( 2 * m_alpha / (m_alpha + 1) ) * group.delta();
+}
+
+
+double HS::DNNHS::DNNHS::fromQueryDist(
+	const int pt) {
+	
+	assert( 0 <= pt && pt < data().size() );
+
+	if ( m_from_query_dist(pt) == DIST_UNCALC ) {
+		m_from_query_dist(pt) = ( query() - data(pt) ).norm();
+	}
+
+	return m_from_query_dist(pt);
+}
+
+
+double HS::DNNHS::DNNHS::betwDist(
+	const int pt1, 
+	const int pt2) {
+	
+	assert( 0 <= pt1 && pt1 < data().size() );
+	assert( 0 <= pt2 && pt2 < data().size() );
+
+	return ( data(pt1) - data(pt2) ).norm();
 }
