@@ -135,7 +135,6 @@ class NewExpansionGroup : public Group {
 	NewExpansionGroup(DNNHS* ds, const int core_pt);
 	~NewExpansionGroup();
 
-	//NewExpansionGroup(const ExpansionGroup& obj);
 	NewExpansionGroup &operator=(const NewExpansionGroup& ep_group);
 
 	int    setNextPt(const int pt);
@@ -188,7 +187,6 @@ class DNNHS {
 		std::vector<Group>      m_groups;
 		Group                   m_result;
 
-		Eigen::MatrixXd         m_betw_dist;
 		Eigen::VectorXd         m_from_query_dist;
 };
 }

@@ -396,8 +396,9 @@ HS::DNNHS::DNNHS::DNNHS(
 	const Eigen::MatrixXd& data, 
 	const Eigen::VectorXd& query, 
 	const int&             alpha) :
-	m_data(Points(data)), m_query(query), m_alpha(alpha), 
-	m_betw_dist( Eigen::MatrixXd::Constant( data.rows(), data.rows(), DIST_UNCALC ) ),
+	m_data(Points(data)), 
+	m_query(query), 
+	m_alpha(alpha),
 	m_from_query_dist( Eigen::VectorXd::Constant( data.rows(), DIST_UNCALC ) ) {
 
 	assert(data.rows() > 1 && data.cols() > 0);
@@ -490,10 +491,5 @@ double HS::DNNHS::DNNHS::betwDist(
 	assert( 0 <= pt1 && pt1 < data().size() );
 	assert( 0 <= pt2 && pt2 < data().size() );
 
-	if ( m_betw_dist(pt1, pt2) == DIST_UNCALC ) {
-		m_betw_dist(pt1, pt2) = ( data(pt1) - data(pt2) ).norm();
-		m_betw_dist(pt2, pt1) = m_betw_dist(pt1, pt2);
-	}
-
-	return m_betw_dist(pt1, pt2);
+	return ( data(pt1) - data(pt2) ).norm();
 }
