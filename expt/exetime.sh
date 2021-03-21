@@ -1,5 +1,5 @@
 #! /bin/bash
-LOG_DIR=log;
+LOG_DIR=log/search;
 NEED_ARG_NUM=3;
 
 if [ $# -ne ${NEED_ARG_NUM} ] 
