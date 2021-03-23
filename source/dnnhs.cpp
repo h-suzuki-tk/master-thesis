@@ -40,15 +40,14 @@ HS::DNNHS::Group::Group(
 
 Eigen::VectorXd& HS::DNNHS::Group::centroid() {
 
-    if (m_centroid.size() == 0) {
-        Eigen::VectorXd temp;
+	assert( size() > 0 );
+	Eigen::VectorXd temp;
 
-		temp = Eigen::VectorXd::Zero(ds().data().dims());
-        for (int id : m_ids) {
-            temp += ds().data(id);
-        }
-        m_centroid = temp / size();
-    }
+	temp = Eigen::VectorXd::Zero(ds().data().dims());
+	for (int id : m_ids) {
+		temp += ds().data(id);
+	}
+	m_centroid = temp / size();
 
     return m_centroid;
 }
@@ -328,7 +327,7 @@ std::tuple<int, double> HS::DNNHS::DNNHS::findNN(
 	double nn_dist  = __DBL_MAX__;
 
 	for ( size_t i=0; i<pts.size(); ++i ) {
-		double d = ( data(i) - query ).norm();
+		double d = ( data( pts[i] ) - query ).norm();
 		if ( d < nn_dist ) {
 			nn_index = i;
 			nn_dist  = d;
