@@ -300,34 +300,8 @@ HS::DNNHS::DNNHS::DNNHS(
 }
 
 
-int HS::DNNHS::DNNHS::findNN(
-	const Eigen::VectorXd& query,
-	std::vector<int>*      ids,
-	const bool             shouldDelete) {
-	
-	assert(!ids->empty());
-	
-	int    id_NN   = -1;
-	double dist_NN = __DBL_MAX__;
-	std::vector<int>::iterator itr_NN;
-
-	for (auto itr_id = ids->begin(); itr_id != ids->end(); ) {
-		double dist = ( m_data[*itr_id]-m_query ).norm();
-		if (dist < dist_NN) {
-			id_NN   = *itr_id;
-			dist_NN = dist;
-			itr_NN  = itr_id;
-		}
-		itr_id++;
-	}
-	if (shouldDelete) { ids->erase(itr_NN); }
-
-	return id_NN;
-}
-
-
 /** TODO: 三角不等式を用いた効率化 **/
-std::tuple<int, double> HS::DNNHS::DNNHS::newFindNN(
+std::tuple<int, double> HS::DNNHS::DNNHS::findNN(
 	const Eigen::VectorXd&  query, 
 	const std::vector<int>& pts) {
 

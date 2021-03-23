@@ -10,7 +10,10 @@
 namespace HS::DNNHS {
 class Basic : public DNNHS {
 
+	static constexpr int MIN_CLUSTER_SIZE = 2;
+
     public:
+
       	Basic(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha);
       	int run();
 		

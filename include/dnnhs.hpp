@@ -134,8 +134,7 @@ class DNNHS {
 	public:
 		DNNHS(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha);
 
-		int                     findNN     (const Eigen::VectorXd& query, std::vector<int>* ids, const bool shouldDelete = false);
-		std::tuple<int, double> newFindNN  (const Eigen::VectorXd& query, const std::vector<int>& pts);
+		std::tuple<int, double> findNN  (const Eigen::VectorXd& query, const std::vector<int>& pts);
 		void                    filterPts  (std::vector<int> *ids);
 		void                    updateBound(Group& group);
 
