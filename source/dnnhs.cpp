@@ -62,11 +62,15 @@ double HS::DNNHS::Group::dist(const Eigen::VectorXd &v) {
 double HS::DNNHS::Group::sd() {
     double sd;
 
-    double temp = 0.0;
-    for (int id : m_ids) {
-        temp += (ds().data(id) - centroid()).squaredNorm();
-    }
-    sd = sqrt(temp / size());
+	if ( size() == 0 ) {
+		sd = __DBL_MAX__;
+	} else {
+		double temp = 0.0;
+		for (int id : m_ids) {
+			temp += (ds().data(id) - centroid()).squaredNorm();
+		}
+		sd = sqrt(temp / size());
+	}
 
     return sd;
 }
@@ -103,6 +107,21 @@ HS::DNNHS::ExpansionGroup::ExpansionGroup(
 
 HS::DNNHS::ExpansionGroup::~ExpansionGroup() {
 	delete m_metric;
+}
+
+
+HS::DNNHS::ExpansionGroup::ExpansionGroup(
+	const ExpansionGroup& ep_group) {
+
+	m_ds          = ep_group.m_ds;
+	m_ids         = ep_group.m_ids;
+	m_centroid    = ep_group.m_centroid;
+	m_delta       = ep_group.m_delta;
+	m_metric      = ExpansionMetric::create( ep_group.ds().expansionMetric(), this );
+	*m_metric     = *( ep_group.m_metric );
+	m_next_pt     = ep_group.m_next_pt;
+	m_epd         = ep_group.m_epd;
+
 }
 
 

@@ -70,11 +70,13 @@ HS::DNNHS::Group HS::DNNHS::Basic::findGroup(
 	assert( pts.size() > MIN_CLUSTER_SIZE );
 	
 	ExpansionGroup cur_group( this, pts[core_idx] );
-	ExpansionGroup best_group;
+	ExpansionGroup best_group = cur_group;
 
 	pts.erase( pts.begin() + core_idx );
 
-	while ( pts.size() > 0 ) {
+	while ( pts.size() > 0 
+		&& cur_group.size() < UPPER_CLUSTER_SIZE
+		&& cur_group.sd() <= m_result.sd() ) {
 
 		// 拡大点を見つける
 		auto [nn_idx, nn_dist] = findNN( cur_group.centroid(), pts );
