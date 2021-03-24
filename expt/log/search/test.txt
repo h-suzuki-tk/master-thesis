@@ -1,45 +1,77 @@
+Wed Mar 24 15:23:28 JST 2021
+
 Arguments:
 * Clustering way: basic
 * Dataset: ../data/SN_01.csv (230 pts, 2 dims)
-* Query: 0.764669 0.898096
+* Query: 0.624452 0.904174
 
 Starting basic DNNH search...
 Ended basic DNNH search.
 
 Result:
-* Total processed points (filterd): 16 (214)
+* Total processed points (filterd): 21 (209)
 * Points: 
-197, 206, 209, 195, 208
-
-
-
-Arguments:
-* Clustering way: basic
-* Dataset: ../data/SN_01.csv (230 pts, 2 dims)
-* Query:  0.322538 0.0938633
-
-Starting basic DNNH search...
-Ended basic DNNH search.
-
-Result:
-* Total processed points (filterd): 62 (168)
-* Points: 
-143, 147, 166, 171, 178, 157, 173, 169, 181, 170, 138, 180, 153, 144, 177, 184, 176, 179, 150, 130, 152, 149, 186, 165, 188, 132, 182, 187, 154, 164, 163, 134, 151, 175, 135, 137, 160, 139, 156, 142, 133, 189, 167, 172, 136, 161, 168, 131, 145, 148, 185, 141, 140, 162, 159, 5, 2
+110, 85, 64, 60, 100, 112, 119, 66, 93
 
 
 
 Arguments:
 * Clustering way: basic
 * Dataset: ../data/SN_01.csv (230 pts, 2 dims)
-* Query: 0.881826 0.612076
+* Query: 0.185219   0.9961
 
 Starting basic DNNH search...
 Ended basic DNNH search.
 
 Result:
-* Total processed points (filterd): 72 (158)
+* Total processed points (filterd): 45 (185)
 * Points: 
-50, 218, 207, 65, 123, 203, 126, 71, 198, 97, 1, 190, 93, 191, 7, 78, 69, 66, 120, 103, 101, 129, 110, 80, 4, 100, 61, 67, 111, 83, 72, 77, 90, 116, 106, 127, 76, 92, 122, 113, 102, 82, 70, 89, 115
+3, 74, 91, 62, 95, 109, 75, 99, 98, 86, 124, 107, 119, 114, 87, 118, 84, 64, 121, 104, 73, 79, 105, 60, 115, 85, 70, 82, 81, 122, 102, 76, 92, 77, 106, 72, 83, 111, 100, 67, 96, 113, 80, 110, 116, 94, 125, 101, 129, 61, 66, 120, 89, 78, 69, 27, 6, 93, 103, 90, 126, 123
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: ../data/SN_01.csv (230 pts, 2 dims)
+* Query: 0.527619 0.623827
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed points (filterd): 64 (166)
+* Points: 
+127, 90, 71, 97, 89, 61, 94, 103, 65, 68, 116, 129, 125, 113, 96, 108, 69, 81, 126, 102, 80, 117, 106, 104, 123, 82, 92, 78, 76, 122, 83, 67, 101, 73, 72, 93, 66, 70
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: ../data/SN_01.csv (230 pts, 2 dims)
+* Query: 0.155089 0.416092
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed points (filterd): 20 (210)
+* Points: 
+11, 22, 14, 25, 18, 19, 28, 29, 17, 27, 13, 21, 23, 12, 15, 24, 10, 16, 26
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: ../data/SN_01.csv (230 pts, 2 dims)
+* Query: 0.325844 0.540524
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed points (filterd): 20 (210)
+* Points: 
+28, 15, 12, 21, 20, 26, 13, 24, 11, 23
 
 
 

@@ -1,17 +1,30 @@
 #! /bin/bash
+cd $(dirname $0)
+
 EXE=../dnnhs;
 DATA_DIR=../data;
-DATA_INF_DIR=${DATA_DIR}/inf;
-LOG_DIR=log/time;
+TIME_LOG_DIR=log/time;
+SEARCH_LOG_DIR=log/search;
 EXETIME=exetime.sh
 
+TIME_LOG_FILE=${TIME_LOG_DIR}/test.txt;
+SEARCH_LOG_FILE=${SEARCH_LOG_DIR}/test.txt;
+
+mkdir -p ${TIME_LOG_DIR}
+mkdir -p ${SEARCH_LOG_DIR}
+: > ${TIME_LOG_FILE}
+: > ${SEARCH_LOG_FILE}
+
+# パラメータ
+# --------------------------------------------------
 METHOD=basic;
+DATA_FILE=${DATA_DIR}/SN_01.csv;
+SIZE=230;
+DIMS=2;
 ALPHA=2;
+EXE_NUM=5;
 
-mkdir -p ${LOG_DIR}
-LOG_FILE=test.txt;
-: > ${LOG_DIR}/${LOG_FILE}
-
-DATA=SN_01;
-CMD="${EXE} ${METHOD} ${DATA_DIR}/$(<${DATA_INF_DIR}/${DATA}) ${ALPHA}";
-./${EXETIME} "${CMD}" ${LOG_FILE} 3 &> ${LOG_DIR}/${LOG_FILE};
+# 実行
+# --------------------------------------------------
+CMD="${EXE} ${METHOD} ${DATA_FILE} ${SIZE} ${DIMS} ${ALPHA}";
+./${EXETIME} "${CMD}" ${SEARCH_LOG_FILE} ${EXE_NUM} &> ${TIME_LOG_FILE}

@@ -16,7 +16,9 @@ else
 	EXE_NUM=$3
 
 	: > ${LOG_FILE}
+	echo -e "$(date)\n" >> ${LOG_FILE}
 
+	echo -e "$(date)\n"
 	echo "Arguments:"
 	echo "* Command: ${CMD}"
 	echo "* Log file path: ${LOG_FILE}"
