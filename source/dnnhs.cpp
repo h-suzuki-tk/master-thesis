@@ -40,15 +40,14 @@ HS::DNNHS::Group::Group(
 
 Eigen::VectorXd& HS::DNNHS::Group::centroid() {
 
-    if (m_centroid.size() == 0) {
-        Eigen::VectorXd temp;
+	assert( size() > 0 );
+	Eigen::VectorXd temp;
 
-		temp = Eigen::VectorXd::Zero(ds().data().dims());
-        for (int id : m_ids) {
-            temp += ds().data(id);
-        }
-        m_centroid = temp / size();
-    }
+	temp = Eigen::VectorXd::Zero(ds().data().dims());
+	for (int id : m_ids) {
+		temp += ds().data(id);
+	}
+	m_centroid = temp / size();
 
     return m_centroid;
 }
@@ -62,11 +61,15 @@ double HS::DNNHS::Group::dist(const Eigen::VectorXd &v) {
 double HS::DNNHS::Group::sd() {
     double sd;
 
-    double temp = 0.0;
-    for (int id : m_ids) {
-        temp += (ds().data(id) - centroid()).squaredNorm();
-    }
-    sd = sqrt(temp / size());
+	if ( size() == 0 ) {
+		sd = __DBL_MAX__;
+	} else {
+		double temp = 0.0;
+		for (int id : m_ids) {
+			temp += (ds().data(id) - centroid()).squaredNorm();
+		}
+		sd = sqrt(temp / size());
+	}
 
     return sd;
 }
@@ -103,6 +106,21 @@ HS::DNNHS::ExpansionGroup::ExpansionGroup(
 
 HS::DNNHS::ExpansionGroup::~ExpansionGroup() {
 	delete m_metric;
+}
+
+
+HS::DNNHS::ExpansionGroup::ExpansionGroup(
+	const ExpansionGroup& ep_group) {
+
+	m_ds          = ep_group.m_ds;
+	m_ids         = ep_group.m_ids;
+	m_centroid    = ep_group.m_centroid;
+	m_delta       = ep_group.m_delta;
+	m_metric      = ExpansionMetric::create( ep_group.ds().expansionMetric(), this );
+	*m_metric     = *( ep_group.m_metric );
+	m_next_pt     = ep_group.m_next_pt;
+	m_epd         = ep_group.m_epd;
+
 }
 
 
@@ -300,34 +318,8 @@ HS::DNNHS::DNNHS::DNNHS(
 }
 
 
-int HS::DNNHS::DNNHS::findNN(
-	const Eigen::VectorXd& query,
-	std::vector<int>*      ids,
-	const bool             shouldDelete) {
-	
-	assert(!ids->empty());
-	
-	int    id_NN   = -1;
-	double dist_NN = __DBL_MAX__;
-	std::vector<int>::iterator itr_NN;
-
-	for (auto itr_id = ids->begin(); itr_id != ids->end(); ) {
-		double dist = ( m_data[*itr_id]-m_query ).norm();
-		if (dist < dist_NN) {
-			id_NN   = *itr_id;
-			dist_NN = dist;
-			itr_NN  = itr_id;
-		}
-		itr_id++;
-	}
-	if (shouldDelete) { ids->erase(itr_NN); }
-
-	return id_NN;
-}
-
-
 /** TODO: 三角不等式を用いた効率化 **/
-std::tuple<int, double> HS::DNNHS::DNNHS::newFindNN(
+std::tuple<int, double> HS::DNNHS::DNNHS::findNN(
 	const Eigen::VectorXd&  query, 
 	const std::vector<int>& pts) {
 
@@ -335,7 +327,7 @@ std::tuple<int, double> HS::DNNHS::DNNHS::newFindNN(
 	double nn_dist  = __DBL_MAX__;
 
 	for ( size_t i=0; i<pts.size(); ++i ) {
-		double d = ( data(i) - query ).norm();
+		double d = ( data( pts[i] ) - query ).norm();
 		if ( d < nn_dist ) {
 			nn_index = i;
 			nn_dist  = d;

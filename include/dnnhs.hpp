@@ -107,6 +107,7 @@ class ExpansionGroup : public Group {
 	ExpansionGroup(DNNHS* ds, const int core_pt);
 	~ExpansionGroup();
 
+	ExpansionGroup(const ExpansionGroup& ep_group);
 	ExpansionGroup &operator=(const ExpansionGroup& ep_group);
 
 	int    setNextPt(const int pt);
@@ -129,13 +130,13 @@ class ExpansionGroup : public Group {
 
 class DNNHS {
 
-	static constexpr int DIST_UNCALC = -1.0;
+	private: static constexpr int DIST_UNCALC        = -1.0;
+	public:  static constexpr int UPPER_CLUSTER_SIZE = 1000;
 
 	public:
 		DNNHS(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha);
 
-		int                     findNN     (const Eigen::VectorXd& query, std::vector<int>* ids, const bool shouldDelete = false);
-		std::tuple<int, double> newFindNN  (const Eigen::VectorXd& query, const std::vector<int>& pts);
+		std::tuple<int, double> findNN  (const Eigen::VectorXd& query, const std::vector<int>& pts);
 		void                    filterPts  (std::vector<int> *ids);
 		void                    updateBound(Group& group);
 
