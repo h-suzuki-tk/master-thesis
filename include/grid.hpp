@@ -57,9 +57,12 @@ class Grid : public DNNHS {
 		public:
 			Cells();
 			Cells(Grid* gds, const std::vector<std::vector<int>>& belongGrid);
+			
 			std::vector<int>&  pts(const std::vector<int>& index);
 			std::vector<Cell*> all(); 
-			double             side() const { return m_side; }
+			double             side()    const { return m_side; }
+
+			bool               isEmpty() const { return m_root == nullptr; }
 
 		private:
 			Grid*        m_gds;
@@ -68,23 +71,55 @@ class Grid : public DNNHS {
 			
 	};
 
+	class ExpansionCells {
+
+		static constexpr int DEFAULT_STAGE = 0;
+
+    	public:
+    		ExpansionCells( Grid* gds, const Eigen::VectorXd& core_pt );
+
+			void expand(); /** TODO: **/
+			/** TODO: void reset(); **/
+
+			double           gtdNNRange() const { return m_gtd_nn_range; }
+			Cells            cells()            { return m_cells; }
+			std::vector<int> pts()              { return m_pts; } /** TODO: **/
+
+		private:
+			Grid*            m_gds;
+			Eigen::VectorXd  m_core_pt;
+			std::vector<int> m_core_cell;
+			int              m_stage;
+			double           m_gtd_nn_range; /** TODO: **/
+			Cells            m_cells;
+			std::vector<int> m_pts;
+			Cells            m_buf_cells;
+
+	};
+
+	static constexpr int MIN_CLUSTER_SIZE = 2;
+
     public:
         Grid(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha, const int& gridSize, const std::vector<std::vector<int>>& belongGrid);
         int run();
 		
 		int    gridSize() const { return m_grid_size; }
 		Cells& cells()          { return m_cells; }
+		double cellSide() const { return m_cell_side; }
 
     protected:
 
     private:
-        Cells     m_cells;
-        const int m_grid_size;
+        Cells        m_cells;
+        const int    m_grid_size;
+		const double m_cell_side;
 		std::vector<int> m_lower_bound_cell_index;
 		std::vector<int> m_upper_bound_cell_index;
 
 		std::vector<int> belongCell(const Eigen::VectorXd& pt);
 		std::vector<int> expandCellPts(const std::vector<int>& coreCellIdx, const int stage);
+		Group            findGroup(const int core_pt);
+		void             updateBoundCellIdx(const double bound);
 };
 }
 

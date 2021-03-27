@@ -147,6 +147,33 @@ HS::DNNHS::Grid::Cells::Node::~Node() {
 }
 
 
+HS::DNNHS::Grid::ExpansionCells::ExpansionCells(
+	Grid*                  gds,
+	const Eigen::VectorXd& core_pt ) :
+	m_gds( gds ),
+	m_core_pt( core_pt ),
+	m_core_cell( gds->belongCell( core_pt ) ),
+	m_stage( DEFAULT_STAGE ),
+	m_gtd_nn_range( /** TODO: gds->cellSide() * ( 0.5 - ( 0.5 
+		- ( core_pt / gds->cellSide() ).array().modf() ).abs().max() )
+	**/ ),
+	m_cells(),
+	m_pts(),
+	m_buf_cells() {
+	
+
+}
+
+
+void HS::DNNHS::Grid::ExpansionCells::expand() {
+
+	std::cout << "ExpansionCells::expand" << std::endl;
+
+	/** TODO: **/
+
+}
+
+
 HS::DNNHS::Grid::Grid(
     const Eigen::MatrixXd&               data, 
 	const Eigen::VectorXd&               query, 
@@ -154,7 +181,8 @@ HS::DNNHS::Grid::Grid(
     const int&                           gridSize,
 	const std::vector<std::vector<int>>& belongGrid) : 
 	DNNHS(data, query, alpha),
-	m_grid_size(gridSize) {
+	m_grid_size(gridSize),
+	m_cell_side(1.0/gridSize) {
 
 	m_cells = Cells(this, belongGrid);
 	m_lower_bound_cell_index = std::vector<int>(dims(), 0);
@@ -164,45 +192,47 @@ HS::DNNHS::Grid::Grid(
 
 int HS::DNNHS::Grid::run() {
 
-	const double side = 1.0 / gridSize();
+	ExpansionCells   epcells( this, query() );
+	std::vector<int> pts;
+	
+	while ( !epcells.cells().isEmpty() ) {
 
-	const std::vector<int> query_belong_cell = belongCell(query());
-
-	//std::vector<int> pts = expandCellPts(query_belong_cell, 0);
-	/*
-	while (!pts.empty()) {
+		// pts のセット
+		HS::insert( pts, epcells.pts() ); /** TODO: ExpansionCells::pts **/
+		filterPts( &pts );
 
 		// pts をクエリに近い順にソート
-		// ***
+		std::sort(
+			pts.begin(), pts.end(), [&]( const int a, const int b ) {
+			return fromQueryDist( a ) < fromQueryDist( b );
+		} );
 
 		// 各点について処理
-		for (auto itr = pts.begin(); itr != pts.end(); ++itr) {
+		for (auto itr = pts.begin(); 
+			itr != pts.end() && pts.size() > MIN_CLUSTER_SIZE; ++itr) {
 
-			// NN であるか確認
-			//*** if () { break; }
+			// NN か判定
+			if ( fromQueryDist( *itr ) > epcells.gtdNNRange() ) { break; }
 			
 			// 所属グループを検索
-			groups().emplace_back(findGroup(
-				std::distance(pts.begin(), itr)
-			));
+			m_groups.emplace_back( findGroup( *itr ) ); /** TODO: findGroup **/
 
 			// 総合近似度を計算・フィルタリング
-			if (groups().back().delta() < result().delta()) {
+			if ( m_groups.back().delta() < m_result.delta() ) {
 				
-				//*** boundIdx も更新 ***
-				updateBound(groups().back());
-				result() = groups().back();
+				updateBound( m_groups.back() );
+				updateBoundCellIdx( m_bound ); /** TODO: updateBoundCellIdx  **/
+				m_result = m_groups.back();
 
-				filterPts(&pts);
+				filterPts( &pts );
 			}			
 
 		}
 
-		// 探索セルの拡大・pts の更新
-		//***
+		// 探索セルの拡大
+		epcells.expand(); /** TODO: ExpansionCells::expand **/
 
 	}
-	*/
 
 	return 0;
 }
@@ -407,4 +437,24 @@ std::vector<int> HS::DNNHS::Grid::expandCellPts(
 	}
 
 	return pts;
+}
+
+
+HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
+	const int core_pt ) {
+	
+	std::cout << "findGroup" << std::endl;
+
+	/** TODO: **/
+
+	return Group();
+}
+
+
+void HS::DNNHS::Grid::updateBoundCellIdx(
+	const double bound ) {
+
+	std::cout << "updateBoundCellIdx" << std::endl;
+
+	/** TODO: **/
 }
