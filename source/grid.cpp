@@ -154,23 +154,35 @@ HS::DNNHS::Grid::ExpansionCells::ExpansionCells(
 	m_core_pt( core_pt ),
 	m_core_cell( gds->belongCell( core_pt ) ),
 	m_stage( DEFAULT_STAGE ),
-	m_gtd_nn_range( /** TODO: gds->cellSide() * ( 0.5 - ( 0.5 
-		- ( core_pt / gds->cellSide() ).array().modf() ).abs().max() )
-	**/ ),
+	m_gtd_nn_range( 
+		gds->cellSide() * ( 0.5 - ( 0.5 - 
+		( core_pt / gds->cellSide() ).unaryExpr( []( const double a ) { 
+			return std::modf( a, nullptr ); 
+		} ).array() ).abs().maxCoeff() )
+	),
 	m_cells(),
-	m_pts(),
 	m_buf_cells() {
-	
-
 }
 
 
 void HS::DNNHS::Grid::ExpansionCells::expand() {
 
-	std::cout << "ExpansionCells::expand" << std::endl;
+	++m_stage;
+	m_gtd_nn_range += m_gds->cellSide();
+	/** TODO: m_cells = **/
 
-	/** TODO: **/
+}
 
+
+std::vector<int> HS::DNNHS::Grid::ExpansionCells::pts() {
+
+	std::vector<int> pts;
+
+	for ( auto* cell : m_cells.all() ) {
+		HS::insert( pts, cell->pts() );
+	}
+
+	return pts;
 }
 
 
@@ -198,7 +210,7 @@ int HS::DNNHS::Grid::run() {
 	while ( !epcells.cells().isEmpty() ) {
 
 		// pts のセット
-		HS::insert( pts, epcells.pts() ); /** TODO: ExpansionCells::pts **/
+		HS::insert( pts, epcells.pts() );
 		filterPts( &pts );
 
 		// pts をクエリに近い順にソート
@@ -221,7 +233,7 @@ int HS::DNNHS::Grid::run() {
 			if ( m_groups.back().delta() < m_result.delta() ) {
 				
 				updateBound( m_groups.back() );
-				updateBoundCellIdx( m_bound ); /** TODO: updateBoundCellIdx  **/
+				updateBoundCellIdx( m_bound );
 				m_result = m_groups.back();
 
 				filterPts( &pts );
@@ -454,7 +466,8 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 void HS::DNNHS::Grid::updateBoundCellIdx(
 	const double bound ) {
 
-	std::cout << "updateBoundCellIdx" << std::endl;
+	assert( bound >= 0.0 );
 
-	/** TODO: **/
+	m_lower_bound_cell_index = belongCell( query().array() - bound );
+	m_upper_bound_cell_index = belongCell( query().array() + bound );
 }

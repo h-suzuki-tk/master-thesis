@@ -83,16 +83,15 @@ class Grid : public DNNHS {
 
 			double           gtdNNRange() const { return m_gtd_nn_range; }
 			Cells            cells()            { return m_cells; }
-			std::vector<int> pts()              { return m_pts; } /** TODO: **/
+			std::vector<int> pts();
 
 		private:
 			Grid*            m_gds;
 			Eigen::VectorXd  m_core_pt;
 			std::vector<int> m_core_cell;
 			int              m_stage;
-			double           m_gtd_nn_range; /** TODO: **/
+			double           m_gtd_nn_range;
 			Cells            m_cells;
-			std::vector<int> m_pts;
 			Cells            m_buf_cells;
 
 	};
