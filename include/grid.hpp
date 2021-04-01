@@ -57,12 +57,15 @@ class Grid : public DNNHS {
 		public:
 			Cells();
 			Cells(Grid* gds, const std::vector<std::vector<int>>& belongGrid);
+			~Cells();
 			
-			std::vector<int>&  pts(const std::vector<int>& index);
+			Cell*              operator[](const std::vector<int>& idx);
 			std::vector<Cell*> all(); 
 			double             side()    const { return m_side; }
 
 			bool               isEmpty() const { return m_root == nullptr; }
+
+			void               remove(const std::vector<int>& idx);
 
 		private:
 			Grid*        m_gds;
@@ -78,33 +81,37 @@ class Grid : public DNNHS {
     	public:
     		ExpansionCells( Grid* gds, const Eigen::VectorXd& core_pt );
 
-			void expand(); /** TODO: **/
+			void expand();
 			/** TODO: void reset(); **/
 
-			double           gtdNNRange() const { return m_gtd_nn_range; }
-			Cells            cells()            { return m_cells; }
-			std::vector<int> pts();
+			double              gtdNNRange() const { return m_gtd_nn_range; }
+			std::vector<Cell*>& cells()            { return m_cells; }
+			std::vector<int>    pts();
 
 		private:
-			Grid*            m_gds;
-			Eigen::VectorXd  m_core_pt;
-			std::vector<int> m_core_cell;
-			int              m_stage;
-			double           m_gtd_nn_range;
-			Cells            m_cells;
-			Cells            m_buf_cells;
+			Grid*              m_gds;
+			Eigen::VectorXd    m_core_pt;
+			std::vector<int>   m_core_cell;
+			int                m_stage;
+			double             m_gtd_nn_range;
+			std::vector<Cell*> m_cells;
+			Cells              m_buf_cells;
+
+			std::vector<Cell*> expansionCells( const std::vector<int>& core_cell, const int stage, const std::vector<int>& lower_bound_cell_idx, const std::vector<int>& upper_bound_cell_idx );
 
 	};
 
 	static constexpr int MIN_CLUSTER_SIZE = 2;
+	
 
     public:
         Grid(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha, const int& gridSize, const std::vector<std::vector<int>>& belongGrid);
         int run();
 		
-		int    gridSize() const { return m_grid_size; }
-		Cells& cells()          { return m_cells; }
-		double cellSide() const { return m_cell_side; }
+		int    gridSize()                      const { return m_grid_size; }
+		Cells& cells   ()                            { return m_cells; }
+		Cell*  cell    (const std::vector<int>& idx) { return m_cells[idx]; }
+		double cellSide()                      const { return m_cell_side; }
 
     protected:
 
@@ -116,7 +123,7 @@ class Grid : public DNNHS {
 		std::vector<int> m_upper_bound_cell_index;
 
 		std::vector<int> belongCell(const Eigen::VectorXd& pt);
-		std::vector<int> expandCellPts(const std::vector<int>& coreCellIdx, const int stage);
+		std::vector<int> expandCellPts(const std::vector<int>& coreCellIdx, const int stage); /** TODO: いずれ消す **/
 		Group            findGroup(const int core_pt);
 		void             updateBoundCellIdx(const double bound);
 };
