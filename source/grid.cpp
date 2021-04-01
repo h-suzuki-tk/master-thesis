@@ -25,41 +25,14 @@ HS::DNNHS::Grid::Cells::Cells() :
 
 HS::DNNHS::Grid::Cells::Cells(
 	Grid*                                gds,
-	const std::vector<std::vector<int>>& belongGrid) :
+	const std::vector<std::vector<int>>& belongCell) :
 	m_gds (gds),
-	m_root(new Node()),
+	m_root(new Node( gds->gridSize() )),
 	m_side(1.0/gds->gridSize()) {
 
-	// セルの生成
-	std::queue<Node*> que;
-	que.push(m_root);
-	while (!que.empty()) {
-		
-		Node* nd = que.front();
-
-		if (nd->depth() < m_gds->dims()-1) {
-			for (int i=0; i<m_gds->gridSize(); ++i) {
-				nd->children().emplace_back(
-					HS::DNNHS::Grid::Cells::Node::Child(new Node(nd->entry(), i))
-				);
-				que.push(nd->child(i).node);
-			}
-
-		} else if (nd->depth() == m_gds->dims()-1) {
-			for (int i=0; i<m_gds->gridSize(); ++i) {
-				nd->children().emplace_back(
-					HS::DNNHS::Grid::Cells::Node::Child(new Cell(nd->entry(), i))
-				);
-			}
-
-		} else { assert(true); }
-
-		que.pop();
-	}
-
-	// データの所属情報をセルに格納
-	for (int i=0; i<m_gds->m_data.size(); i++) {
-		gds->cell(belongGrid[i])->pts().emplace_back(i);
+	// Make cells
+	for ( int id=0; id < m_gds->data().size(); ++id ) {
+		add( m_gds->belongCell( m_gds->data(id) ) ).pts().emplace_back(id);
 	}
 
 }
@@ -77,11 +50,11 @@ HS::DNNHS::Grid::Cell* HS::DNNHS::Grid::Cells::operator[](
 
 	Node* nd = m_root;
 	for (auto itr = idx.begin(); itr != idx.end()-1; ++itr) {
+		if ( nd->child(*itr).isNull() ) return nullptr;
 		nd = nd->child(*itr).node;
 	}
-	Cell* c = nd->child(idx.back()).cell;
 
-	return c;
+	return nd->child(idx.back()).cell;
 
 }
 
@@ -113,6 +86,35 @@ std::vector<HS::DNNHS::Grid::Cell*> HS::DNNHS::Grid::Cells::all() {
 }
 
 
+HS::DNNHS::Grid::Cell& HS::DNNHS::Grid::Cells::add( 
+	const std::vector<int>& idx ) {
+	/*
+	 * Params:
+	 *     idx: Index of the cell you want to add.
+	 * Return:
+	 *     Reference of the added Cell object.
+	 *     If it already exists, this function returns its reference. 
+	 */
+	
+	assert( idx.size() == m_gds->dims() );
+
+	Node* nd = m_root;
+	for ( auto itr = idx.begin(); itr != idx.end()-1; ++itr ) {
+
+		if ( nd->child(*itr).isNull() ) {
+			nd->child(*itr) = HS::DNNHS::Grid::Cells::Node::Child( new Node( m_gds->gridSize(), nd->entry(), *itr ) );
+		}
+		nd = nd->child(*itr).node;
+
+	}
+	if ( nd->child( idx.back() ).isNull() ) {
+		nd->child( idx.back() ) = HS::DNNHS::Grid::Cells::Node::Child( new Cell( nd->entry(), idx.back() ) );
+	}
+
+	return *( nd->child( idx.back() ).cell );
+}
+
+
 void HS::DNNHS::Grid::Cells::remove(
 	const std::vector<int>& idx ) {
 
@@ -130,13 +132,17 @@ void HS::DNNHS::Grid::Cells::remove(
 }
 
 
-HS::DNNHS::Grid::Cells::Node::Node() {
+HS::DNNHS::Grid::Cells::Node::Node(
+	const int grid_size ) :
+	m_children( std::vector<Child>( grid_size ) ) {
 }
 
 
 HS::DNNHS::Grid::Cells::Node::Node(
+	const int               grid_size,
 	const std::vector<int>& parent_entry,
-	const int&              index) {
+	const int&              index) :
+	m_children( std::vector<Child>( grid_size ) ) {
 
 	m_entry = parent_entry;
 	m_entry.emplace_back(index);
@@ -413,12 +419,12 @@ HS::DNNHS::Grid::Grid(
 	const Eigen::VectorXd&               query, 
 	const int&                           alpha,
     const int&                           gridSize,
-	const std::vector<std::vector<int>>& belongGrid) : 
+	const std::vector<std::vector<int>>& belongCell) : 
 	DNNHS(data, query, alpha),
 	m_grid_size(gridSize),
 	m_cell_side(1.0/gridSize) {
 
-	m_cells = Cells(this, belongGrid);
+	m_cells = Cells(this, belongCell);
 	m_lower_bound_cell_index = std::vector<int>(dims(), 0);
 	m_upper_bound_cell_index = std::vector<int>(dims(), gridSize-1);
 }

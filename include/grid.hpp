@@ -33,13 +33,16 @@ class Grid : public DNNHS {
 				Cell* cell;
 
 				public:
+					Child()           { this->node = nullptr; }
 					Child(Node* node) { this->node = node; }
 					Child(Cell* cell) { this->cell = cell; }
+
+					bool isNull() { return this->node == nullptr; };
 			};
 
 			public:
-				Node();
-				Node(const std::vector<int>& parent_entry,	const int& index);
+				Node( const int grid_size );
+				Node( const int grid_size, const std::vector<int>& parent_entry, const int& index);
 				~Node();
 
 				std::vector<int>&   entry   ()                 { return m_entry; }
@@ -56,7 +59,7 @@ class Grid : public DNNHS {
 
 		public:
 			Cells();
-			Cells(Grid* gds, const std::vector<std::vector<int>>& belongGrid);
+			Cells(Grid* gds, const std::vector<std::vector<int>>& belongCell);
 			~Cells();
 			
 			Cell*              operator[](const std::vector<int>& idx);
@@ -65,6 +68,7 @@ class Grid : public DNNHS {
 
 			bool               isEmpty() const { return m_root == nullptr; }
 
+			Cell&              add( const std::vector<int>& idx ); /** TODO: **/
 			void               remove(const std::vector<int>& idx);
 
 		private:
@@ -98,14 +102,13 @@ class Grid : public DNNHS {
 			Cells              m_buf_cells;
 
 			std::vector<Cell*> expansionCells( const std::vector<int>& core_cell, const int stage, const std::vector<int>& lower_bound_cell_idx, const std::vector<int>& upper_bound_cell_idx );
-
 	};
 
 	static constexpr int MIN_CLUSTER_SIZE = 2;
 	
 
     public:
-        Grid(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha, const int& gridSize, const std::vector<std::vector<int>>& belongGrid);
+        Grid(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha, const int& gridSize, const std::vector<std::vector<int>>& belongCell);
         int run();
 		
 		int    gridSize()                      const { return m_grid_size; }
