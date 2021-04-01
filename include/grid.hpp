@@ -86,11 +86,14 @@ class Grid : public DNNHS {
     		ExpansionCells( Grid* gds, const Eigen::VectorXd& core_pt );
 
 			void expand();
-			/** TODO: void reset(); **/
+			void reset(); /** TODO: **/
 
 			double              gtdNNRange() const { return m_gtd_nn_range; }
 			std::vector<Cell*>& cells()            { return m_cells; }
 			std::vector<int>    pts();
+			std::vector<int>    core()             { return m_core_cell; }
+
+			bool                isOverBound()      { return m_is_over_bound; }
 
 		private:
 			Grid*              m_gds;
@@ -100,6 +103,7 @@ class Grid : public DNNHS {
 			double             m_gtd_nn_range;
 			std::vector<Cell*> m_cells;
 			Cells              m_buf_cells;
+			bool               m_is_over_bound;
 
 			std::vector<Cell*> expansionCells( const std::vector<int>& core_cell, const int stage, const std::vector<int>& lower_bound_cell_idx, const std::vector<int>& upper_bound_cell_idx );
 	};

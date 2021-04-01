@@ -175,7 +175,8 @@ HS::DNNHS::Grid::ExpansionCells::ExpansionCells(
 		} ).array() ).abs().maxCoeff() )
 	),
 	m_cells(),
-	m_buf_cells() {
+	m_buf_cells(),
+	m_is_over_bound( false ) {
 }
 
 
@@ -189,6 +190,15 @@ void HS::DNNHS::Grid::ExpansionCells::expand() {
 		m_gds->m_lower_bound_cell_index, 
 		m_gds->m_upper_bound_cell_index 
 	);
+
+}
+
+
+void HS::DNNHS::Grid::ExpansionCells::reset() {
+
+	std::cout << "ExpansionCells::reset" << std::endl;
+
+	/** TODO: **/
 
 }
 
@@ -220,7 +230,7 @@ std::vector<HS::DNNHS::Grid::Cell*> HS::DNNHS::Grid::ExpansionCells::expansionCe
 		
 		} else if ( m_gds->cell( cell_idx ) != nullptr ) {
 
-			cells.emplace_back(  m_gds->cell( cell_idx ) );
+			cells.emplace_back( m_gds->cell( cell_idx ) );
 		
 		} else { assert(false); }
 
@@ -256,6 +266,11 @@ std::vector<HS::DNNHS::Grid::Cell*> HS::DNNHS::Grid::ExpansionCells::expansionCe
 		lower_idx[1][i] = l;
 		upper_idx[1][i] = u;
 	}
+
+	// 拡大停止か判定
+	int i;
+	for ( i=0; i < m_gds->dims(); ++i ) if ( crit_idx[i].size() > 0 ) break;
+	if ( i == m_gds->dims() ) m_is_over_bound = true;
 
 	std::vector<Cell*> cells;
 	std::vector<int>   cell_idx(m_gds->dims());
@@ -435,7 +450,7 @@ int HS::DNNHS::Grid::run() {
 	ExpansionCells   epcells( this, query() );
 	std::vector<int> pts;
 	
-	while ( !epcells.cells().empty() ) {
+	while ( !epcells.isOverBound() ) {
 
 		// pts のセット
 		HS::insert( pts, epcells.pts() );
@@ -470,7 +485,7 @@ int HS::DNNHS::Grid::run() {
 		}
 
 		// 探索セルの拡大
-		epcells.expand(); /** TODO: ExpansionCells::expand **/
+		epcells.expand();
 
 	}
 
@@ -493,11 +508,50 @@ std::vector<int> HS::DNNHS::Grid::belongCell(
 HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 	const int core_pt ) {
 	
-	std::cout << "findGroup" << std::endl;
+	ExpansionGroup   cur_group( this, core_pt );
+	ExpansionGroup   best_group = cur_group;
+	ExpansionCells   epcells( this, data( core_pt ) );
+	std::vector<int> pts;
+	bool             canExpand = true;
 
-	/** TODO: **/
+	while ( !epcells.isOverBound() ) {
 
-	return Group();
+		// pts の読み込み
+		HS::insert( pts, epcells.pts() );
+		filterPts( &pts );
+
+		// グループ拡大
+		while ( pts.size() > 0 ) {
+			
+			// 拡大停止の判定
+			if ( cur_group.size() < UPPER_CLUSTER_SIZE && cur_group.sd() <= m_result.sd() ) {
+				canExpand = false;
+				break;
+			} 
+		
+			// 拡大点を見つける
+			auto [ nn_idx, nn_dist ] = findNN( cur_group.centroid(), pts );
+			if ( fromQueryDist( pts[nn_idx] ) > epcells.gtdNNRange() ) break;
+			cur_group.setNextPt( pts[nn_idx] );
+
+			// 拡大指標の計算
+			if ( cur_group.epd() < best_group.epd() ) best_group = cur_group;
+
+			// 拡大
+			cur_group.expand();
+
+			// 更新
+			if ( belongCell( cur_group.centroid() ) != epcells.core() ) epcells.reset(); /** TODO: ExpansionCells::reset **/
+			pts.erase( pts.begin() + nn_idx );
+		}
+		if ( !canExpand ) break;
+
+		// 探索セル拡大
+		epcells.expand();
+
+	}
+
+	return best_group;
 }
 
 
