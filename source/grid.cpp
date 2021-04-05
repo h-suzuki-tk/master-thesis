@@ -16,11 +16,39 @@ HS::DNNHS::Grid::Cell::Cell(
 }
 
 
+bool HS::DNNHS::Grid::Cell::isIncluded( 
+	const std::vector<int>& lower_range, 
+	const std::vector<int>& upper_range ) {
+
+	assert( index().size() == lower_range.size()
+		&& index().size() == upper_range.size() 
+	);
+	
+	size_t i;
+	for ( i = 0; i < index().size(); ++i ) {
+		if ( index()[ i ] < lower_range[ i ] 
+			&& index()[ i ] > upper_range[ i ] ) break;
+	}
+
+	return ( i == index().size() ) ? true : false;
+
+}
+
+
 HS::DNNHS::Grid::Cells::Cells() :
 	m_gds(nullptr),
 	m_root(nullptr),
 	m_side(-__DBL_MAX__) {
 }
+
+
+HS::DNNHS::Grid::Cells::Cells(
+	Grid* gds ) :
+	m_gds(gds),
+	m_root(new Node( gds->gridSize() )),
+	m_side(1.0/gds->gridSize()) {
+}
+
 
 
 HS::DNNHS::Grid::Cells::Cells(
@@ -94,7 +122,7 @@ HS::DNNHS::Grid::Cell& HS::DNNHS::Grid::Cells::add(
 	 * Return:
 	 *     Reference of the added Cell object.
 	 *     If it already exists, this function returns its reference. 
-	 */
+	*/
 	
 	assert( idx.size() == m_gds->dims() );
 
@@ -132,6 +160,14 @@ void HS::DNNHS::Grid::Cells::remove(
 }
 
 
+void HS::DNNHS::Grid::Cells::clear() {
+
+	delete m_root;
+	m_root = new Node( side() );
+
+}
+
+
 HS::DNNHS::Grid::Cells::Node::Node(
 	const int grid_size ) :
 	m_children( std::vector<Child>( grid_size ) ) {
@@ -165,17 +201,13 @@ HS::DNNHS::Grid::ExpansionCells::ExpansionCells(
 	Grid*                  gds,
 	const Eigen::VectorXd& core_pt ) :
 	m_gds( gds ),
-	m_core_pt( core_pt ),
-	m_core_cell( gds->belongCell( core_pt ) ),
+	m_core( gds->belongCell( core_pt ) ),
 	m_stage( DEFAULT_STAGE ),
-	m_gtd_nn_range( 
-		gds->cellSide() * ( 0.5 - ( 0.5 - 
-		( core_pt / gds->cellSide() ).unaryExpr( []( const double a ) { 
-			return std::modf( a, nullptr ); 
-		} ).array() ).abs().maxCoeff() )
-	),
+	m_gtd_nn_range( gtdNNRange( core_pt, m_stage ) ),
 	m_cells(),
-	m_buf_cells(),
+	m_buf_cells( Cells( gds ) ),
+	m_buf_lower_range( std::vector<int>( gds->dims(), DEFAULT_RANGE ) ),
+	m_buf_upper_range( std::vector<int>( gds->dims(), DEFAULT_RANGE ) ),
 	m_is_over_bound( false ) {
 }
 
@@ -185,7 +217,7 @@ void HS::DNNHS::Grid::ExpansionCells::expand() {
 	++m_stage;
 	m_gtd_nn_range += m_gds->cellSide();
 	m_cells         = expansionCells( 
-		m_core_cell,
+		m_core,
 		m_stage, 
 		m_gds->m_lower_bound_cell_index, 
 		m_gds->m_upper_bound_cell_index 
@@ -194,11 +226,50 @@ void HS::DNNHS::Grid::ExpansionCells::expand() {
 }
 
 
-void HS::DNNHS::Grid::ExpansionCells::reset() {
+void HS::DNNHS::Grid::ExpansionCells::reset(
+	std::vector<int>*      unprocd_pts,
+	const Eigen::VectorXd& core_pt ) {
+	/*
+	 * Params:
+	 *     unprocd_pts: IDs of the unprocessed points.
+	 *     new_core_pt: ID of the new core point.
+	*/
 
-	std::cout << "ExpansionCells::reset" << std::endl;
+	std::vector<int> old_core  = m_core;
+	int              old_stage = m_stage;
 
-	/** TODO: **/
+	// コアセルの更新
+	m_core = m_gds->belongCell( core_pt );
+
+	// 拡大段階の更新
+	m_stage -=  HS::maxOffsetAbs( m_core, old_core );
+
+	// NN 保証距離の更新
+	m_gtd_nn_range = gtdNNRange( core_pt, m_stage );
+	if ( m_core == old_core ) return;
+	
+	// 一時セルをリセット
+	std::transform( old_core.begin(), old_core.end(), m_buf_lower_range.begin(), [&]( const int a ) { return a - old_stage; } );
+	std::transform( old_core.begin(), old_core.end(), m_buf_upper_range.begin(), [&]( const int a ) { return a + old_stage; } );
+	m_buf_cells.clear();
+
+	// 未処理点の振り分け
+	std::vector<int> lower_range;
+	std::vector<int> upper_range;
+	std::transform( m_core.begin(), m_core.end(), lower_range.begin(), [&]( const int a ) { return a - m_stage; } );
+	std::transform( m_core.begin(), m_core.end(), upper_range.begin(), [&]( const int a ) { return a + m_stage; } );
+
+	for ( auto itr = unprocd_pts->begin(); itr != unprocd_pts->end(); ) {
+
+		Cell& belong_cell = m_gds->belongCell( *itr );
+		
+		if ( belong_cell.isIncluded( lower_range, upper_range ) ) ++itr;
+		else {
+			m_buf_cells.add( belong_cell.index() ).pts().emplace_back( *itr );
+			itr = unprocd_pts->erase( itr );
+		}
+
+	}
 
 }
 
@@ -215,24 +286,39 @@ std::vector<int> HS::DNNHS::Grid::ExpansionCells::pts() {
 }
 
 
+double HS::DNNHS::Grid::ExpansionCells::gtdNNRange( 
+	const Eigen::VectorXd& core_pt, 
+	const int              stage ) {
+
+	return m_gds->cellSide() * ( 0.5 - ( 0.5 - 
+		( core_pt / m_gds->cellSide() ).unaryExpr( []( const double a ) { 
+			return std::modf( a, nullptr ); 
+		} ).array() ).abs().maxCoeff() ) + m_gds->cellSide() * stage;
+
+}
+
+
 std::vector<HS::DNNHS::Grid::Cell*> HS::DNNHS::Grid::ExpansionCells::expansionCells( 
 	const std::vector<int>& core_cell, 
 	const int               stage, 
 	const std::vector<int>& lower_bound_cell_idx, 
 	const std::vector<int>& upper_bound_cell_idx ) {
+	
+	/** TODO: Refactoring **/
 
 	auto addCell = [this]( std::vector<Cell*>& cells, const std::vector<int>& cell_idx ) {
 
-		if ( m_buf_cells[ cell_idx ] != nullptr &&
-			!m_buf_cells[ cell_idx ]->pts().empty() ) {
+		Cell* cell = m_gds->cell( cell_idx );
 
-			cells.emplace_back( m_buf_cells[ cell_idx ] );
-		
-		} else if ( m_gds->cell( cell_idx ) != nullptr ) {
+		if ( cell != nullptr ) {
+			if ( cell->isIncluded( this->m_buf_lower_range, this->m_buf_upper_range ) ) {
 
-			cells.emplace_back( m_gds->cell( cell_idx ) );
-		
-		} else { assert(false); }
+				Cell* buf_cell = m_buf_cells[ cell_idx ];
+				if ( buf_cell != nullptr ) cells.emplace_back( m_buf_cells[ cell_idx ] );
+			
+			} else cells.emplace_back( m_gds->cell( cell_idx ) );
+			
+		}
 
 	};
 
@@ -437,7 +523,8 @@ HS::DNNHS::Grid::Grid(
 	const std::vector<std::vector<int>>& belongCell) : 
 	DNNHS(data, query, alpha),
 	m_grid_size(gridSize),
-	m_cell_side(1.0/gridSize) {
+	m_cell_side(1.0/gridSize),
+	m_belong_cell(belongCell) {
 
 	m_cells = Cells(this, belongCell);
 	m_lower_bound_cell_index = std::vector<int>(dims(), 0);
@@ -470,7 +557,7 @@ int HS::DNNHS::Grid::run() {
 			if ( fromQueryDist( *itr ) > epcells.gtdNNRange() ) { break; }
 			
 			// 所属グループを検索
-			m_groups.emplace_back( findGroup( *itr ) ); /** TODO: findGroup **/
+			m_groups.emplace_back( findGroup( *itr ) );
 
 			// 総合近似度を計算・フィルタリング
 			if ( m_groups.back().delta() < m_result.delta() ) {
@@ -502,6 +589,15 @@ std::vector<int> HS::DNNHS::Grid::belongCell(
 		index_eigen.data() + index_eigen.size()
 	);
 
+}
+
+
+HS::DNNHS::Grid::Cell& HS::DNNHS::Grid::belongCell(
+	const int id) {
+
+	assert( 0 <= id && id < dims() );
+
+	return *( cell( m_belong_cell[id] ) );
 }
 
 
@@ -541,8 +637,9 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 			cur_group.expand();
 
 			// 更新
-			if ( belongCell( cur_group.centroid() ) != epcells.core() ) epcells.reset(); /** TODO: ExpansionCells::reset **/
 			pts.erase( pts.begin() + nn_idx );
+			epcells.reset( &pts, cur_group.centroid() );
+	
 		}
 		if ( !canExpand ) break;
 
