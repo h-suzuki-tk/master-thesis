@@ -140,7 +140,6 @@ class Grid : public DNNHS {
 
 		std::vector<int> belongCell(const Eigen::VectorXd& pt);
 		Cell&            belongCell(const int id);
-		std::vector<int> expandCellPts(const std::vector<int>& coreCellIdx, const int stage); /** TODO: いずれ消す **/
 		Group            findGroup(const int core_pt);
 		void             updateBoundCellIdx(const double bound);
 };
