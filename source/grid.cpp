@@ -60,7 +60,7 @@ HS::DNNHS::Grid::Cells::Cells(
 
 	// Make cells
 	for ( int id=0; id < m_gds->data().size(); ++id ) {
-		add( m_gds->belongCell( m_gds->data(id) ) ).pts().emplace_back(id);
+		add( belongCell[id] ).pts().emplace_back(id);
 	}
 
 }
@@ -79,10 +79,10 @@ HS::DNNHS::Grid::Cell* HS::DNNHS::Grid::Cells::operator[](
 	Node* nd = m_root;
 	for (auto itr = idx.begin(); itr != idx.end()-1; ++itr) {
 		if ( nd->child(*itr).isNull() ) return nullptr;
-		nd = nd->child(*itr).node;
+		nd = nd->child(*itr).ptr.node;
 	}
 
-	return nd->child(idx.back()).cell;
+	return nd->child(idx.back()).ptr.cell;
 
 }
 
@@ -99,11 +99,11 @@ std::vector<HS::DNNHS::Grid::Cell*> HS::DNNHS::Grid::Cells::all() {
 
 		if (nd->entry().size() < m_gds->m_data.dims()-1) {
 			for (int i=0; i<m_gds->m_grid_size; i++) {
-				que.push(nd->child(i).node);
+				que.push(nd->child(i).ptr.node);
 			}
 		} else if (nd->entry().size() == m_gds->m_data.dims()-1) {
 			for (int i=0; i<m_gds->m_grid_size; i++) {
-				cells.emplace_back(nd->child(i).cell);
+				cells.emplace_back(nd->child(i).ptr.cell);
 			}
 		} else { assert(true); }
 
@@ -132,14 +132,14 @@ HS::DNNHS::Grid::Cell& HS::DNNHS::Grid::Cells::add(
 		if ( nd->child(*itr).isNull() ) {
 			nd->child(*itr) = HS::DNNHS::Grid::Cells::Node::Child( new Node( m_gds->gridSize(), nd->entry(), *itr ) );
 		}
-		nd = nd->child(*itr).node;
+		nd = nd->child(*itr).ptr.node;
 
 	}
 	if ( nd->child( idx.back() ).isNull() ) {
 		nd->child( idx.back() ) = HS::DNNHS::Grid::Cells::Node::Child( new Cell( nd->entry(), idx.back() ) );
 	}
 
-	return *( nd->child( idx.back() ).cell );
+	return *( nd->child( idx.back() ).ptr.cell );
 }
 
 
@@ -150,12 +150,12 @@ void HS::DNNHS::Grid::Cells::remove(
 
 	Node* nd = m_root;
 	for (auto itr = idx.begin(); itr != idx.end()-1; ++itr) {
-		nd = nd->child(*itr).node;
+		nd = nd->child(*itr).ptr.node;
 	}
-	Cell* c = nd->child(idx.back()).cell;
+	Cell* c = nd->child(idx.back()).ptr.cell;
 	
 	delete c;
-	nd->child(idx.back()).cell = nullptr;
+	nd->child(idx.back()).ptr.cell = nullptr;
 
 }
 
@@ -188,10 +188,11 @@ HS::DNNHS::Grid::Cells::Node::Node(
 
 HS::DNNHS::Grid::Cells::Node::~Node() {
 	if (!m_children.empty()) {
-		for (auto child : m_children) {
-			if (child.node != nullptr) { delete child.node; }
-			else if (child.cell != nullptr) { delete child.cell; }
-			else { assert(true); }
+		for (Child child : m_children) {
+			if      ( child.isNull() ) continue;
+			else if ( child.type == Child::Type::Node ) delete child.ptr.node;
+			else if ( child.type == Child::Type::Cell ) delete child.ptr.cell;
+			else assert(true);
 		}
 	}
 }
@@ -201,7 +202,7 @@ HS::DNNHS::Grid::ExpansionCells::ExpansionCells(
 	Grid*                  gds,
 	const Eigen::VectorXd& core_pt ) :
 	m_gds( gds ),
-	m_core( gds->belongCell( core_pt ) ),
+	m_core( gds->belongCell( gds->cells(), core_pt ) ),
 	m_stage( DEFAULT_STAGE ),
 	m_gtd_nn_range( gtdNNRange( core_pt, m_stage ) ),
 	m_cells(),
@@ -239,7 +240,7 @@ void HS::DNNHS::Grid::ExpansionCells::reset(
 	int              old_stage = m_stage;
 
 	// コアセルの更新
-	m_core = m_gds->belongCell( core_pt );
+	m_core = m_gds->belongCell( m_gds->cells(), core_pt );
 
 	// 拡大段階の更新
 	m_stage -=  HS::maxOffsetAbs( m_core, old_core );
@@ -524,9 +525,9 @@ HS::DNNHS::Grid::Grid(
 	DNNHS(data, query, alpha),
 	m_grid_size(gridSize),
 	m_cell_side(1.0/gridSize),
-	m_belong_cell(belongCell) {
+	m_belong_cell(belongCell),
+	m_cells(Cells(this, belongCell)) {
 
-	m_cells = Cells(this, belongCell);
 	m_lower_bound_cell_index = std::vector<int>(dims(), 0);
 	m_upper_bound_cell_index = std::vector<int>(dims(), gridSize-1);
 }
@@ -581,14 +582,14 @@ int HS::DNNHS::Grid::run() {
 
 
 std::vector<int> HS::DNNHS::Grid::belongCell(
-	const Eigen::VectorXd& pt) {
-	
-	Eigen::VectorXi index_eigen = (pt / cells().side()).array().floor().cast<int>();
+	const Cells&           cells, 
+	const Eigen::VectorXd& pt ) {
+
+	Eigen::VectorXi index_eigen = (pt / cells.side()).array().floor().cast<int>();
 	return std::vector<int>(
 		index_eigen.data(), 
 		index_eigen.data() + index_eigen.size()
 	);
-
 }
 
 
@@ -657,6 +658,6 @@ void HS::DNNHS::Grid::updateBoundCellIdx(
 
 	assert( bound >= 0.0 );
 
-	m_lower_bound_cell_index = belongCell( query().array() - bound );
-	m_upper_bound_cell_index = belongCell( query().array() + bound );
+	m_lower_bound_cell_index = belongCell( cells(), query().array() - bound );
+	m_upper_bound_cell_index = belongCell( cells(), query().array() + bound );
 }

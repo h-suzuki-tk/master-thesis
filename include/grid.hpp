@@ -30,16 +30,21 @@ class Grid : public DNNHS {
 		class Node {
 
 			public:
-			union Child {
-				Node* node;
-				Cell* cell;
+			struct Child {
 
-				public:
-					Child()           { this->node = nullptr; }
-					Child(Node* node) { this->node = node; }
-					Child(Cell* cell) { this->cell = cell; }
+				enum class Type {	Unknown, Node, Cell };
 
-					bool isNull() { return this->node == nullptr; };
+				Type type;
+				union {
+					Node* node;
+					Cell* cell;
+				} ptr;
+
+				Child()           : type(Type::Unknown) { ptr.node = nullptr; }
+				Child(Node* node) : type(Type::Node)    { ptr.node = node; }
+				Child(Cell* cell) : type(Type::Cell)    { ptr.cell = cell; }
+
+				bool isNull() { return ptr.node == nullptr; };
 			};
 
 			public:
@@ -49,7 +54,7 @@ class Grid : public DNNHS {
 
 				std::vector<int>&   entry   ()                 { return m_entry; }
 				std::vector<Child>& children()                 { return m_children; }
-				union Child&        child   (const int& index) { return m_children[index]; }
+				struct Child&       child   (const int& index) { return m_children[index]; }
 				
 				int depth() { return m_entry.size(); }
 
@@ -84,8 +89,8 @@ class Grid : public DNNHS {
 
 	class ExpansionCells {
 
-		static constexpr int DEFAULT_STAGE = 0;
-		static constexpr int DEFAULT_RANGE = -1;
+		inline static constexpr int DEFAULT_STAGE = 0;
+		inline static constexpr int DEFAULT_RANGE = -1;
 
     	public:
     		ExpansionCells( Grid* gds, const Eigen::VectorXd& core_pt );
@@ -131,14 +136,14 @@ class Grid : public DNNHS {
     protected:
 
     private:
-        Cells                         m_cells;
         const int                     m_grid_size;
 		const double                  m_cell_side;
 		std::vector<std::vector<int>> m_belong_cell;
+		Cells                         m_cells;
 		std::vector<int>              m_lower_bound_cell_index;
 		std::vector<int>              m_upper_bound_cell_index;
 
-		std::vector<int> belongCell(const Eigen::VectorXd& pt);
+		std::vector<int> belongCell(const HS::DNNHS::Grid::Cells& cells, const Eigen::VectorXd& pt);
 		Cell&            belongCell(const int id);
 		Group            findGroup(const int core_pt);
 		void             updateBoundCellIdx(const double bound);
