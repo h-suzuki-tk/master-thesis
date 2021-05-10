@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cassert>
 #include <queue>
+#include <cmath>
 #include "data.hpp"
 #include "dnnhs.hpp"
 
@@ -90,7 +91,7 @@ class Grid : public DNNHS {
 	class ExpansionCells {
 
 		inline static constexpr int DEFAULT_STAGE = 0;
-		inline static constexpr int DEFAULT_RANGE = -1;
+		inline static constexpr int DEFAULT_BUF_RANGE = -1;
 
     	public:
     		ExpansionCells( Grid* gds, const Eigen::VectorXd& core_pt );
