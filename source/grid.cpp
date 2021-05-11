@@ -251,8 +251,12 @@ void HS::DNNHS::Grid::ExpansionCells::reset(
 	if ( m_core == old_core ) return;
 	
 	// 一時セルをリセット
-	std::transform( old_core.begin(), old_core.end(), m_buf_lower_range.begin(), [&]( const int a ) { return a - old_stage; } );
-	std::transform( old_core.begin(), old_core.end(), m_buf_upper_range.begin(), [&]( const int a ) { return a + old_stage; } );
+	std::transform( old_core.begin(), old_core.end(), m_buf_lower_range.begin(), [&]( const int a ) { 
+		return a - old_stage; 
+	} );
+	std::transform( old_core.begin(), old_core.end(), m_buf_upper_range.begin(), [&]( const int a ) { 
+		return a + old_stage; 
+	} );
 	m_buf_cells.clear();
 
 	// 未処理点の振り分け
@@ -635,7 +639,7 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 		while ( pts.size() > 0 ) {
 			
 			// 拡大停止の判定
-			if ( cur_group.size() >= UPPER_CLUSTER_SIZE && cur_group.sd() > m_result.sd() ) {
+			if ( cur_group.size() >= UPPER_CLUSTER_SIZE || cur_group.sd() > m_result.delta() ) {
 				canExpand = false;
 				break;
 			} 

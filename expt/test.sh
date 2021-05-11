@@ -18,11 +18,11 @@ mkdir -p ${SEARCH_LOG_DIR}
 # パラメータ
 # --------------------------------------------------
 METHOD=basic;
-DATA_FILE=${DATA_DIR}/SN_01.csv;
-SIZE=230;
+DATA_FILE=${DATA_DIR}/RN_100K_2KC.csv;
+SIZE=100000;
 DIMS=2;
 ALPHA=2;
-EXE_NUM=5;
+EXE_NUM=100;
 
 # 実行
 # --------------------------------------------------

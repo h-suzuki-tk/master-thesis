@@ -7,8 +7,8 @@ TIME_LOG_DIR=log/time;
 SEARCH_LOG_DIR=log/search;
 EXETIME=exetime.sh
 
-TIME_LOG_FILE=${TIME_LOG_DIR}/test.txt;
-SEARCH_LOG_FILE=${SEARCH_LOG_DIR}/test.txt;
+TIME_LOG_FILE=${TIME_LOG_DIR}/test-grid.txt;
+SEARCH_LOG_FILE=${SEARCH_LOG_DIR}/test-grid.txt;
 
 mkdir -p ${TIME_LOG_DIR}
 mkdir -p ${SEARCH_LOG_DIR}
@@ -18,13 +18,13 @@ mkdir -p ${SEARCH_LOG_DIR}
 # パラメータ
 # --------------------------------------------------
 METHOD=grid;
-DATA_FILE=${DATA_DIR}/SN_01.csv;
-SIZE=230;
+DATA_FILE=${DATA_DIR}/RN_100K_2KC.csv;
+SIZE=100000;
 DIMS=2;
 ALPHA=2;
-GRID_DATA_FILE=${DATA_DIR}/SN_01_g10.csv;
-GRID_SIZE=10;
-EXE_NUM=5;
+GRID_DATA_FILE=${DATA_DIR}/RN_100K_2KC_g100.csv;
+GRID_SIZE=100;
+EXE_NUM=100;
 
 # 実行
 # --------------------------------------------------

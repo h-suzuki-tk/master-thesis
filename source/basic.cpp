@@ -76,7 +76,7 @@ HS::DNNHS::Group HS::DNNHS::Basic::findGroup(
 
 	while ( pts.size() > 0 
 		&& cur_group.size() < UPPER_CLUSTER_SIZE
-		&& cur_group.sd() <= m_result.sd() ) {
+		&& cur_group.sd() <= m_result.delta() ) {
 
 		// 拡大点を見つける
 		auto [nn_idx, nn_dist] = findNN( cur_group.centroid(), pts );
