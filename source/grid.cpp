@@ -205,7 +205,7 @@ HS::DNNHS::Grid::ExpansionCells::ExpansionCells(
 	m_stage( DEFAULT_STAGE ),
 	m_gtd_nn_range( gtdNNRange( core_pt, m_stage ) ),
 	m_cells(),
-	m_buf_cells( Cells( gds ) ),
+	m_buf_cells( gds ),
 	m_buf_lower_range( std::vector<int>( gds->dims(), DEFAULT_BUF_RANGE ) ),
 	m_buf_upper_range( std::vector<int>( gds->dims(), DEFAULT_BUF_RANGE ) ),
 	m_is_over_bound( false ) {
@@ -252,18 +252,22 @@ void HS::DNNHS::Grid::ExpansionCells::reset(
 	
 	// 一時セルをリセット
 	std::transform( old_core.begin(), old_core.end(), m_buf_lower_range.begin(), [&]( const int a ) { 
-		return a - old_stage; 
+		return ( a - old_stage ) < 0 ? 0 : ( a - old_stage ); 
 	} );
 	std::transform( old_core.begin(), old_core.end(), m_buf_upper_range.begin(), [&]( const int a ) { 
-		return a + old_stage; 
+		return ( a + old_stage ) > ( m_gds->gridSize() - 1 ) ? ( m_gds->gridSize() - 1 ) : ( a + old_stage ); 
 	} );
 	m_buf_cells.clear();
 
 	// 未処理点の振り分け
 	std::vector<int> lower_range( m_gds->dims() );
 	std::vector<int> upper_range( m_gds->dims() );
-	std::transform( m_core.begin(), m_core.end(), lower_range.begin(), [&]( const int a ) { return a - m_stage; } );
-	std::transform( m_core.begin(), m_core.end(), upper_range.begin(), [&]( const int a ) { return a + m_stage; } );
+	std::transform( m_core.begin(), m_core.end(), lower_range.begin(), [&]( const int a ) { 
+		return ( a - m_stage ) < 0 ? 0 : ( a - m_stage ); 
+	} );
+	std::transform( m_core.begin(), m_core.end(), upper_range.begin(), [&]( const int a ) { 
+		return ( a + m_stage ) > ( m_gds->gridSize() - 1 ) ? ( m_gds->gridSize() - 1 ) : ( a + m_stage ); 
+	} );
 
 	for ( auto itr = unprocd_pts->begin(); itr != unprocd_pts->end(); ) {
 
@@ -533,7 +537,7 @@ HS::DNNHS::Grid::Grid(
 	m_grid_size(gridSize),
 	m_cell_side(1.0/gridSize),
 	m_belong_cell(belongCell),
-	m_cells(Cells(this, belongCell)) {
+	m_cells( this, belongCell ) {
 
 	m_lower_bound_cell_index = std::vector<int>(dims(), 0);
 	m_upper_bound_cell_index = std::vector<int>(dims(), gridSize-1);
@@ -680,4 +684,13 @@ void HS::DNNHS::Grid::updateBoundCellIdx(
 
 	m_lower_bound_cell_index = belongCell( cells(), query().array() - bound );
 	m_upper_bound_cell_index = belongCell( cells(), query().array() + bound );
+	
+	std::transform( m_lower_bound_cell_index.begin(), m_lower_bound_cell_index.end(),
+		m_lower_bound_cell_index.begin(), [&]( const int a ) {
+			return a < 0 ? 0 : a;
+	} );
+	std::transform( m_upper_bound_cell_index.begin(), m_upper_bound_cell_index.end(),
+		m_upper_bound_cell_index.begin(), [&]( const int a ) {
+			return a > ( gridSize() - 1 ) ? ( gridSize() - 1 ) : a;
+	} );
 }

@@ -70,6 +70,8 @@ class Grid : public DNNHS {
 			Cells(Grid* gds);
 			Cells(Grid* gds, const std::vector<std::vector<int>>& belongCell);
 			~Cells();
+			Cells(const Cells&)            = delete;
+			Cells& operator=(const Cells&) = delete;
 			
 			Cell*              operator[](const std::vector<int>& idx);
 			std::vector<Cell*> all(); 
