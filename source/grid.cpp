@@ -632,8 +632,6 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 	ExpansionCells   epcells( this, data( core_pt ) );
 	std::vector<int> pts;
 	bool             canExpand = true;
-	double           prev_sd   = cur_group.sd();
-	double           d_sd_max  = __DBL_MAX__;
 	
 	// 初期化
 	HS::insert( pts, epcells.pts() );
@@ -652,13 +650,9 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 			cur_group.setNextPt( pts[nn_idx] );
 
 			// 拡大指標の計算
-			if ( cur_group.epd() < best_group.epd() ) best_group = cur_group;
-
-			// 拡大停止判定
-			if ( cur_group.size() >= UPPER_CLUSTER_SIZE 
-				|| cur_group.sd() > m_result.delta()
-				|| nn_dist > alpha() * cur_group.sd() + d_sd_max
-			) { canExpand = false; break; }
+			if ( cur_group.epd() < best_group.epd()
+				&& cur_group.size() >= LOWER_CLUSTER_SIZE
+			) best_group = cur_group;
 
 			// 拡大
 			pts.erase( pts.begin() + nn_idx );
@@ -667,11 +661,13 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 
 			// 更新
 			epcells.reset( &pts, cur_group.centroid() );
-			if ( d_sd_max == __DBL_MAX__
-				|| cur_group.sd()-prev_sd > d_sd_max
-			) d_sd_max = cur_group.sd() - prev_sd;
-			prev_sd = cur_group.sd();
-			
+
+			// 拡大停止判定
+			if ( cur_group.sd() > m_result.delta()
+				|| cur_group.size() >= UPPER_CLUSTER_SIZE
+				|| ( cur_group.size() >= LOWER_CLUSTER_SIZE
+					&&  nn_dist > alpha() * cur_group.sd() )
+			) { canExpand = false; break; }
 	
 		}
 		if ( !canExpand ) break;

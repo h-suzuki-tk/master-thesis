@@ -130,8 +130,10 @@ class ExpansionGroup : public Group {
 
 class DNNHS {
 
-	private: static constexpr int DIST_UNCALC        = -1.0;
-	public:  static constexpr int UPPER_CLUSTER_SIZE = 1000;
+	private: static constexpr int DIST_UNCALC = -1.0;
+	public:
+		static constexpr int LOWER_CLUSTER_SIZE = 10;  
+		static constexpr int UPPER_CLUSTER_SIZE = 100;
 
 	public:
 		DNNHS(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha);

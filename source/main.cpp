@@ -155,7 +155,7 @@ void runGridSearch(
 	std::cout << "* Expansion count (total: " << std::accumulate( dsg.epCount().begin(), dsg.epCount().end(), 0 )  << "): \n";
 	HS::printVector(dsg.epCount());
 	std::cout << std::endl;
-	std::cout << "* DNNH: " << std::endl;
+	std::cout << "* DNNH (" << dsg.result().size() << " pts): " << std::endl;
 	HS::printVector(dsg.result().ids());
 	std::cout << std::endl;
 }
