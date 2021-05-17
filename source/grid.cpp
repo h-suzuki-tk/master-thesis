@@ -537,7 +537,8 @@ HS::DNNHS::Grid::Grid(
 	m_grid_size(gridSize),
 	m_cell_side(1.0/gridSize),
 	m_belong_cell(belongCell),
-	m_cells( this, belongCell ) {
+	m_cells( this, belongCell ),
+	m_ep_count( ) {
 
 	m_lower_bound_cell_index = std::vector<int>(dims(), 0);
 	m_upper_bound_cell_index = std::vector<int>(dims(), gridSize-1);
@@ -569,6 +570,7 @@ int HS::DNNHS::Grid::run() {
 			if ( fromQueryDist( *itr ) > epcells.gtdNNRange() ) { break; }
 			
 			// 所属グループを検索
+			m_ep_count.emplace_back(0);
 			m_groups.emplace_back( findGroup( *itr ) );
 
 			// 発見グループの所属点を全体から削除
@@ -630,6 +632,8 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 	ExpansionCells   epcells( this, data( core_pt ) );
 	std::vector<int> pts;
 	bool             canExpand = true;
+	double           prev_sd   = cur_group.sd();
+	double           d_sd_max  = __DBL_MAX__;
 	
 	// 初期化
 	HS::insert( pts, epcells.pts() );
@@ -641,12 +645,6 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 
 		// グループ拡大
 		while ( pts.size() > 0 ) {
-			
-			// 拡大停止の判定
-			if ( cur_group.size() >= UPPER_CLUSTER_SIZE || cur_group.sd() > m_result.delta() ) {
-				canExpand = false;
-				break;
-			} 
 		
 			// 拡大点を見つける
 			auto [ nn_idx, nn_dist ] = findNN( cur_group.centroid(), pts );
@@ -656,12 +654,24 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 			// 拡大指標の計算
 			if ( cur_group.epd() < best_group.epd() ) best_group = cur_group;
 
+			// 拡大停止判定
+			if ( cur_group.size() >= UPPER_CLUSTER_SIZE 
+				|| cur_group.sd() > m_result.delta()
+				|| nn_dist > alpha() * cur_group.sd() + d_sd_max
+			) { canExpand = false; break; }
+
 			// 拡大
+			pts.erase( pts.begin() + nn_idx );
 			cur_group.expand();
+			++m_ep_count.back();
 
 			// 更新
-			pts.erase( pts.begin() + nn_idx );
 			epcells.reset( &pts, cur_group.centroid() );
+			if ( d_sd_max == __DBL_MAX__
+				|| cur_group.sd()-prev_sd > d_sd_max
+			) d_sd_max = cur_group.sd() - prev_sd;
+			prev_sd = cur_group.sd();
+			
 	
 		}
 		if ( !canExpand ) break;

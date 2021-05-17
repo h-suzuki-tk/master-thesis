@@ -131,10 +131,12 @@ class Grid : public DNNHS {
         Grid(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const int& alpha, const int& gridSize, const std::vector<std::vector<int>>& belongCell);
         int run();
 		
-		int    gridSize()                      const { return m_grid_size; }
-		Cells& cells   ()                            { return m_cells; }
-		Cell*  cell    (const std::vector<int>& idx) { return m_cells[idx]; }
-		double cellSide()                      const { return m_cell_side; }
+		int               gridSize()                      const { return m_grid_size; }
+		Cells&            cells   ()                            { return m_cells; }
+		Cell*             cell    (const std::vector<int>& idx) { return m_cells[idx]; }
+		double            cellSide()                      const { return m_cell_side; }
+		double            alpha   ()                      const { return m_alpha; }
+		std::vector<int>& epCount ()                            { return m_ep_count; }         
 
     protected:
 
@@ -145,6 +147,7 @@ class Grid : public DNNHS {
 		Cells                         m_cells;
 		std::vector<int>              m_lower_bound_cell_index;
 		std::vector<int>              m_upper_bound_cell_index;
+		std::vector<int>              m_ep_count;
 
 		std::vector<int> belongCell(const HS::DNNHS::Grid::Cells& cells, const Eigen::VectorXd& pt);
 		Cell&            belongCell(const int id);
