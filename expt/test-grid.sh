@@ -1,17 +1,32 @@
-#!/bin/bash
-CMD=../dnnhs;
+#! /bin/bash
+cd $(dirname $0)
+
+EXE=../dnnhs;
 DATA_DIR=../data;
+TIME_LOG_DIR=log/time;
+SEARCH_LOG_DIR=log/search;
+EXETIME=exetime.sh
 
-DATA_FILE_NAME=SN_01;
-DATA_SIZE=230;
-DATA_DIMS=2;
-DATA_PATH=${DATA_DIR}/${DATA_FILE_NAME}.csv;
+TIME_LOG_FILE=${TIME_LOG_DIR}/test-grid.txt;
+SEARCH_LOG_FILE=${SEARCH_LOG_DIR}/test-grid.txt;
 
-GRID_SIZE=10;
-GRID_DATA_PATH=${DATA_DIR}/${DATA_FILE_NAME}_g${GRID_SIZE}.csv;
+mkdir -p ${TIME_LOG_DIR}
+mkdir -p ${SEARCH_LOG_DIR}
+: > ${TIME_LOG_FILE}
+: > ${SEARCH_LOG_FILE}
 
+# パラメータ
+# --------------------------------------------------
+METHOD=grid;
+DATA_FILE=${DATA_DIR}/RN_100K_2KC.csv;
+SIZE=100000;
+DIMS=2;
 ALPHA=2;
+GRID_DATA_FILE=${DATA_DIR}/RN_100K_2KC_g100.csv;
+GRID_SIZE=100;
+EXE_NUM=100;
 
-set -x
-${CMD} grid ${DATA_PATH} ${DATA_SIZE} ${DATA_DIMS} ${ALPHA} ${GRID_DATA_PATH} ${GRID_SIZE}
-set +x
+# 実行
+# --------------------------------------------------
+CMD="${EXE} ${METHOD} ${DATA_FILE} ${SIZE} ${DIMS} ${ALPHA} ${GRID_DATA_FILE} ${GRID_SIZE}";
+./${EXETIME} "${CMD}" ${SEARCH_LOG_FILE} ${EXE_NUM} &> ${TIME_LOG_FILE}

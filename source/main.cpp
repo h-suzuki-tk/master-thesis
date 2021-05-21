@@ -151,11 +151,13 @@ void runGridSearch(
 	std::cout << "Ended grid DNNH search." << std::endl << std::endl;
 
 	// 出力
-	/*
 	std::cout << "Result:" << std::endl;
-	HS::printVector(dsg.result());
+	std::cout << "* Expansion count (total: " << std::accumulate( dsg.epCount().begin(), dsg.epCount().end(), 0 )  << "): \n";
+	HS::printVector(dsg.epCount());
 	std::cout << std::endl;
-	*/
+	std::cout << "* DNNH (" << dsg.result().size() << " pts): " << std::endl;
+	HS::printVector(dsg.result().ids());
+	std::cout << std::endl;
 }
 
 

@@ -34,6 +34,7 @@ void cvToEigenVec(cv::Mat cvVec, Eigen::VectorXd& eigenVec);
 Eigen::VectorXd randomVector(const int n_dim, const double min = 0.0, const double max = 1.0);
 template <class T> void insert(std::vector<T>& intoVec, const std::vector<T>& vec);
 bool combInc(std::vector<int>& comb, const std::vector<int>& lower, const std::vector<int>& upper);
+template <class T> T maxOffsetAbs(const std::vector<T>& vec1, const std::vector<T>& vec2);
 
 void showClusSet(std::vector<std::vector<int>> clusSet);
 template <class T> void printVector(const std::vector<T>& vec);
@@ -55,6 +56,20 @@ void HS::printVector(const std::vector<T>& vec) {
 		std::cout << *itr;
 		while (++itr != vec.end()) { std::cout << ", " << *itr; }
 	} else { }
+}
+
+
+template <class T>
+T HS::maxOffsetAbs(const std::vector<T>& vec1, const std::vector<T>& vec2) {
+
+	assert( vec1.size() == vec2.size() );
+
+	std::vector<T> offset( vec1.size() );
+	std::transform( vec1.begin(), vec1.end(), vec2.begin(), offset.begin(),
+		[]( const auto& a, const auto& b ) { return std::abs( a - b ); }
+	);
+
+	return *std::max_element( offset.begin(), offset.end() );
 }
 
 
