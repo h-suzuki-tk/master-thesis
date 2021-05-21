@@ -1,0 +1,30 @@
+#! /bin/bash
+cd $(dirname $0)
+
+EXE=../../dnnhs;
+DATA_DIR=../../data/test;
+TIME_LOG_DIR=../log/test/time;
+SEARCH_LOG_DIR=../log/test/search;
+EXETIME=../exetime.sh
+
+TIME_LOG_FILE=${TIME_LOG_DIR}/basic.txt;
+SEARCH_LOG_FILE=${SEARCH_LOG_DIR}/basic.txt;
+
+mkdir -p ${TIME_LOG_DIR}
+mkdir -p ${SEARCH_LOG_DIR}
+: > ${TIME_LOG_FILE}
+: > ${SEARCH_LOG_FILE}
+
+# パラメータ
+# --------------------------------------------------
+METHOD=basic;
+DATA_FILE=${DATA_DIR}/RN_100K_2KC.csv;
+SIZE=100000;
+DIMS=2;
+ALPHA=2;
+EXE_NUM=100;
+
+# 実行
+# --------------------------------------------------
+CMD="${EXE} ${METHOD} ${DATA_FILE} ${SIZE} ${DIMS} ${ALPHA}";
+./${EXETIME} "${CMD}" ${SEARCH_LOG_FILE} ${EXE_NUM} &> ${TIME_LOG_FILE}
