@@ -74,18 +74,16 @@ HS::DNNHS::Group HS::DNNHS::Basic::findGroup(
 
 	pts.erase( pts.begin() + core_idx );
 
-	while ( pts.size() > 0 
-		&& cur_group.size() < UPPER_CLUSTER_SIZE
-		&& cur_group.sd() <= m_result.delta() ) {
+	while ( pts.size() > 0 ) {
 
 		// 拡大点を見つける
 		auto [nn_idx, nn_dist] = findNN( cur_group.centroid(), pts );
 		cur_group.setNextPt( pts[nn_idx] );
 	
 		// 拡大指標の計算
-		if ( cur_group.epd() < best_group.epd() ) {
-			best_group = cur_group;
-		}
+		if ( cur_group.epd() < best_group.epd() 
+			&& cur_group.size() >= LOWER_CLUSTER_SIZE
+		) best_group = cur_group;
 
 		// 拡大
 		cur_group.expand();
@@ -93,6 +91,12 @@ HS::DNNHS::Group HS::DNNHS::Basic::findGroup(
 		// 更新
 		pts.erase( pts.begin() + nn_idx );
 
+		// 拡大停止判定
+		if ( cur_group.sd() > m_result.delta()
+			|| cur_group.size() >= UPPER_CLUSTER_SIZE
+			|| ( cur_group.size() >= LOWER_CLUSTER_SIZE
+				&&  nn_dist > alpha() * cur_group.sd() )
+		) { break; }
 	}
 
 	return best_group;

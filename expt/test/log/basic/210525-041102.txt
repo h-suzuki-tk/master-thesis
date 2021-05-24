@@ -1,0 +1,23 @@
+Date:           Tue May 25 04:11:02 JST 2021
+Machine:        DESKTOP-TEQI229
+Method:         basic
+Execusion time: 10
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv 230 2 2
+* Log file path: log/basic/210525-041102/SN_01.txt
+* Execution time: 10
+
+real	0m0.432s
+user	0m0.141s
+sys	0m0.250s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/master-thesis/data/test/RN_100K_2KC.csv 100000 2 2
+* Log file path: log/basic/210525-041102/RN_100K_2KC.txt
+* Execution time: 10
+
+real	0m5.253s
+user	0m4.828s
+sys	0m0.297s
+

@@ -135,7 +135,6 @@ class Grid : public DNNHS {
 		Cells&            cells   ()                            { return m_cells; }
 		Cell*             cell    (const std::vector<int>& idx) { return m_cells[idx]; }
 		double            cellSide()                      const { return m_cell_side; }
-		double            alpha   ()                      const { return m_alpha; }
 		std::vector<int>& epCount ()                            { return m_ep_count; }         
 
     protected:

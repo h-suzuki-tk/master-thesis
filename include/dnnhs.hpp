@@ -147,6 +147,7 @@ class DNNHS {
 		Eigen::VectorXd         data(const int& id) { return m_data[id]; }
 		Eigen::VectorXd&        query()             { return m_query; }
 		int                     dims() const        { return m_data.dims(); }
+		double                  alpha()       const { return m_alpha; }
 		std::vector<Group>&     groups()            { return m_groups; }      
 		Group&                  result()            { return m_result; }
 

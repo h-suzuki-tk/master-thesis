@@ -11,3 +11,4 @@ init ${METHOD} ${EXE_NUM}
 
 # 実行
 testRun SN_01 230 2 2
+testRun RN_100K_2KC 100000 2 2
