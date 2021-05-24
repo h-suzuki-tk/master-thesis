@@ -1,0 +1,152 @@
+Mon May 24 22:21:20 JST 2021
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_500P_100K_1S.csv (100000 pts, 2 dims)
+* Query: 0.102092 0.804526
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (99998)
+* DNNH: 
+13069, 13353, 13426, 13408, 13279, 13304, 13174, 13084, 13001, 13070, 13088, 13223, 13283, 13325, 13464, 13161, 13394, 13033, 13409, 13349, 13129, 13166, 13497, 13355, 13423, 13065, 13093, 13431, 13062, 13308, 13441, 13314, 13260
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_500P_100K_1S.csv (100000 pts, 2 dims)
+* Query: 0.195995   0.9249
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 3 (99997)
+* DNNH: 
+29039, 29158
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_500P_100K_1S.csv (100000 pts, 2 dims)
+* Query: 0.548446 0.191261
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 3 (99997)
+* DNNH: 
+61829, 61627, 61601, 61858, 61810, 61631, 61826, 61793, 61802, 61828, 61799, 61549, 61811, 61772, 61645, 61738, 61712, 61692, 61899, 61956, 61825, 61849, 61501, 61932, 61756, 61570, 61939, 61973, 61861, 61696, 61746, 61676, 61734, 61952, 61536, 61889, 61986, 61597, 61743, 61578, 61925, 61775, 61933, 61873, 61637, 61633, 61965, 61713
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_500P_100K_1S.csv (100000 pts, 2 dims)
+* Query: 0.784276 0.525283
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+86425, 86327
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_500P_100K_1S.csv (100000 pts, 2 dims)
+* Query:  0.82857 0.661707
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 3 (99997)
+* DNNH: 
+94624, 94856, 94851, 94594, 94671, 94775
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_500P_100K_1S.csv (100000 pts, 2 dims)
+* Query:   0.14046 0.0906528
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+15672, 15638, 15563, 15717
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_500P_100K_1S.csv (100000 pts, 2 dims)
+* Query:   0.415677 0.00695137
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+45099, 45324
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_500P_100K_1S.csv (100000 pts, 2 dims)
+* Query: 0.182011 0.934173
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (99998)
+* DNNH: 
+21791, 21891, 21588, 21888, 21871
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_500P_100K_1S.csv (100000 pts, 2 dims)
+* Query: 0.971764 0.180012
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 21 (99979)
+* DNNH: 
+98754, 98858
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_500P_100K_1S.csv (100000 pts, 2 dims)
+* Query: 0.824862 0.477246
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (99998)
+* DNNH: 
+93704, 93858, 93956, 93893, 93744, 93781, 93630, 93937, 93843, 93718, 93569, 93853, 93821, 93778, 93518, 93815, 93582, 93725, 93736, 93906, 93828, 93741, 93641, 93692, 93620, 93954, 93862, 93525, 93988, 93994, 93512, 93993, 93645, 93544, 93628, 93770, 93529, 93867, 93602, 93961
+
+
+

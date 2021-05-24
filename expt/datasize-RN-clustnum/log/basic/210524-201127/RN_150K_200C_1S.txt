@@ -1,0 +1,152 @@
+Mon May 24 20:11:35 JST 2021
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_150K_200C_1S.csv (150000 pts, 2 dims)
+* Query: 0.676444 0.317253
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 5 (149995)
+* DNNH: 
+115991, 115796, 115739, 115903, 115912, 116195
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_150K_200C_1S.csv (150000 pts, 2 dims)
+* Query: 0.333411 0.504946
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (149998)
+* DNNH: 
+61619, 62091, 61754, 61870, 62060, 62245, 61762, 61814, 61616, 61650, 61966, 61866, 61501, 62020, 61689, 61502, 62182, 61716, 61872, 61503, 61961, 61519, 62163, 62175, 61696, 61625, 61938, 61995, 61697, 61940, 62235, 62077, 61913, 61524, 62103, 61675, 62090, 61936, 61848, 62227, 61653, 61784, 62002, 62031, 61996, 61692, 61911, 61822, 61910, 61819, 61977, 61683, 61847, 61950, 61537, 61567, 62140, 62189, 61781, 61880, 61886, 61645, 61793
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_150K_200C_1S.csv (150000 pts, 2 dims)
+* Query: 0.518801 0.971344
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 4 (149996)
+* DNNH: 
+89758, 89930, 89951, 89550, 89650, 89726, 89334
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_150K_200C_1S.csv (150000 pts, 2 dims)
+* Query: 0.992461 0.684726
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 144 (149856)
+* DNNH: 
+143025, 142687, 143241, 142774, 143086, 142955, 143030, 142501
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_150K_200C_1S.csv (150000 pts, 2 dims)
+* Query: 0.104441 0.287615
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (149998)
+* DNNH: 
+14511, 14364, 14831, 14536, 14742, 14465, 14361, 14271, 14816, 14327, 14358
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_150K_200C_1S.csv (150000 pts, 2 dims)
+* Query: 0.452009 0.208117
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (149998)
+* DNNH: 
+70011, 69843, 69996, 70161, 70015, 69973
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_150K_200C_1S.csv (150000 pts, 2 dims)
+* Query: 0.697149  0.49055
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (149998)
+* DNNH: 
+118334, 117833, 117857, 118486, 118439, 118283, 118368, 118473, 118476, 117851, 118482, 117960, 118289, 118184
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_150K_200C_1S.csv (150000 pts, 2 dims)
+* Query: 0.835864 0.229693
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (149999)
+* DNNH: 
+137498, 137374, 137400, 137920, 137711, 137730, 137716, 137828, 137718, 137707, 137770, 137467, 137621, 137318, 137509, 137395, 137836, 137723
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_150K_200C_1S.csv (150000 pts, 2 dims)
+* Query: 0.0554084  0.036089
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 3 (149997)
+* DNNH: 
+11455, 11717, 11753, 11417, 11522, 11272, 11921, 11373, 11679, 11873, 11599, 11431, 11842, 11366, 11915
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_150K_200C_1S.csv (150000 pts, 2 dims)
+* Query: 0.240836  0.67625
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 4 (149996)
+* DNNH: 
+41797, 41308, 41524, 41397, 41520, 41569, 41691, 41854, 41788, 41753, 41411, 41568, 41821, 41432, 41956, 41416, 41882, 41465, 41707, 41545, 41363, 41981, 41565, 41954, 41413, 41879, 41463, 41576, 41767, 41867, 41838, 41977, 41272, 41320, 41470, 41905, 41796, 41926, 41533, 41355, 41527, 41273, 41983, 41312, 41286, 41376, 41685, 41393, 41346, 41677, 41971, 41623, 41809, 41839, 41860, 41783, 41488, 41284, 41595, 41499, 41560, 41852, 41543, 41781, 41637, 41624, 41922, 41952, 41663, 41844
+
+
+

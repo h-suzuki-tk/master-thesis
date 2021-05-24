@@ -1,0 +1,182 @@
+Tue May 25 02:58:11 JST 2021
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:  0.259134 0.0479842
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 84): 
+40, 9, 8, 7, 6, 5, 4, 5
+* DNNH (15 pts): 
+146, 157, 178, 166, 181, 158, 183, 169, 173, 171, 170, 147, 155, 174, 179
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.253316 0.431554
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 20): 
+20
+* DNNH (20 pts): 
+24, 16, 20, 10, 23, 11, 14, 15, 21, 13, 12, 22, 25, 28, 29, 18, 19, 17, 26, 27
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.182424 0.630707
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 28): 
+9, 19
+* DNNH (19 pts): 
+11, 23, 10, 21, 12, 13, 22, 14, 16, 20, 24, 25, 28, 29, 18, 19, 17, 27, 26
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.384101 0.697648
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 43): 
+38, 3, 2
+* DNNH (38 pts): 
+109, 99, 98, 86, 128, 74, 124, 114, 87, 104, 73, 82, 102, 121, 106, 92, 70, 122, 76, 79, 115, 80, 83, 67, 72, 113, 116, 129, 101, 69, 103, 78, 66, 126, 93, 123, 117, 112
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.0571572  0.602154
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 20): 
+20
+* DNNH (20 pts): 
+26, 12, 21, 15, 13, 22, 11, 23, 10, 14, 16, 20, 24, 25, 28, 29, 18, 19, 17, 27
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.403958 0.971141
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 57): 
+57
+* DNNH (57 pts): 
+63, 91, 119, 62, 95, 107, 75, 84, 118, 121, 114, 79, 115, 87, 73, 70, 124, 122, 76, 92, 72, 82, 83, 67, 106, 102, 80, 101, 86, 74, 66, 78, 113, 104, 129, 116, 69, 93, 98, 99, 61, 103, 126, 123, 117, 65, 94, 97, 96, 71, 81, 89, 128, 90, 68, 109, 125
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.0746877 0.0235564
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 15): 
+15, 0, 0, 0, 0
+* DNNH (15 pts): 
+137, 182, 165, 144, 130, 142, 168, 145, 185, 148, 141, 140, 159, 5, 157
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:  0.68199 0.664489
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 40): 
+40
+* DNNH (40 pts): 
+108, 68, 65, 71, 97, 61, 116, 113, 90, 89, 94, 102, 96, 104, 81, 125, 73, 87, 86, 114, 124, 98, 99, 74, 109, 100, 128, 60, 111, 85, 77, 120, 64, 110, 112, 88, 7, 105, 63, 127
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.696844 0.444178
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 22): 
+22
+* DNNH (22 pts): 
+37, 44, 32, 57, 45, 34, 46, 35, 36, 55, 31, 47, 51, 40, 30, 49, 52, 59, 33, 56, 58, 48
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.0942579  0.409981
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 95): 
+67, 9, 19
+* DNNH (19 pts): 
+26, 12, 13, 22, 15, 11, 23, 10, 14, 16, 20, 24, 25, 28, 29, 18, 19, 17, 27
+
+
+

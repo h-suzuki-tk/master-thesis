@@ -1,0 +1,152 @@
+Mon May 24 22:25:02 JST 2021
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.512427 0.963663
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 5 (99995)
+* DNNH: 
+53911, 53924, 53926, 53927, 53902, 53939, 53922, 53931, 53925, 53909, 53935, 53938, 53943, 53915, 53920, 53914, 53916, 53903, 53941, 53912, 53904, 53906, 53929, 53937, 53933, 53901, 53945, 53919, 53936, 53948, 53907, 53947, 53910, 53900, 53908, 53942, 53930, 53921, 53918, 53913, 53934, 53944, 53917, 53928, 53923, 53946, 53932, 53905, 53940, 53949
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.313527 0.761385
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (99998)
+* DNNH: 
+33216, 33205, 33240, 33225, 33226, 33201, 33206, 33227, 33232, 33231, 33238, 33202, 33211, 33248, 33212, 33204, 33239, 33237, 33229, 33247, 33230, 33236, 33221, 33243, 33220, 33203, 33215, 33223, 33245, 33235, 33207, 33233, 33208, 33228, 33246, 33210, 33222, 33249, 33224, 33218, 33209, 33242, 33234, 33244, 33214, 33217, 33213, 33200, 33241, 33219
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.486602 0.714912
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (99998)
+* DNNH: 
+48804, 48813, 48828, 48843, 48820, 48800, 48835, 48838, 48811, 48847, 48837, 48822, 48810, 48803, 48821, 48812, 48819, 48801, 48809, 48815, 48842, 48814, 48841, 48816, 48831, 48834, 48806, 48829, 48836, 48846, 48827, 48848
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.623887 0.456487
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (99998)
+* DNNH: 
+61764, 61794, 61773, 61758, 61781, 61770, 61789, 61779, 61795, 61769, 61788, 61750, 61790, 61797, 61772, 61775, 61771, 61782, 61784, 61757, 61763, 61791, 61793, 61767, 61752, 61798, 61766, 61799, 61759, 61785, 61796, 61778, 61761, 61768, 61760, 61776, 61777, 61783, 61765, 61762, 61780, 61755, 61754, 61774, 61792, 61753, 61751, 61786, 61756, 61787
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.949299 0.785176
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+96282, 96256, 96293, 96288, 96252, 96285, 96259, 96269, 96277, 96258, 96273, 96250, 96287, 96283, 96279, 96272, 96263, 96253, 96276, 96298, 96290, 96264, 96294, 96261, 96284, 96289, 96257, 96281, 96266, 96275, 96267, 96254, 96270, 96271, 96251, 96274, 96297, 96278, 96260, 96280, 96255, 96292, 96286, 96265, 96291, 96296, 96299, 96268, 96295, 96262
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.577658 0.402106
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (99998)
+* DNNH: 
+57165, 57171, 57194, 57157, 57155, 57189, 57166, 57188, 57181, 57161, 57153, 57193, 57174, 57172, 57167, 57182, 57196, 57198, 57154, 57177, 57163, 57199, 57180, 57170, 57150, 57158, 57187, 57197, 57173, 57191, 57195, 57162, 57178, 57159, 57169, 57183, 57186, 57164, 57175, 57156, 57168, 57160, 57185, 57184, 57179, 57151, 57190, 57152, 57176, 57192
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.165296 0.762138
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+17466, 17455, 17496, 17476, 17452, 17473, 17479, 17498, 17451, 17478, 17480, 17482, 17465, 17481, 17460, 17484, 17483, 17458, 17485, 17491, 17467, 17471, 17469, 17453, 17464, 17497, 17495, 17456, 17457, 17488, 17450, 17475, 17454, 17468, 17494, 17493, 17474, 17470, 17489, 17486, 17499, 17463, 17487, 17459, 17461, 17492, 17477, 17490, 17462, 17472
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.616679 0.113337
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+61033, 61000, 61022, 61048, 61015, 61014, 61009, 61011, 61020, 61001, 61017, 61023, 61041, 61004, 61032, 61013, 61010, 61031, 61034, 61044, 61026, 61024, 61043, 61040, 61035, 61003, 61038, 61042, 61018, 61049, 61025, 61008, 61019, 61037, 61046, 61027, 61002, 61005, 61012, 61029, 61016, 61030, 61006, 61007, 61036, 61039, 61028, 61047, 61045, 61021
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query:  0.410021 0.0496328
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+40618, 40646, 40607, 40601, 40619, 40633, 40614, 40617, 40611, 40638, 40605, 40631, 40602, 40610, 40623, 40644, 40625, 40622, 40645, 40632, 40621, 40600, 40628, 40629, 40626, 40642, 40640, 40627, 40636, 40639, 40641, 40647, 40612, 40635, 40624, 40608, 40603, 40620, 40630, 40609, 40634, 40648, 40615, 40643, 40649, 40637, 40613, 40606, 40604, 40616
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query:  0.38158 0.868389
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+40150, 40185, 40151, 40188, 40191, 40190, 40168, 40154, 40199, 40187, 40196, 40163, 40167, 40156, 40162, 40155, 40161, 40159, 40195, 40177, 40174, 40198, 40194, 40173, 40164, 40189, 40169, 40178, 40184, 40192, 40171, 40166, 40165, 40186, 40193, 40170, 40179, 40183, 40152, 40172, 40181, 40182, 40158, 40160, 40197, 40175, 40176, 40153, 40157, 40180
+
+
+
