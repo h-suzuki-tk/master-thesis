@@ -113,6 +113,7 @@ void runBasicSearch(
 
 	// 出力
 	std::cout << "Result:" << std::endl;
+	std::cout << "* Lower/upper cluster size: " << dsb.LOWER_CLUSTER_SIZE << "/" << dsb.UPPER_CLUSTER_SIZE << std::endl;
 	std::cout << "* Total processed core points (filterd): " << dsb.procdPtCount() << " (" << dsb.data().size() - dsb.procdPtCount() << ")" << std::endl;
 	std::cout << "* DNNH: " << std::endl;
 	HS::printVector(dsb.result().ids());
@@ -152,6 +153,7 @@ void runGridSearch(
 
 	// 出力
 	std::cout << "Result:" << std::endl;
+	std::cout << "* Lower/upper cluster size: " << dsg.LOWER_CLUSTER_SIZE << "/" << dsg.UPPER_CLUSTER_SIZE << std::endl;
 	std::cout << "* Expansion count (total: " << std::accumulate( dsg.epCount().begin(), dsg.epCount().end(), 0 )  << "): \n";
 	HS::printVector(dsg.epCount());
 	std::cout << std::endl;

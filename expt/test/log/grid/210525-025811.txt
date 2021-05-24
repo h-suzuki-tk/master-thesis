@@ -1,0 +1,14 @@
+Date:           Tue May 25 02:58:11 JST 2021
+Machine:        DESKTOP-TEQI229
+Method:         grid
+Execusion time: 10
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv 230 2 2 /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01_10G.csv 10
+* Log file path: log/grid/210525-025811/SN_01.txt
+* Execution time: 10
+
+real	0m0.334s
+user	0m0.078s
+sys	0m0.172s
+

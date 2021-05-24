@@ -1,32 +1,13 @@
 #! /bin/bash
-cd $(dirname $0)
+# 必要ファイルの読み込み
+ROOT=`git rev-parse --show-toplevel`
+source ${ROOT}/expt/prep.sh
 
-EXE=../../dnnhs;
-DATA_DIR=../../data/test;
-TIME_LOG_DIR=../log/test/time;
-SEARCH_LOG_DIR=../log/test/search;
-EXETIME=../exetime.sh
-
-TIME_LOG_FILE=${TIME_LOG_DIR}/grid.txt;
-SEARCH_LOG_FILE=${SEARCH_LOG_DIR}/grid.txt;
-
-mkdir -p ${TIME_LOG_DIR}
-mkdir -p ${SEARCH_LOG_DIR}
-: > ${TIME_LOG_FILE}
-: > ${SEARCH_LOG_FILE}
-
-# パラメータ
-# --------------------------------------------------
+# 初期化
 METHOD=grid;
-DATA_FILE=${DATA_DIR}/RN_100K_2KC.csv;
-SIZE=100000;
-DIMS=2;
-ALPHA=2;
-GRID_DATA_FILE=${DATA_DIR}/RN_100K_2KC_g100.csv;
-GRID_SIZE=100;
-EXE_NUM=100;
+EXE_NUM=10;
+cd $(dirname $0)
+init ${METHOD} ${EXE_NUM}
 
 # 実行
-# --------------------------------------------------
-CMD="${EXE} ${METHOD} ${DATA_FILE} ${SIZE} ${DIMS} ${ALPHA} ${GRID_DATA_FILE} ${GRID_SIZE}";
-./${EXETIME} "${CMD}" ${SEARCH_LOG_FILE} ${EXE_NUM} &> ${TIME_LOG_FILE}
+testRun SN_01 230 2 2 10

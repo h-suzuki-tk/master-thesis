@@ -1,0 +1,14 @@
+Date:           Tue May 25 02:56:50 JST 2021
+Machine:        DESKTOP-TEQI229
+Method:         basic
+Execusion time: 10
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv 230 2 2
+* Log file path: log/basic/210525-025650/SN_01.txt
+* Execution time: 10
+
+real	0m0.406s
+user	0m0.156s
+sys	0m0.203s
+
