@@ -1,0 +1,53 @@
+Date:           Mon May 24 20:50:26 JST 2021
+Machine:        DESKTOP-TEQI229
+Method:         grid
+Execusion time: 10
+
+Alpha:     2
+Grid size: 100
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/master-thesis/data/RN_10K_200C_1S.csv 10000 2 2 /mnt/c/workspace/master-thesis/master-thesis/data/grid/RN_10K_200C_1S_100G.csv 100
+* Log file path: log/grid/210524-205026/RN_10K_200C_1S.txt
+* Execution time: 10
+
+real	0m0.488s
+user	0m0.172s
+sys	0m0.313s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/master-thesis/data/RN_50K_200C_1S.csv 50000 2 2 /mnt/c/workspace/master-thesis/master-thesis/data/grid/RN_50K_200C_1S_100G.csv 100
+* Log file path: log/grid/210524-205026/RN_50K_200C_1S.txt
+* Execution time: 10
+
+real	0m1.228s
+user	0m0.875s
+sys	0m0.328s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/master-thesis/data/RN_100K_200C_1S.csv 100000 2 2 /mnt/c/workspace/master-thesis/master-thesis/data/grid/RN_100K_200C_1S_100G.csv 100
+* Log file path: log/grid/210524-205026/RN_100K_200C_1S.txt
+* Execution time: 10
+
+real	0m1.972s
+user	0m1.453s
+sys	0m0.500s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/master-thesis/data/RN_150K_200C_1S.csv 150000 2 2 /mnt/c/workspace/master-thesis/master-thesis/data/grid/RN_150K_200C_1S_100G.csv 100
+* Log file path: log/grid/210524-205026/RN_150K_200C_1S.txt
+* Execution time: 10
+
+real	0m4.717s
+user	0m4.078s
+sys	0m0.625s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/master-thesis/data/RN_200K_200C_1S.csv 200000 2 2 /mnt/c/workspace/master-thesis/master-thesis/data/grid/RN_200K_200C_1S_100G.csv 100
+* Log file path: log/grid/210524-205026/RN_200K_200C_1S.txt
+* Execution time: 10
+
+real	0m5.367s
+user	0m4.625s
+sys	0m0.734s
+
