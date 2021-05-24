@@ -4,6 +4,7 @@
 # Params: 
 #     $1: method
 #     $2: execusion time
+#     ($3: log directory)
 init () {
 	# 基本設定
 	ROOT=`git rev-parse --show-toplevel`
@@ -16,8 +17,13 @@ init () {
 	EXE_NUM=$2;
 
 	# ログディレクトリの設定・初期化
-	TIME_LOG_DIR=log/${METHOD};
-	SEARCH_LOG_DIR=log/${METHOD}/$(date '+%y%m%d-%H%M%S');
+	if [ $# -eq 3 ]; then
+		LOG_DIR=$3;
+	else
+		LOG_DIR=log/${METHOD};
+	fi
+	TIME_LOG_DIR=${LOG_DIR};
+	SEARCH_LOG_DIR=${LOG_DIR}/$(date '+%y%m%d-%H%M%S');
 	mkdir -p ${TIME_LOG_DIR}
 	mkdir -p ${SEARCH_LOG_DIR}
 

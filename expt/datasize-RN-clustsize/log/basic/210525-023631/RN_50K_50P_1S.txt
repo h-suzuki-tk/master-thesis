@@ -1,0 +1,152 @@
+Tue May 25 02:36:32 JST 2021
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_50K_50P_1S.csv (50000 pts, 2 dims)
+* Query: 0.506773 0.432631
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (49998)
+* DNNH: 
+26262, 26256, 26276, 26263, 26282, 26298, 26294, 26264, 26254, 26275, 26283, 26288, 26261, 26270, 26273, 26260, 26295, 26271, 26279, 26258, 26290, 26291, 26259, 26284, 26292, 26266, 26297, 26272, 26267, 26287, 26255, 26265, 26274, 26296, 26285, 26257, 26286, 26253, 26278, 26252, 26293, 26269, 26280, 26250, 26268, 26277, 26299, 26289, 26251, 26281
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_50K_50P_1S.csv (50000 pts, 2 dims)
+* Query: 0.547139 0.881276
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (49998)
+* DNNH: 
+28556, 28569, 28571, 28590, 28559, 28566, 28597, 28599, 28573, 28593, 28582, 28576, 28554, 28595, 28581, 28598, 28580, 28562, 28578, 28565, 28592, 28553, 28570
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_50K_50P_1S.csv (50000 pts, 2 dims)
+* Query: 0.712642 0.895696
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (49999)
+* DNNH: 
+36649, 36617, 36645, 36635, 36615, 36631, 36629, 36606, 36625, 36611, 36607, 36628, 36644, 36643, 36612, 36630, 36610, 36639, 36604, 36633, 36636, 36624, 36616, 36603, 36627, 36600, 36634, 36609, 36642, 36632, 36626, 36619, 36613, 36614, 36641, 36646, 36605, 36638, 36637, 36608, 36601, 36647, 36618, 36602, 36640, 36621, 36623, 36622, 36620, 36648
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_50K_50P_1S.csv (50000 pts, 2 dims)
+* Query: 0.692736 0.211814
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 4 (49996)
+* DNNH: 
+35528, 35512, 35548, 35519, 35531, 35541, 35535, 35546, 35507, 35545, 35511, 35517, 35527, 35521, 35508, 35533, 35543, 35524, 35523, 35539, 35530, 35542, 35502, 35534, 35513, 35516, 35537, 35518, 35544, 35538, 35520, 35525, 35500, 35549, 35501, 35526, 35515, 35540, 35505, 35509, 35504, 35514, 35506, 35503, 35510, 35547, 35522, 35536, 35529, 35532
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_50K_50P_1S.csv (50000 pts, 2 dims)
+* Query: 0.110057 0.967577
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (49999)
+* DNNH: 
+6313, 6348, 6349, 6315, 6322, 6332, 6305, 6304, 6340, 6312, 6314, 6326, 6302, 6306, 6324, 6336, 6301, 6346, 6323, 6347, 6339, 6343, 6325, 6308, 6334, 6307, 6327, 6316, 6344, 6317, 6331, 6321, 6337, 6319, 6320, 6303, 6338, 6342, 6329, 6328, 6330, 6318, 6300, 6335, 6341, 6310, 6309, 6311, 6333, 6345
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_50K_50P_1S.csv (50000 pts, 2 dims)
+* Query: 0.977196 0.907838
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (49999)
+* DNNH: 
+49416, 49407, 49435, 49441, 49417, 49442, 49408, 49437, 49439, 49432, 49400, 49409, 49445, 49447, 49403, 49401, 49448, 49422, 49431, 49410, 49411, 49406, 49418, 49444, 49430, 49438, 49436, 49415, 49433, 49446, 49428, 49405, 49427, 49423, 49429, 49414, 49424, 49419, 49402, 49413, 49425, 49420, 49412, 49440, 49434, 49404, 49449, 49443, 49426, 49421
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_50K_50P_1S.csv (50000 pts, 2 dims)
+* Query: 0.495107 0.737607
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (49999)
+* DNNH: 
+25171, 25167, 25169, 25153, 25163, 25168, 25187, 25197, 25170, 25161, 25164, 25151, 25182, 25198, 25158, 25175, 25181, 25180, 25154, 25191, 25172, 25195, 25177, 25162, 25179, 25173, 25166, 25150, 25178, 25185, 25188, 25155, 25157, 25176, 25152, 25194, 25196, 25186, 25199, 25192, 25165, 25156, 25193, 25160, 25159, 25189, 25190, 25184, 25174, 25183
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_50K_50P_1S.csv (50000 pts, 2 dims)
+* Query: 0.568568 0.730982
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (49999)
+* DNNH: 
+29990, 29953, 29998, 29959, 29980, 29989, 29982, 29988, 29969, 29991, 29995, 29967, 29975, 29951, 29960, 29997, 29955, 29992, 29962, 29968, 29984, 29950, 29957, 29966, 29985, 29970, 29965, 29956, 29978, 29974, 29977, 29983, 29972, 29987, 29979, 29994, 29961, 29971, 29993, 29958, 29999, 29976, 29952, 29996, 29954, 29981, 29964, 29986, 29963, 29973
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_50K_50P_1S.csv (50000 pts, 2 dims)
+* Query: 0.981956 0.466537
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 3 (49997)
+* DNNH: 
+48744, 48720, 48710, 48729, 48727, 48712, 48731, 48707, 48735, 48733, 48741, 48713, 48723, 48705, 48739, 48700, 48715, 48748, 48738, 48701, 48749, 48714, 48728, 48737, 48746, 48717, 48708, 48706, 48703, 48722, 48734, 48732, 48726, 48740, 48742, 48747, 48711, 48743, 48709, 48745, 48716, 48725, 48718, 48736, 48719, 48724, 48702, 48730, 48704, 48721
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_50K_50P_1S.csv (50000 pts, 2 dims)
+* Query: 0.334008 0.706537
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (49999)
+* DNNH: 
+17146, 17137, 17131, 17115, 17127, 17140, 17109, 17118, 17116, 17125, 17119, 17141, 17113, 17135, 17132, 17142, 17139, 17148, 17106, 17104, 17136, 17123, 17103, 17100, 17105, 17101, 17145, 17129, 17112, 17134, 17107, 17111, 17149, 17128, 17138, 17108, 17126, 17144, 17114, 17110, 17130, 17120, 17147, 17121, 17143, 17124, 17133, 17117, 17102, 17122
+
+
+

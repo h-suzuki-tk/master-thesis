@@ -1,0 +1,43 @@
+#! /bin/bash
+# 必要ファイルの読み込み
+ROOT=`git rev-parse --show-toplevel`
+source ${ROOT}/expt/prep.sh
+
+# 初期化
+METHOD=grid;
+EXE_NUM=10;
+LOG_DIR=log;
+cd $(dirname $0)
+init ${METHOD} ${EXE_NUM} ${LOG_DIR}
+
+# パラメータ設定
+ALPHA=2;
+cat <<- EOS >> ${TIME_LOG_FILE}
+	Alpha:     ${ALPHA}
+
+EOS
+
+# 実行
+run NE 123593 2 ${ALPHA} 10
+run NE 123593 2 ${ALPHA} 50
+run NE 123593 2 ${ALPHA} 100
+run NE 123593 2 ${ALPHA} 200
+run NE 123593 2 ${ALPHA} 500
+
+run UN_100K 100000 2 ${ALPHA} 10
+run UN_100K 100000 2 ${ALPHA} 50
+run UN_100K 100000 2 ${ALPHA} 100
+run UN_100K 100000 2 ${ALPHA} 200
+run UN_100K 100000 2 ${ALPHA} 500
+
+run RN_50P_100K_1S 100000 2 ${ALPHA} 10
+run RN_50P_100K_1S 100000 2 ${ALPHA} 50
+run RN_50P_100K_1S 100000 2 ${ALPHA} 100
+run RN_50P_100K_1S 100000 2 ${ALPHA} 200
+run RN_50P_100K_1S 100000 2 ${ALPHA} 500
+
+run RN_500P_100K_1S 100000 2 ${ALPHA} 10
+run RN_500P_100K_1S 100000 2 ${ALPHA} 50
+run RN_500P_100K_1S 100000 2 ${ALPHA} 100
+run RN_500P_100K_1S 100000 2 ${ALPHA} 200
+run RN_500P_100K_1S 100000 2 ${ALPHA} 500

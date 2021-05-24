@@ -1,0 +1,152 @@
+Mon May 24 22:24:56 JST 2021
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.457554 0.731681
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+46634, 46612, 46615, 46606, 46617, 46614, 46642, 46643, 46631, 46648, 46641, 46609, 46630, 46623, 46646, 46608, 46637, 46611, 46616, 46647, 46605, 46622, 46633, 46604, 46624, 46621, 46613, 46644, 46601, 46628, 46610, 46627, 46645, 46619, 46640, 46635, 46625, 46638, 46639, 46603, 46600, 46618, 46626, 46620, 46636, 46602, 46649, 46607, 46629, 46632
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.177053 0.489015
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (99998)
+* DNNH: 
+19100, 19141, 19135, 19143, 19115, 19107, 19139, 19122, 19120, 19124, 19128, 19145, 19117, 19104, 19106, 19119, 19131, 19149, 19121, 19108, 19123, 19102, 19114, 19136, 19127, 19137, 19144, 19113, 19142, 19111, 19129, 19110, 19109, 19138, 19126, 19133, 19146, 19130, 19112, 19118, 19105, 19116, 19125, 19134, 19103, 19148, 19101, 19147, 19140, 19132
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.115555 0.176032
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+11681, 11685, 11690, 11692, 11677, 11687, 11683, 11673, 11686, 11660, 11667, 11652, 11682, 11696, 11658, 11666, 11674, 11693, 11689, 11655, 11656, 11695, 11678, 11651, 11664, 11653, 11663, 11697, 11654, 11680, 11675, 11670, 11672, 11671, 11650, 11698, 11661, 11669, 11662, 11694, 11684, 11657, 11699, 11691, 11668, 11688, 11659, 11676, 11679, 11665
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.539643 0.618173
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+55368, 55364, 55388, 55393, 55371, 55353, 55389, 55357, 55377, 55375, 55350, 55384, 55387, 55376, 55372, 55370, 55379, 55381, 55360, 55399, 55374, 55383, 55373, 55395, 55385, 55398, 55394, 55396, 55380, 55351, 55365, 55397, 55392, 55354, 55362, 55367, 55352, 55361, 55369, 55378, 55366, 55386, 55358, 55363, 55356, 55382, 55359, 55390, 55355, 55391
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.278856 0.896032
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+29044, 29041, 29049, 29027, 29021, 29016, 29048, 29030, 29037, 29043, 29045, 29029, 29003, 29042, 29005, 29024, 29020, 29047, 29014, 29013, 29006, 29018, 29019, 29039, 29028, 29010, 29046, 29036, 29011, 29031, 29001, 29040, 29022, 29015, 29025, 29000, 29033, 29008, 29026, 29017, 29035, 29038, 29007, 29023, 29009, 29032, 29012, 29002, 29004, 29034
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query:  0.170829 0.0943892
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+15971, 15952, 15956, 15978, 15964, 15960, 15962, 15998, 15991, 15974, 15973, 15985, 15950, 15969, 15996, 15961, 15977, 15984, 15986, 15965, 15968, 15954, 15992, 15997, 15966, 15995, 15988, 15955, 15958, 15982, 15989, 15981, 15987, 15967, 15994, 15957, 15959, 15993, 15980, 15990, 15975, 15976, 15951, 15963, 15972, 15999, 15953, 15979, 15970, 15983
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.413277 0.899273
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+42547, 42520, 42504, 42539, 42533, 42521, 42536, 42541, 42511, 42500, 42529, 42501, 42518, 42509, 42526, 42505, 42527, 42508, 42532, 42528, 42549, 42517, 42512, 42510, 42534, 42524, 42548, 42516, 42523, 42507, 42542, 42522, 42514, 42502, 42544, 42515, 42531, 42537, 42503, 42545, 42540, 42519, 42546, 42535, 42538, 42530, 42525, 42513, 42543, 42506
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.359923 0.897026
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+38012, 38049, 38048, 38030, 38021, 38029, 38039, 38035, 38005, 38026, 38040, 38004, 38001, 38020, 38016, 38011, 38009, 38006, 38000, 38007, 38032, 38038, 38019, 38014, 38046, 38027, 38043, 38042, 38028, 38018, 38022, 38003, 38010, 38037, 38045, 38024, 38036, 38033, 38034, 38047, 38023, 38044, 38017, 38041, 38002, 38015, 38031, 38013, 38025, 38008
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.897372 0.220833
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+90513, 90510, 90544, 90521, 90507, 90532, 90524, 90535, 90548, 90536, 90540, 90506, 90543, 90526, 90515, 90505, 90522, 90542, 90525, 90527, 90520, 90528, 90504, 90539, 90546, 90503, 90533, 90519, 90534, 90508, 90517, 90531, 90530, 90511, 90512, 90549, 90529, 90547, 90537, 90514, 90509, 90500, 90516, 90545, 90523, 90518, 90502, 90541, 90501, 90538
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.880813  0.82367
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+89577, 89586, 89557, 89564, 89581, 89593, 89567, 89562, 89587, 89576, 89560, 89573, 89594, 89561, 89592, 89596, 89574, 89580, 89555, 89598, 89572, 89585, 89559, 89595, 89570, 89553, 89578, 89569, 89591, 89589, 89568, 89550, 89575, 89590, 89588, 89571, 89565, 89554, 89552, 89584, 89597, 89582, 89579, 89563, 89556, 89583, 89566, 89599, 89558, 89551
+
+
+

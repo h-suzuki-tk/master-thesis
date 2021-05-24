@@ -1,0 +1,152 @@
+Tue May 25 00:17:54 JST 2021
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/NE.csv (123593 pts, 2 dims)
+* Query: 0.0319416   0.83889
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (123592)
+* DNNH: 
+96231, 120849
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/NE.csv (123593 pts, 2 dims)
+* Query: 0.294205 0.197133
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 3 (123590)
+* DNNH: 
+76166, 76171, 81153, 81554, 73189, 73188, 72369, 72370, 75099, 72301, 73269, 76694, 77182
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/NE.csv (123593 pts, 2 dims)
+* Query:  0.196935 0.0611617
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (123592)
+* DNNH: 
+40771, 39457
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/NE.csv (123593 pts, 2 dims)
+* Query: 0.874902 0.388782
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (123591)
+* DNNH: 
+53322, 53649
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/NE.csv (123593 pts, 2 dims)
+* Query: 0.397379 0.966395
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 3 (123590)
+* DNNH: 
+18272, 23386
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/NE.csv (123593 pts, 2 dims)
+* Query: 0.528187 0.575739
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 3 (123590)
+* DNNH: 
+65861, 66160
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/NE.csv (123593 pts, 2 dims)
+* Query: 0.119359 0.988973
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (123592)
+* DNNH: 
+96231, 120849
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/NE.csv (123593 pts, 2 dims)
+* Query: 0.932264 0.504012
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 2 (123591)
+* DNNH: 
+49158, 58516
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/NE.csv (123593 pts, 2 dims)
+* Query:  0.274837 0.0869786
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 1 (123592)
+* DNNH: 
+9686, 9687, 37414
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/NE.csv (123593 pts, 2 dims)
+* Query: 0.104529  0.13913
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Total processed core points (filterd): 3 (123590)
+* DNNH: 
+8711, 11122
+
+
+
