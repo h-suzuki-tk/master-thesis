@@ -1,7 +1,7 @@
 #include "data.hpp"
 
 
-cv::Mat readData(std::string dataPath) {
+cv::Mat HS::readData(std::string dataPath) {
 	
 	cv::Mat dataSet;
 	char splt = ','; // 区切り文字
@@ -179,7 +179,7 @@ int HS::readData(
 }	
 
 
-int writeData(
+int HS::writeData(
 	cv::Mat     dataSet, 
 	std::string outPath) {
 	
@@ -213,7 +213,7 @@ int writeData(
 }
 
 
-int writeData(
+int HS::writeData(
 	Eigen::MatrixXd dataSet, 
 	std::string outPath) {
 	
@@ -250,7 +250,7 @@ int writeData(
 //  createRandomData
 //  - 一様分布の乱数行列データを作成・書き出し
 // --------------------------------------------------
-int createRandomData(char *fileName, int n_row, int n_col, double min, double max) {
+int HS::createRandomData(char *fileName, int n_row, int n_col, double min, double max) {
 	
 	cv::RNG gen(cv::getTickCount());
 	cv::Mat mat(n_row, n_col, FLOAT_DATA_TYPE);
@@ -264,7 +264,7 @@ int createRandomData(char *fileName, int n_row, int n_col, double min, double ma
 //  arrangeClustersToClusSet
 //  - cv::kmeans等で出力されるクラスタリング結果をvector型に変換
 // --------------------------------------------------
-int arrangeClustersToClusSet(cv::Mat clusters, std::vector<std::vector<int>>& clusSet) {
+int HS::arrangeClustersToClusSet(cv::Mat clusters, std::vector<std::vector<int>>& clusSet) {
 	
 	for (int i = 0; i < clusters.rows; i++) {	
 		
@@ -280,7 +280,7 @@ int arrangeClustersToClusSet(cv::Mat clusters, std::vector<std::vector<int>>& cl
 //  arrangeClustersToClusSetWithParentIndex
 //  - 部分的なデータのクラスタリング結果をもとのデータのインデックスを用いてvector型に変換
 // --------------------------------------------------
-void arrangeClustersToClusSetWithParentIndex(std::vector<int> parentClusSet, cv::Mat clusters, std::vector<std::vector<int>>& clusSet) {
+void HS::arrangeClustersToClusSetWithParentIndex(std::vector<int> parentClusSet, cv::Mat clusters, std::vector<std::vector<int>>& clusSet) {
 	
 	assert(parentClusSet.size() == clusters.rows);
 	
@@ -337,7 +337,7 @@ void showClusSet(std::vector<std::vector<int>> clusSet) {
 	
 }
 
-void cvToEigenVec(cv::Mat cvVec, Eigen::VectorXd& eigenVec) {
+void HS::cvToEigenVec(cv::Mat cvVec, Eigen::VectorXd& eigenVec) {
 	
 	assert(cvVec.rows == 1 || cvVec.cols == 1);
 	assert(cvVec.rows == eigenVec.size() || cvVec.cols == eigenVec.size());
@@ -370,7 +370,7 @@ Eigen::VectorXd HS::randomVector(const int n_dim, const double min, const double
 }
 
 
-bool combInc(
+bool HS::combInc(
 	std::vector<int>&       comb, 
 	const std::vector<int>& lower, 
 	const std::vector<int>& upper) {
