@@ -519,15 +519,15 @@ std::vector<HS::DNNHS::Grid::Cell*> HS::DNNHS::Grid::ExpansionCells::expansionCe
 					int scan_dim = 0;
 					while ( scan_dim < m_gds->dims() ) {
 						if ( crit_idx_itr[scan_dim] != crit_idx[scan_dim].end()-1 ) {
-							++crit_idx_itr[scan_dim];
+							cell_idx[scan_dim] = *(++crit_idx_itr[scan_dim]);
 							break;
 						} else {
 							crit_idx_itr[scan_dim] = crit_idx[scan_dim].begin();
+							cell_idx[scan_dim]     = *crit_idx_itr[scan_dim];
 						}
-						cell_idx[scan_dim] = *crit_idx_itr[scan_dim];
 						++scan_dim;
 					}
-					if ( scan_dim >= m_gds->dims() ) { break; }
+					if ( scan_dim >= m_gds->dims() ) break;
 
 				}
 				
