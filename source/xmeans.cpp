@@ -53,7 +53,7 @@ void Xmeans::run() {
 	for (int i=0; i<_K_init; i++) {
 		split(div_clusSet[i], eigen_div_centers.row(i));
 	}
-	std::cout << _total << std::endl;
+	//std::cout << _total << std::endl;
 }
 
 // --------------------------------------------------

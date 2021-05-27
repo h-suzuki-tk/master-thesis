@@ -14,7 +14,7 @@ static const std::vector<std::string> _clustWays = {
 };
 
 void printArgError();
-void runXmeansSearch(const std::string& dataPath, const Eigen::VectorXd& query);
+void runXmeansSearch(const std::string& dataPath, const int& dataSize, const int& dataDims, const Eigen::VectorXd& query);
 void runBasicSearch(const std::string& dataPath, const int& dataSize, const int& dataDim, const Eigen::VectorXd& query, const double& alpha);
 void runGridSearch(const std::string& dataPath, const int& dataSize, const int& dataDim, const Eigen::VectorXd& query, const double& alpha, const int& gridSize, const std::string& gridDataPath);
 void runSplitSearch();
@@ -30,7 +30,10 @@ int main (int argc, char *argv[]) {
 		printArgError();
 		return 1;
 	}
-	if (args[1] == XMEANS && args.size() != 3) {
+	if (args[1] == XMEANS && ( args.size() != 5
+		|| !std::all_of(args[3].begin(), args[3].end(), isdigit)
+        || !std::all_of(args[4].begin(), args[4].end(), isdigit)
+		)) {
 		printArgError();
 		return 1;
 	}
@@ -53,11 +56,11 @@ int main (int argc, char *argv[]) {
 	}
     const std::string clustWay     = args[1];
     const std::string dataPath     = args[2];
-    const int         dataSize     = argc >= 3 ? stoi(args[3]) : -1;
-    const int         dataDim      = argc >= 4 ? stoi(args[4]) : -1;
-	const double      alpha        = argc >= 5 ? stod(args[5]) : -1;
-	const std::string gridDataPath = argc >= 6 ? args[6]       : "";
-	const int         gridSize     = argc >= 7 ? stoi(args[7]) : 0;
+    const int         dataSize     = stoi(args[3]);
+    const int         dataDim      = stoi(args[4]);
+	const double      alpha        = argc >= 6 ? stod(args[5]) : -1;
+	const std::string gridDataPath = argc >= 7 ? args[6]       : "";
+	const int         gridSize     = argc >= 8 ? stoi(args[7]) : 0;
 
 
 	// クエリの設定
@@ -74,7 +77,7 @@ int main (int argc, char *argv[]) {
 
 
 	// DNNH 検索	
-	if      (clustWay == XMEANS) { runXmeansSearch(dataPath, query); }
+	if      (clustWay == XMEANS) { runXmeansSearch(dataPath, dataSize, dataDim, query); }
 	else if (clustWay == BASIC)  { runBasicSearch(dataPath, dataSize, dataDim, query, alpha); } 
 	else if (clustWay == GRID)   { runGridSearch(dataPath, dataSize, dataDim, query, alpha, gridSize, gridDataPath); } 
 	else if (clustWay == SPLIT)  { runSplitSearch(); } 
@@ -93,8 +96,8 @@ void printArgError() {
             "\t- " << GRID   << ": Grid\n" <<
             "\t- " << SPLIT  << ": Split filtering\n" <<
         "# Dataset file path (string)\n" <<
-        "# [Only basic/grid way] Dataset size (int)\n" <<
-        "# [Only basic/grid way] Dataset dimension (int)\n" <<
+        "# Dataset size (int)\n" <<
+        "# Dataset dimension (int)\n" <<
 		"# [Only basic/grid way] Parameter alpha (double)\n" <<
 		"# [Only grid way] Grid data file path (string)\n" <<
 		"# [Only grid way] Grid size (int)"
@@ -104,10 +107,13 @@ void printArgError() {
 
 void runXmeansSearch(
 	const std::string&     dataPath,
+	const int&             dataSize,
+	const int&             dataDims,
 	const Eigen::VectorXd& query) {
 	
 	// データ読み込み・整形
-	cv::Mat data = HS::readData(dataPath);
+	cv::Mat data = HS::readData(dataPath, dataSize, dataDims);
+	data *= 100; // OpenCV の kmeans ライブラリに適用するためのスケーリング
 
 	// 検索
 	std::cout << "Starting xmeans DNNH search..." << std::endl;
@@ -132,8 +138,9 @@ void runXmeansSearch(
 
 	// 出力
 	std::cout << "Result:" << std::endl;
-	std::cout << "* DNNH: " << std::endl;
-	HS::printVector(clusSet[num_clus]);
+	std::cout << "* Number of clusters: " << n_clus << std::endl;
+	std::cout << "* DNNH (" << clus.size() << " pts): " << std::endl;
+	HS::printVector(clus);
 }
 
 

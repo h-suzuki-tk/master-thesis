@@ -1,9 +1,12 @@
 #include "data.hpp"
 
 
-cv::Mat HS::readData(std::string dataPath) {
+cv::Mat HS::readData(
+	std::string dataPath, 
+	const int   dataSize, 
+	const int   dataDims) {
 	
-	cv::Mat dataSet;
+	cv::Mat dataSet = cv::Mat_<float>(dataSize, dataDims);
 	char splt = ','; // 区切り文字
 	
 	// 読み込みモードでファイルをオープン
@@ -13,30 +16,21 @@ cv::Mat HS::readData(std::string dataPath) {
 		exit(1);
 	}
 	
-	// 行数、列数を調べる
-	std::string 	line;
-	int 			row_num, col_num = 0;
-	getline(ifs, line);
-	sscanf(line.c_str(), "%d,%d", &row_num, &col_num);
-	
-	// 領域の確保
-	dataSet = cv::Mat::zeros(row_num, col_num, FLOAT_DATA_TYPE);
-	
 	// 読み込みと格納
 	int i = 0;
+	int j = 0;
+	std::string line;
+	std::string buf;
 	while (getline(ifs, line)) {
-		
-		std::vector<float> data;
-		std::istringstream ss{line};
-		std::string		 buf;
+
+		j=0;
+		std::istringstream ss(line);
 		while (getline(ss, buf, splt)) {
-			data.push_back(atof(buf.c_str()));
-		}
-		
-		for (int j=0; j < col_num; j++) {
-			dataSet.at<float>(i, j) = data[j];
+			dataSet.at<float>(i, j) = stof(buf);
+			j++;
 		}
 		i++;
+		
 	}
 
 	ifs.close();

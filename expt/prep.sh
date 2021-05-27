@@ -50,7 +50,9 @@ run () {
     DATA=$1;
     SIZE=$2;
 	DIMS=$3;
-	ALPHA=$4;
+	if [ ${METHOD} = basic -o ${METHOD} = grid ]; then
+		ALPHA=$4;
+	fi
 	if [ ${METHOD} = grid ]; then
 		GRID_SIZE=$5;
 	fi
@@ -66,13 +68,16 @@ run () {
     : > ${SEARCH_LOG_FILE}
 
     # 実行
-	if [ ${METHOD} = basic ]; then
+	if [ ${METHOD} = xmeans ]; then
+		CMD="${EXE} ${METHOD} ${DATA_FILE} ${SIZE} ${DIMS}";
+	elif [ ${METHOD} = basic ]; then
     	CMD="${EXE} ${METHOD} ${DATA_FILE} ${SIZE} ${DIMS} ${ALPHA}";
 	elif [ ${METHOD} = grid ]; then
 		CMD="${EXE} ${METHOD} ${DATA_FILE} ${SIZE} ${DIMS} ${ALPHA} ${GRID_DATA_FILE} ${GRID_SIZE}";	
 	fi
     ${EXETIME} "${CMD}" ${SEARCH_LOG_FILE} ${EXE_NUM} &>> ${TIME_LOG_FILE}
 }
+
 
 # 実行用関数の定義
 # Params: 
@@ -86,7 +91,9 @@ testRun () {
     DATA=$1;
     SIZE=$2;
 	DIMS=$3;
-	ALPHA=$4;
+	if [ ${METHOD} = basic -o ${METHOD} = grid ]; then
+		ALPHA=$4;
+	fi
 	if [ ${METHOD} = grid ]; then
 		GRID_SIZE=$5;
 	fi
@@ -102,7 +109,9 @@ testRun () {
     : > ${SEARCH_LOG_FILE}
 
     # 実行
-	if [ ${METHOD} = basic ]; then
+	if [ ${METHOD} = xmeans ]; then
+		CMD="${EXE} ${METHOD} ${DATA_FILE} ${SIZE} ${DIMS}";
+	elif [ ${METHOD} = basic ]; then
     	CMD="${EXE} ${METHOD} ${DATA_FILE} ${SIZE} ${DIMS} ${ALPHA}";
 	elif [ ${METHOD} = grid ]; then
 		CMD="${EXE} ${METHOD} ${DATA_FILE} ${SIZE} ${DIMS} ${ALPHA} ${GRID_DATA_FILE} ${GRID_SIZE}";	
