@@ -1,0 +1,162 @@
+Tue May 25 10:07:26 JST 2021
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RR.csv (257942 pts, 2 dims)
+* Query: 0.865184 0.172886
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 2 (257940)
+* DNNH: 
+76115, 70054, 205774, 199025, 5376, 205086, 73392, 134347, 21971, 202363, 36774, 21018, 150942, 33917, 7287, 67484, 20754, 149989, 121344, 90805, 117218, 28584, 74093, 34916, 23111, 219776, 149725, 152082, 119842, 2696, 163887, 203064, 131667, 246189, 76937, 165745, 44468, 90039, 162888, 173439, 63647, 196455, 4111, 192618, 62916, 133082, 205908, 241130, 248813, 250315, 58612, 187583, 136258
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RR.csv (257942 pts, 2 dims)
+* Query: 0.475931 0.447739
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 5 (257937)
+* DNNH: 
+249572, 101804, 231516, 221980, 216438, 102545, 93009, 101716, 212727, 120694, 109837, 115060, 238808, 230687, 122959, 236180
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RR.csv (257942 pts, 2 dims)
+* Query: 0.234574 0.431174
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 2 (257940)
+* DNNH: 
+118678, 23924, 78955, 99341, 96134, 207926, 31597, 225105, 81509, 94742, 210480, 228312, 102849, 223713, 160568, 83917, 212888, 114069, 243040, 120739, 247649, 152895, 213929
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RR.csv (257942 pts, 2 dims)
+* Query: 0.317639 0.744929
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (257941)
+* DNNH: 
+168863, 45151, 159486, 30515, 187848, 39892, 58877, 207793, 203686, 168127, 78822, 173519, 173440, 44548, 44469, 175923, 232848, 183756, 134788, 15223, 14557, 235793, 195998, 5817, 54785, 67027, 214995, 176574, 106822, 46952, 39156, 74715, 103877, 39667, 215163, 54390, 183361, 144194, 143528, 43488, 16544, 127182, 256153, 51682, 168638, 215725, 85507, 214478, 86754, 172459, 5507, 145515, 24889, 201078, 192467, 63496, 68385, 10941, 153860, 134478, 71091, 66003, 197356, 72107, 225754, 96783, 211912, 139912, 200062, 76396, 18082, 205367, 147053, 49024, 33916, 86192, 162887, 177995, 5071, 58437, 82941, 204282, 77393, 187408, 194974, 134042, 46228, 53211, 15168, 206364, 182182, 175199, 144139, 81026, 50457, 87493, 193880
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RR.csv (257942 pts, 2 dims)
+* Query:  0.846622 0.0120172
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 3 (257939)
+* DNNH: 
+208029, 169594, 40623, 213044, 191225, 62254, 197677, 213849, 251633, 122662, 195145, 184953, 68706, 213762, 84791, 214462, 226088, 84878, 184576, 234202, 185359, 97117, 66174, 56388, 225873, 231835, 55982, 239350, 96902, 102864, 85491, 55605, 191910, 202906, 105231, 84073, 73935, 231168, 255782, 126811, 189398, 65758, 194729, 198534, 195657, 62939, 189257, 66686, 60286, 110379, 102197, 187943, 90511, 219482, 228116, 86391, 215362, 199179, 99145, 196600, 60427, 192558, 63587, 233858, 104887, 58972, 70208, 233069, 207946, 191645, 78975, 218112, 196756, 104098, 195313, 89141, 66342, 67785, 69563, 67629, 240561, 89405, 194409, 118979, 218376, 111590, 65438, 210630, 59948, 62674, 247950, 63500, 192471, 188919, 216274, 127590
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RR.csv (257942 pts, 2 dims)
+* Query: 0.548636 0.385364
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (257941)
+* DNNH: 
+38668, 55377, 45089, 161839, 174060, 183591, 40851, 59937, 184348, 167639, 52379, 47752
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RR.csv (257942 pts, 2 dims)
+* Query: 0.0607958  0.888611
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 69 (257873)
+* DNNH: 
+142505, 27789, 218026, 19529, 156760, 228331, 116576, 245547, 90013, 218984
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RR.csv (257942 pts, 2 dims)
+* Query: 0.586899 0.544418
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (257941)
+* DNNH: 
+106283, 69453, 235254, 232044, 198424, 231189, 115864, 213320, 180600, 243578, 211278, 114607, 84349, 233681, 51629, 103073, 72739, 201710, 187035, 104710, 183026, 184166, 49410, 58064, 227391, 55195, 102218, 239937, 110966, 189856, 69651, 70523, 199494
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RR.csv (257942 pts, 2 dims)
+* Query: 0.124613 0.862217
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 88 (257854)
+* DNNH: 
+186947, 53550, 182521, 95679, 97585, 16330, 224650, 226556, 115187, 244158, 114038
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/RR.csv (257942 pts, 2 dims)
+* Query: 0.829197 0.318747
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (257941)
+* DNNH: 
+145256, 16285, 135194, 6223, 54430, 183401, 80289, 209260, 25659, 154630
+
+
+

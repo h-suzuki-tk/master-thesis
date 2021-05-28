@@ -1,0 +1,162 @@
+Tue May 25 09:42:15 JST 2021
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/CAS.csv (196902 pts, 2 dims)
+* Query: 0.498664 0.179232
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 2 (196900)
+* DNNH: 
+97365, 195816
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/CAS.csv (196902 pts, 2 dims)
+* Query:  0.408152 0.0795373
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 11 (196891)
+* DNNH: 
+75293, 75244, 75264
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/CAS.csv (196902 pts, 2 dims)
+* Query: 0.786342 0.305663
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 6 (196896)
+* DNNH: 
+162083, 63631
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/CAS.csv (196902 pts, 2 dims)
+* Query:  0.217006 0.0780477
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 116 (196786)
+* DNNH: 
+75240, 77627, 76135, 76132, 75865, 76472, 174923, 76471, 174583, 75334, 174316, 174922, 76137, 76469, 76470, 174586, 76140, 76138, 174921, 76468, 174920, 174919, 174589, 174588, 76142, 174591, 75333, 173785, 174593, 173784, 76466, 76467, 76465, 174918, 174917, 174916, 174924, 76473, 76474, 76209, 76442, 174925, 174660, 76464, 174915, 174893, 76475, 174926
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/CAS.csv (196902 pts, 2 dims)
+* Query: 0.818149 0.342072
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (196901)
+* DNNH: 
+62467, 160918, 62465, 162932, 19394, 162935, 162931, 117844
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/CAS.csv (196902 pts, 2 dims)
+* Query:  0.731774 0.0561024
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 2 (196900)
+* DNNH: 
+168509, 170147, 71696
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/CAS.csv (196902 pts, 2 dims)
+* Query: 0.948771 0.792439
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 2205 (194697)
+* DNNH: 
+118070, 118079, 118078, 19627, 118128, 19628, 118131
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/CAS.csv (196902 pts, 2 dims)
+* Query: 0.812876 0.328212
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 2 (196900)
+* DNNH: 
+64726, 163348, 163177, 64725, 64724, 159618, 62543, 160994, 60402, 62533, 163176, 62639, 163347, 160983, 62541, 163349, 64896, 163351, 163352
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/CAS.csv (196902 pts, 2 dims)
+* Query: 0.287427 0.564898
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 2 (196900)
+* DNNH: 
+72433, 170452, 72001, 170846, 170738, 72406, 72187, 170857, 72405, 170638
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/CAS.csv (196902 pts, 2 dims)
+* Query: 0.227186   0.1504
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 195 (196707)
+* DNNH: 
+77128, 77154, 77131, 175582, 77133, 77129, 77134, 77169, 77657, 77144, 77132, 175583, 175584, 175605, 175585, 175620, 77166, 175621, 77170, 77155, 175595, 175617, 77145, 77171, 175622, 175596, 77168, 175623, 77647, 77172, 77148, 77157, 175624, 77174, 77173, 77175, 175625, 175619, 175599, 175626, 77000, 77138, 77147
+
+
+
