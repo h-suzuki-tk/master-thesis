@@ -1,0 +1,50 @@
+Date:           Fri May 28 10:38:08 JST 2021
+Machine:        DESKTOP-TEQI229
+Method:         xmeans
+Execusion time: 10
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs xmeans /mnt/c/workspace/master-thesis/master-thesis/data/RN_10K_50P_1S.csv 10000 2
+* Log file path: log/xmeans/210528-103808/RN_10K_50P_1S.txt
+* Execution time: 10
+
+real	0m1.418s
+user	0m1.078s
+sys	0m0.266s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs xmeans /mnt/c/workspace/master-thesis/master-thesis/data/RN_50K_50P_1S.csv 50000 2
+* Log file path: log/xmeans/210528-103808/RN_50K_50P_1S.txt
+* Execution time: 10
+
+real	0m7.113s
+user	0m6.297s
+sys	0m0.391s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs xmeans /mnt/c/workspace/master-thesis/master-thesis/data/RN_100K_50P_1S.csv 100000 2
+* Log file path: log/xmeans/210528-103808/RN_100K_50P_1S.txt
+* Execution time: 10
+
+real	0m17.789s
+user	0m16.656s
+sys	0m0.547s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs xmeans /mnt/c/workspace/master-thesis/master-thesis/data/RN_150K_50P_1S.csv 150000 2
+* Log file path: log/xmeans/210528-103808/RN_150K_50P_1S.txt
+* Execution time: 10
+
+real	0m27.441s
+user	0m25.938s
+sys	0m0.766s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs xmeans /mnt/c/workspace/master-thesis/master-thesis/data/RN_200K_50P_1S.csv 200000 2
+* Log file path: log/xmeans/210528-103808/RN_200K_50P_1S.txt
+* Execution time: 10
+
+real	0m34.848s
+user	0m33.781s
+sys	0m0.734s
+

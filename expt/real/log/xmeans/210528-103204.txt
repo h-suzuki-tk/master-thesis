@@ -1,0 +1,32 @@
+Date:           Fri May 28 10:32:04 JST 2021
+Machine:        DESKTOP-TEQI229
+Method:         xmeans
+Execusion time: 10
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs xmeans /mnt/c/workspace/master-thesis/master-thesis/data/CAS.csv 196902 2
+* Log file path: log/xmeans/210528-103204/CAS.txt
+* Execution time: 10
+
+real	0m29.568s
+user	0m28.516s
+sys	0m0.797s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs xmeans /mnt/c/workspace/master-thesis/master-thesis/data/NE.csv 123593 2
+* Log file path: log/xmeans/210528-103204/NE.txt
+* Execution time: 10
+
+real	0m19.959s
+user	0m19.219s
+sys	0m0.563s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs xmeans /mnt/c/workspace/master-thesis/master-thesis/data/RR.csv 257942 2
+* Log file path: log/xmeans/210528-103204/RR.txt
+* Execution time: 10
+
+real	0m39.472s
+user	0m38.188s
+sys	0m0.859s
+

@@ -1,9 +1,12 @@
 #include "data.hpp"
 
 
-cv::Mat readData(std::string dataPath) {
+cv::Mat HS::readData(
+	std::string dataPath, 
+	const int   dataSize, 
+	const int   dataDims) {
 	
-	cv::Mat dataSet;
+	cv::Mat dataSet = cv::Mat_<float>(dataSize, dataDims);
 	char splt = ','; // 区切り文字
 	
 	// 読み込みモードでファイルをオープン
@@ -13,30 +16,21 @@ cv::Mat readData(std::string dataPath) {
 		exit(1);
 	}
 	
-	// 行数、列数を調べる
-	std::string 	line;
-	int 			row_num, col_num = 0;
-	getline(ifs, line);
-	sscanf(line.c_str(), "%d,%d", &row_num, &col_num);
-	
-	// 領域の確保
-	dataSet = cv::Mat::zeros(row_num, col_num, FLOAT_DATA_TYPE);
-	
 	// 読み込みと格納
 	int i = 0;
+	int j = 0;
+	std::string line;
+	std::string buf;
 	while (getline(ifs, line)) {
-		
-		std::vector<float> data;
-		std::istringstream ss{line};
-		std::string		 buf;
+
+		j=0;
+		std::istringstream ss(line);
 		while (getline(ss, buf, splt)) {
-			data.push_back(atof(buf.c_str()));
-		}
-		
-		for (int j=0; j < col_num; j++) {
-			dataSet.at<float>(i, j) = data[j];
+			dataSet.at<float>(i, j) = stof(buf);
+			j++;
 		}
 		i++;
+		
 	}
 
 	ifs.close();
@@ -179,7 +173,7 @@ int HS::readData(
 }	
 
 
-int writeData(
+int HS::writeData(
 	cv::Mat     dataSet, 
 	std::string outPath) {
 	
@@ -213,7 +207,7 @@ int writeData(
 }
 
 
-int writeData(
+int HS::writeData(
 	Eigen::MatrixXd dataSet, 
 	std::string outPath) {
 	
@@ -250,7 +244,7 @@ int writeData(
 //  createRandomData
 //  - 一様分布の乱数行列データを作成・書き出し
 // --------------------------------------------------
-int createRandomData(char *fileName, int n_row, int n_col, double min, double max) {
+int HS::createRandomData(char *fileName, int n_row, int n_col, double min, double max) {
 	
 	cv::RNG gen(cv::getTickCount());
 	cv::Mat mat(n_row, n_col, FLOAT_DATA_TYPE);
@@ -264,7 +258,7 @@ int createRandomData(char *fileName, int n_row, int n_col, double min, double ma
 //  arrangeClustersToClusSet
 //  - cv::kmeans等で出力されるクラスタリング結果をvector型に変換
 // --------------------------------------------------
-int arrangeClustersToClusSet(cv::Mat clusters, std::vector<std::vector<int>>& clusSet) {
+int HS::arrangeClustersToClusSet(cv::Mat clusters, std::vector<std::vector<int>>& clusSet) {
 	
 	for (int i = 0; i < clusters.rows; i++) {	
 		
@@ -280,7 +274,7 @@ int arrangeClustersToClusSet(cv::Mat clusters, std::vector<std::vector<int>>& cl
 //  arrangeClustersToClusSetWithParentIndex
 //  - 部分的なデータのクラスタリング結果をもとのデータのインデックスを用いてvector型に変換
 // --------------------------------------------------
-void arrangeClustersToClusSetWithParentIndex(std::vector<int> parentClusSet, cv::Mat clusters, std::vector<std::vector<int>>& clusSet) {
+void HS::arrangeClustersToClusSetWithParentIndex(std::vector<int> parentClusSet, cv::Mat clusters, std::vector<std::vector<int>>& clusSet) {
 	
 	assert(parentClusSet.size() == clusters.rows);
 	
@@ -337,7 +331,7 @@ void showClusSet(std::vector<std::vector<int>> clusSet) {
 	
 }
 
-void cvToEigenVec(cv::Mat cvVec, Eigen::VectorXd& eigenVec) {
+void HS::cvToEigenVec(cv::Mat cvVec, Eigen::VectorXd& eigenVec) {
 	
 	assert(cvVec.rows == 1 || cvVec.cols == 1);
 	assert(cvVec.rows == eigenVec.size() || cvVec.cols == eigenVec.size());
@@ -370,7 +364,7 @@ Eigen::VectorXd HS::randomVector(const int n_dim, const double min, const double
 }
 
 
-bool combInc(
+bool HS::combInc(
 	std::vector<int>&       comb, 
 	const std::vector<int>& lower, 
 	const std::vector<int>& upper) {

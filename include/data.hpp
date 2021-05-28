@@ -19,7 +19,7 @@
 
 namespace HS {
 
-cv::Mat readData(std::string dataPath);
+cv::Mat readData(std::string dataPath, const int dataSize, const int dataDims);
 int readData(Eigen::MatrixXd *buf, const std::string& dataPath, const int& dataSize, const int& dataDim);
 int readData(std::vector<std::vector<double>>* buf, const std::string& dataPath, const int& dataSize, const int& dataDim);
 int readData(std::vector<std::vector<int>>* buf, const std::string& dataPath, const int& dataSize, const int& dataDim);
