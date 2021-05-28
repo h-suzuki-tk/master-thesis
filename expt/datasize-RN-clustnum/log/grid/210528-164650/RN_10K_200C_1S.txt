@@ -1,0 +1,182 @@
+Fri May 28 16:46:50 JST 2021
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_10K_200C_1S.csv (10000 pts, 2 dims)
+* Query: 0.649918 0.662285
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/1000
+* Expansion count (total: 49): 
+49
+* DNNH (49 pts): 
+7212, 7219, 7223, 7239, 7217, 7207, 7209, 7226, 7224, 7202, 7203, 7246, 7228, 7242, 7200, 7231, 7229, 7227, 7232, 7235, 7218, 7237, 7240, 7210, 7204, 7213, 7211, 7238, 7244, 7245, 7233, 7249, 7220, 7225, 7243, 7214, 7205, 7241, 7206, 7247, 7222, 7221, 7234, 7216, 7208, 7201, 7230, 7215, 7236
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_10K_200C_1S.csv (10000 pts, 2 dims)
+* Query: 0.363739 0.119521
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/1000
+* Expansion count (total: 51): 
+49, 2
+* DNNH (49 pts): 
+3807, 3822, 3845, 3819, 3814, 3840, 3805, 3829, 3838, 3813, 3834, 3849, 3802, 3803, 3832, 3828, 3804, 3809, 3836, 3817, 3830, 3823, 3826, 3831, 3839, 3843, 3811, 3810, 3827, 3800, 3844, 3806, 3833, 3825, 3837, 3818, 3841, 3847, 3835, 3812, 3801, 3816, 3815, 3824, 3808, 3821, 3842, 3846, 3848
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_10K_200C_1S.csv (10000 pts, 2 dims)
+* Query: 0.587208 0.713765
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/1000
+* Expansion count (total: 48): 
+48
+* DNNH (48 pts): 
+6513, 6546, 6536, 6511, 6526, 6547, 6512, 6517, 6500, 6528, 6509, 6515, 6502, 6545, 6525, 6543, 6501, 6503, 6537, 6534, 6504, 6527, 6540, 6532, 6522, 6514, 6538, 6541, 6508, 6524, 6521, 6518, 6530, 6548, 6523, 6505, 6535, 6519, 6506, 6539, 6549, 6544, 6529, 6510, 6520, 6542, 6516, 6531
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_10K_200C_1S.csv (10000 pts, 2 dims)
+* Query:  0.410195 0.0126239
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/1000
+* Expansion count (total: 48): 
+48
+* DNNH (48 pts): 
+4538, 4543, 4537, 4534, 4515, 4540, 4526, 4532, 4539, 4542, 4527, 4533, 4529, 4535, 4524, 4536, 4525, 4509, 4530, 4504, 4505, 4507, 4545, 4546, 4508, 4514, 4520, 4548, 4547, 4506, 4523, 4518, 4502, 4519, 4531, 4511, 4521, 4517, 4522, 4503, 4501, 4510, 4528, 4541, 4513, 4500, 4516, 4544
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_10K_200C_1S.csv (10000 pts, 2 dims)
+* Query:  0.887683 0.0286788
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/1000
+* Expansion count (total: 50): 
+50
+* DNNH (50 pts): 
+9760, 9776, 9754, 9755, 9781, 9795, 9789, 9769, 9799, 9751, 9788, 9758, 9756, 9768, 9770, 9785, 9757, 9771, 9797, 9794, 9798, 9778, 9796, 9774, 9765, 9792, 9752, 9787, 9779, 9782, 9762, 9772, 9783, 9784, 9763, 9773, 9761, 9790, 9764, 9753, 9766, 9775, 9793, 9759, 9786, 9750, 9780, 9777, 9791, 9767
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_10K_200C_1S.csv (10000 pts, 2 dims)
+* Query: 0.945817  0.96901
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/1000
+* Expansion count (total: 88): 
+49, 39
+* DNNH (49 pts): 
+9732, 9725, 9702, 9741, 9723, 9717, 9740, 9724, 9722, 9744, 9743, 9716, 9706, 9712, 9736, 9721, 9708, 9714, 9739, 9711, 9731, 9704, 9720, 9747, 9703, 9718, 9705, 9701, 9749, 9729, 9713, 9746, 9734, 9728, 9715, 9735, 9737, 9700, 9745, 9733, 9742, 9709, 9738, 9707, 9727, 9719, 9748, 9726, 9710
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_10K_200C_1S.csv (10000 pts, 2 dims)
+* Query: 0.302692 0.668695
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/1000
+* Expansion count (total: 45): 
+45
+* DNNH (45 pts): 
+3458, 3469, 3477, 3495, 3457, 3455, 3485, 3473, 3476, 3471, 3466, 3460, 3490, 3467, 3472, 3498, 3452, 3464, 3493, 3454, 3463, 3479, 3453, 3462, 3481, 3497, 3459, 3450, 3484, 3482, 3486, 3496, 3483, 3492, 3478, 3489, 3487, 3465, 3480, 3488, 3470, 3475, 3461, 3468, 3451
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_10K_200C_1S.csv (10000 pts, 2 dims)
+* Query: 0.109773 0.469691
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/1000
+* Expansion count (total: 108): 
+49, 31, 28
+* DNNH (31 pts): 
+1146, 1145, 1109, 1101, 1116, 1131, 1104, 1125, 1123, 1118, 1105, 1115, 1134, 1103, 1110, 1144, 1107, 1143, 1117, 1114, 1149, 1139, 1111, 1133, 1142, 1124, 1137, 1120, 1147, 1140, 1112
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_10K_200C_1S.csv (10000 pts, 2 dims)
+* Query: 0.712409 0.916047
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/1000
+* Expansion count (total: 50): 
+50
+* DNNH (50 pts): 
+8184, 8187, 8188, 8183, 8169, 8162, 8173, 8182, 8155, 8161, 8192, 8191, 8193, 8166, 8158, 8156, 8174, 8150, 8186, 8185, 8177, 8172, 8152, 8180, 8199, 8178, 8198, 8195, 8160, 8196, 8164, 8153, 8154, 8165, 8151, 8190, 8176, 8167, 8171, 8194, 8170, 8168, 8159, 8179, 8181, 8163, 8197, 8189, 8157, 8175
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_10K_200C_1S.csv (10000 pts, 2 dims)
+* Query: 0.548645 0.733032
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/1000
+* Expansion count (total: 67): 
+43, 24
+* DNNH (43 pts): 
+6519, 6530, 6538, 6541, 6504, 6508, 6527, 6503, 6525, 6528, 6509, 6501, 6543, 6515, 6537, 6502, 6500, 6540, 6534, 6522, 6514, 6548, 6521, 6545, 6517, 6532, 6523, 6505, 6518, 6524, 6506, 6539, 6544, 6549, 6526, 6547, 6512, 6511, 6536, 6535, 6529, 6510, 6520
+
+
+

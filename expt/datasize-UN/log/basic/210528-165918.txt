@@ -1,0 +1,52 @@
+Date:           Fri May 28 16:59:18 JST 2021
+Machine:        DSE-PC
+Method:         basic
+Execusion time: 10
+
+Alpha: 2
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/data/UN_10K.csv 10000 2 2
+* Log file path: log/basic/210528-165918/UN_10K.txt
+* Execution time: 10
+
+real	0m17.340s
+user	0m17.172s
+sys	0m0.078s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/data/UN_50K.csv 50000 2 2
+* Log file path: log/basic/210528-165918/UN_50K.txt
+* Execution time: 10
+
+real	0m23.315s
+user	0m23.141s
+sys	0m0.078s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/data/UN_100K.csv 100000 2 2
+* Log file path: log/basic/210528-165918/UN_100K.txt
+* Execution time: 10
+
+real	0m31.027s
+user	0m30.828s
+sys	0m0.141s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/data/UN_150K.csv 150000 2 2
+* Log file path: log/basic/210528-165918/UN_150K.txt
+* Execution time: 10
+
+real	0m35.078s
+user	0m34.828s
+sys	0m0.172s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/data/UN_200K.csv 200000 2 2
+* Log file path: log/basic/210528-165918/UN_200K.txt
+* Execution time: 10
+
+real	0m46.861s
+user	0m46.625s
+sys	0m0.141s
+

@@ -1,0 +1,182 @@
+Fri May 28 17:01:52 JST 2021
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.744382 0.601581
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Expansion count (total: 499): 
+499
+* DNNH (16 pts): 
+8420, 783, 7281, 6416, 4965, 3642, 8877, 4661, 3275, 1888, 3493, 9890, 6639, 573, 4414, 4044
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query:  0.97738 0.191911
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Expansion count (total: 499): 
+499
+* DNNH (18 pts): 
+7490, 3293, 5493, 6363, 8495, 1453, 1647, 6013, 4313, 3528, 9287, 9000, 5199, 4031, 8968, 5543, 5686, 2907
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.0855206  0.381819
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Expansion count (total: 499): 
+499
+* DNNH (17 pts): 
+4966, 215, 2533, 454, 7443, 4021, 345, 1392, 8424, 3328, 7088, 4118, 9951, 4497, 7160, 3838, 7965
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query:  0.910767 0.0843515
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Expansion count (total: 499): 
+499
+* DNNH (12 pts): 
+1962, 2403, 5932, 6609, 8034, 2634, 5410, 9158, 3400, 5293, 4156, 2721
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.709423 0.688866
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Expansion count (total: 499): 
+499
+* DNNH (11 pts): 
+4277, 6008, 1814, 9199, 2296, 541, 2177, 2073, 1259, 5138, 3487
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.978805 0.544501
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Expansion count (total: 499): 
+499
+* DNNH (16 pts): 
+9179, 8759, 8966, 2830, 1062, 1031, 3364, 1394, 1351, 5760, 4362, 161, 9510, 6238, 2279, 4124
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query:  0.142432 0.0459821
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Expansion count (total: 499): 
+499
+* DNNH (12 pts): 
+6920, 1263, 5431, 2778, 7517, 9407, 8539, 4160, 4527, 1016, 191, 7727
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.251163 0.834394
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Expansion count (total: 499): 
+499
+* DNNH (10 pts): 
+3125, 6021, 7093, 9536, 4085, 6187, 6277, 4069, 8470, 1172
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query:  0.87638 0.239035
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Expansion count (total: 499): 
+499
+* DNNH (17 pts): 
+9859, 8926, 1933, 726, 1967, 9519, 3955, 4391, 3348, 765, 5031, 8382, 9549, 7918, 1285, 1377, 9716
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.855852 0.732109
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Expansion count (total: 499): 
+499
+* DNNH (10 pts): 
+5674, 2104, 2314, 4155, 9336, 1495, 4333, 3234, 9634, 9404
+
+
+

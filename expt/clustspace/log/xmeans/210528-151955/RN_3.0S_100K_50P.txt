@@ -1,0 +1,142 @@
+Fri May 28 15:20:43 JST 2021
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_3.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.155966  0.95227
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 1854
+* DNNH (50 pts): 
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_3.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query:  0.57015 0.761679
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 1854
+* DNNH (50 pts): 
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_3.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query:  0.114576 0.0149322
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 1854
+* DNNH (50 pts): 
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_3.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.929578 0.550334
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 1854
+* DNNH (50 pts): 
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_3.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.808811  0.38672
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 1854
+* DNNH (50 pts): 
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_3.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.439253 0.587279
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 1854
+* DNNH (50 pts): 
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_3.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.263475 0.580567
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 1854
+* DNNH (50 pts): 
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_3.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query:  0.81508 0.258212
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 1854
+* DNNH (50 pts): 
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_3.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.181039 0.599803
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 1854
+* DNNH (50 pts): 
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_3.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.724874 0.392339
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 1854
+* DNNH (50 pts): 
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49
+
+

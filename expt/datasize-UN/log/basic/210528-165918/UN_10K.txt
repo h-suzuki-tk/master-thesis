@@ -1,0 +1,162 @@
+Fri May 28 16:59:18 JST 2021
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.686518 0.579086
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Total processed core points (filterd): 2 (9998)
+* DNNH: 
+830, 2649, 4231, 3033, 6084, 3091, 675, 4140, 8147, 2844, 2483, 1932, 6826, 7316, 5582, 6280, 3417, 3008
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.568913 0.660882
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Total processed core points (filterd): 1 (9999)
+* DNNH: 
+4451, 9862, 1998, 1223, 3985, 2023, 2484, 4109, 8279, 3432, 2196, 8041, 2355, 5259, 3533, 3154, 7218, 2143, 8057, 6734, 1079, 8019, 5336, 7804, 813, 5159, 5549
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query:  0.33084 0.408204
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Total processed core points (filterd): 1 (9999)
+* DNNH: 
+3372, 3892, 3327, 5231, 556, 532, 2642, 3973, 7929, 7807, 8852, 2341, 7535, 1053, 920, 9252, 3103, 9046, 4685, 6823, 3809, 5677, 3582, 534, 7445
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.465544 0.490427
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Total processed core points (filterd): 1 (9999)
+* DNNH: 
+1903, 8944, 4720, 905, 3259, 1049, 1948, 8941, 4476, 1815
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.265444 0.143359
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Total processed core points (filterd): 1 (9999)
+* DNNH: 
+2036, 9723, 9684, 3105, 9614, 9470, 272, 9002, 1213, 9894, 8185
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.705303 0.393225
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Total processed core points (filterd): 1 (9999)
+* DNNH: 
+8152, 4608, 3015, 6541, 7175, 4369, 982, 8602, 4591, 9630, 8973, 2497, 9366, 2731, 8837, 6562, 2408, 6840, 42, 289, 9537
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.868958 0.759319
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Total processed core points (filterd): 1 (9999)
+* DNNH: 
+3035, 5242, 620, 7253, 5829, 9048, 3442, 9426, 1345, 9627, 1724, 3515, 104, 9905, 1797, 4484, 6254, 7385, 3749, 4722, 7972, 7484, 9337, 4784, 9729, 9714, 7602, 1488, 4990, 5180, 1414
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query: 0.542722 0.428438
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Total processed core points (filterd): 4 (9996)
+* DNNH: 
+2356, 7582, 2749, 5345, 5317, 1964, 1362, 2667, 7044, 4462, 5469
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query:  0.284584 0.0691167
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Total processed core points (filterd): 1 (9999)
+* DNNH: 
+1862, 8633, 2493, 7738, 5442, 6296, 5144, 2305, 5697, 1064
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/UN_10K.csv (10000 pts, 2 dims)
+* Query:  0.94815 0.806301
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/500
+* Total processed core points (filterd): 7 (9993)
+* DNNH: 
+831, 6151, 9016, 5316, 2100, 4301, 8879, 9007, 1094, 9879, 447, 8099
+
+
+

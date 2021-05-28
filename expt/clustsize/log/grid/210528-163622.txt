@@ -1,0 +1,54 @@
+Date:           Fri May 28 16:36:22 JST 2021
+Machine:        DSE-PC
+Method:         grid
+Execusion time: 10
+
+Alpha:     2
+Grid size: 100
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/data/RN_10P_100K_1S.csv 100000 2 2 /mnt/c/workspace/master-thesis/data/grid/RN_10P_100K_1S_100G.csv 100
+* Log file path: log/grid/210528-163622/RN_10P_100K_1S.txt
+* Execution time: 10
+/mnt/c/workspace/master-thesis/expt/exetime.sh: line 31:  9337 Segmentation fault      (core dumped) ${CMD} &>> ${LOG_FILE}
+
+real	0m14.253s
+user	0m13.875s
+sys	0m0.281s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/data/RN_50P_100K_1S.csv 100000 2 2 /mnt/c/workspace/master-thesis/data/grid/RN_50P_100K_1S_100G.csv 100
+* Log file path: log/grid/210528-163622/RN_50P_100K_1S.txt
+* Execution time: 10
+
+real	0m1.555s
+user	0m1.203s
+sys	0m0.266s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/data/RN_200P_100K_1S.csv 100000 2 2 /mnt/c/workspace/master-thesis/data/grid/RN_200P_100K_1S_100G.csv 100
+* Log file path: log/grid/210528-163622/RN_200P_100K_1S.txt
+* Execution time: 10
+
+real	0m5.052s
+user	0m4.734s
+sys	0m0.281s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/data/RN_500P_100K_1S.csv 100000 2 2 /mnt/c/workspace/master-thesis/data/grid/RN_500P_100K_1S_100G.csv 100
+* Log file path: log/grid/210528-163622/RN_500P_100K_1S.txt
+* Execution time: 10
+
+real	0m25.677s
+user	0m25.359s
+sys	0m0.203s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/data/RN_1KP_100K_1S.csv 100000 2 2 /mnt/c/workspace/master-thesis/data/grid/RN_1KP_100K_1S_100G.csv 100
+* Log file path: log/grid/210528-163622/RN_1KP_100K_1S.txt
+* Execution time: 10
+
+real	2m16.489s
+user	2m16.203s
+sys	0m0.203s
+

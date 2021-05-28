@@ -1,0 +1,182 @@
+Fri May 28 15:21:14 JST 2021
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.744868 0.502927
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 49): 
+49
+* DNNH (49 pts): 
+75374, 75367, 75353, 75390, 75397, 75391, 75364, 75383, 75396, 75358, 75388, 75392, 75350, 75362, 75365, 75398, 75356, 75380, 75360, 75354, 75394, 75395, 75371, 75363, 75389, 75352, 75369, 75355, 75385, 75359, 75361, 75384, 75366, 75387, 75373, 75377, 75372, 75382, 75370, 75381, 75357, 75386, 75375, 75393, 75379, 75376, 75399, 75378, 75368
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.590141 0.899584
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 50): 
+50
+* DNNH (50 pts): 
+60546, 60511, 60513, 60536, 60542, 60545, 60505, 60530, 60533, 60522, 60516, 60519, 60549, 60525, 60502, 60518, 60539, 60543, 60503, 60526, 60501, 60509, 60510, 60535, 60507, 60517, 60524, 60531, 60548, 60547, 60506, 60521, 60527, 60508, 60538, 60534, 60528, 60504, 60544, 60529, 60520, 60514, 60512, 60515, 60532, 60540, 60541, 60500, 60537, 60523
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query:  0.37883 0.543097
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 73): 
+48, 6, 4, 3, 3, 3, 3, 3
+* DNNH (48 pts): 
+39485, 39470, 39492, 39461, 39482, 39483, 39499, 39484, 39498, 39451, 39453, 39457, 39497, 39458, 39450, 39474, 39479, 39475, 39469, 39473, 39480, 39489, 39481, 39460, 39495, 39487, 39452, 39464, 39456, 39486, 39477, 39471, 39478, 39467, 39476, 39490, 39468, 39466, 39459, 39494, 39488, 39463, 39493, 39472, 39454, 39491, 39455, 39465
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query:  0.83278 0.180804
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+46, 2
+* DNNH (46 pts): 
+83689, 83657, 83655, 83673, 83660, 83683, 83691, 83665, 83656, 83663, 83667, 83693, 83681, 83685, 83684, 83694, 83677, 83662, 83668, 83676, 83688, 83686, 83682, 83678, 83661, 83699, 83650, 83658, 83698, 83679, 83652, 83670, 83687, 83695, 83654, 83680, 83675, 83664, 83690, 83672, 83697, 83659, 83651, 83669, 83692, 83674
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.210367 0.149433
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* DNNH (48 pts): 
+20587, 20563, 20554, 20562, 20567, 20565, 20555, 20560, 20570, 20595, 20576, 20592, 20594, 20593, 20558, 20581, 20590, 20598, 20564, 20578, 20566, 20551, 20556, 20573, 20572, 20597, 20559, 20575, 20585, 20584, 20553, 20557, 20569, 20586, 20582, 20574, 20580, 20599, 20589, 20571, 20568, 20583, 20561, 20591, 20577, 20579, 20596, 20588
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.528329  0.67875
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 47): 
+47
+* DNNH (47 pts): 
+53253, 53276, 53290, 53274, 53265, 53278, 53250, 53255, 53275, 53263, 53277, 53284, 53295, 53292, 53267, 53285, 53294, 53262, 53271, 53280, 53281, 53256, 53299, 53286, 53258, 53268, 53282, 53264, 53287, 53266, 53291, 53293, 53272, 53273, 53254, 53252, 53257, 53260, 53283, 53269, 53296, 53289, 53251, 53270, 53297, 53279, 53288
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.0811216  0.119631
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 49): 
+49
+* DNNH (49 pts): 
+7010, 7038, 7037, 7043, 7036, 7031, 7014, 7002, 7039, 7015, 7030, 7001, 7008, 7033, 7006, 7029, 7048, 7017, 7018, 7024, 7003, 7041, 7005, 7034, 7011, 7042, 7016, 7027, 7020, 7049, 7046, 7026, 7025, 7019, 7023, 7045, 7032, 7013, 7047, 7007, 7009, 7021, 7028, 7000, 7044, 7035, 7022, 7040, 7004
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query:   0.19259 0.0507454
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 45): 
+45
+* DNNH (45 pts): 
+18146, 18145, 18122, 18119, 18116, 18136, 18110, 18135, 18108, 18141, 18112, 18149, 18105, 18143, 18124, 18125, 18114, 18101, 18102, 18118, 18111, 18107, 18132, 18144, 18123, 18115, 18131, 18140, 18138, 18113, 18147, 18139, 18103, 18104, 18134, 18128, 18127, 18130, 18100, 18109, 18137, 18117, 18106, 18121, 18120
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query:   0.39257 0.0294248
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 50): 
+50
+* DNNH (50 pts): 
+38331, 38327, 38348, 38312, 38338, 38317, 38333, 38309, 38342, 38324, 38347, 38319, 38321, 38305, 38336, 38346, 38325, 38334, 38306, 38310, 38341, 38343, 38301, 38330, 38313, 38320, 38316, 38303, 38311, 38339, 38322, 38323, 38314, 38318, 38337, 38308, 38326, 38340, 38335, 38302, 38315, 38300, 38329, 38349, 38328, 38332, 38345, 38344, 38304, 38307
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_1.5S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.591705 0.623635
+* Grid size: 100
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 76): 
+48, 26, 2
+* DNNH (26 pts): 
+59875, 59860, 59873, 59853, 59872, 59852, 59862, 59879, 59883, 59857, 59858, 59894, 59886, 59865, 59898, 59884, 59889, 59897, 59869, 59868, 59859, 59864, 59895, 59888, 59891, 59856
+
+
+

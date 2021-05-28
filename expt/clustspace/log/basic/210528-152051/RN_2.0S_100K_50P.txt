@@ -1,0 +1,162 @@
+Fri May 28 15:21:01 JST 2021
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.542887 0.680736
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+55502, 55511, 55529, 55523, 55517, 55535, 55504, 55526, 55507, 55505, 55513, 55514, 55510, 55549, 55518, 55503, 55544, 55530, 55515, 55547, 55516, 55501, 55539, 55532, 55545, 55509, 55538, 55512, 55548, 55541, 55521, 55540, 55525, 55524, 55537, 55531, 55520, 55533, 55508, 55534, 55527, 55500, 55546, 55542, 55519, 55506, 55522, 55528, 55536
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.287305 0.576625
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 4 (99996)
+* DNNH: 
+30520, 30530, 30504, 30544, 30535, 30532, 30510, 30537, 30522, 30542, 30536, 30547, 30513, 30507, 30543, 30529, 30549, 30527, 30533, 30545, 30548, 30519, 30505, 30511, 30518, 30517, 30540, 30525, 30502, 30524, 30523, 30514, 30541, 30515, 30538, 30500, 30508, 30526, 30506, 30501, 30512, 30503, 30539, 30516, 30546, 30509, 30528, 30534
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.761705 0.910758
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+78542, 78529, 78530, 78508, 78506, 78520, 78526, 78504, 78544, 78500, 78533, 78527, 78538, 78535, 78547, 78512, 78511, 78540, 78514, 78515, 78546, 78539, 78505, 78531, 78513, 78524, 78510, 78518, 78517, 78501, 78534, 78525, 78549, 78519, 78543, 78516, 78548, 78522, 78528, 78545, 78503, 78509, 78523, 78532, 78502, 78507, 78541, 78521, 78537
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.944077  0.44106
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+95480, 95471, 95473, 95479, 95484, 95498, 95470, 95458, 95488, 95463, 95469, 95464, 95489, 95455, 95483, 95486, 95492, 95468, 95457, 95462, 95456, 95493, 95454, 95491, 95487, 95497, 95482, 95459, 95496, 95490, 95475, 95499, 95450, 95494, 95467, 95485, 95461, 95466, 95460, 95465, 95477, 95472, 95451, 95476, 95453, 95495, 95481, 95452, 95478, 95474
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.0625811  0.503262
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+7893, 7889, 7867, 7875, 7877, 7870, 7899, 7865, 7884, 7898, 7879, 7857, 7892, 7896, 7871, 7890, 7856, 7888, 7862, 7869, 7864, 7861, 7882, 7887, 7855, 7868, 7872, 7895, 7873, 7876, 7863, 7860, 7891, 7852, 7897, 7866, 7850, 7886, 7880, 7854, 7853, 7881, 7885, 7858, 7874, 7859, 7851, 7878
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.106491 0.829364
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 9 (99991)
+* DNNH: 
+13138, 13123, 13100, 13113, 13147, 13107, 13132, 13133, 13136, 13146, 13144, 13111, 13128, 13130, 13127, 13101, 13121, 13126, 13129, 13124, 13137, 13110, 13134, 13114, 13143, 13120, 13135, 13145, 13106, 13148, 13117, 13103, 13116, 13118, 13105, 13131, 13141, 13125, 13104, 13108, 13102, 13112, 13142, 13139, 13115, 13149, 13140, 13109, 13122, 13119
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.0740792  0.532668
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 8 (99992)
+* DNNH: 
+7903, 7920, 7926, 7924, 7923, 7912, 7948, 7928, 7917, 7910, 7930, 7943, 7906, 7908, 7905, 7936, 7939, 7919, 7900, 7933, 7915, 7942, 7935, 7932, 7949, 7946, 7902, 7922, 7938, 7921, 7907, 7901, 7937, 7925, 7913, 7918, 7927, 7929, 7916, 7911, 7914, 7944, 7904, 7941, 7947, 7909, 7934, 7940, 7931, 7945
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.00776851   0.940289
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 2 (99998)
+* DNNH: 
+2108, 2118, 2107, 2124, 2147, 2102, 2101, 2143, 2115, 2133, 2112, 2127, 2139, 2113, 2119, 2137, 2134, 2145, 2131, 2144, 2110, 2117, 2132, 2149, 2141, 2103, 2109, 2142, 2140, 2121, 2114, 2138, 2122, 2136, 2129, 2123, 2111, 2146, 2120, 2135, 2100, 2116, 2106, 2148, 2105, 2104
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query: 0.266186 0.971273
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+29178, 29163, 29155, 29174, 29191, 29151, 29161, 29185, 29156, 29181, 29175, 29199, 29164, 29177, 29194, 29180, 29195, 29154, 29170, 29168, 29196, 29192, 29150, 29160, 29179, 29198, 29197, 29172, 29165, 29190, 29176, 29171, 29173, 29187, 29167, 29183, 29152, 29157, 29189, 29166, 29153, 29188, 29169, 29158, 29159, 29184, 29162, 29186, 29182, 29193
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/data/RN_2.0S_100K_50P.csv (100000 pts, 2 dims)
+* Query:  0.607298 0.0668024
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (99999)
+* DNNH: 
+60938, 60949, 60937, 60925, 60910, 60909, 60915, 60928, 60948, 60921, 60939, 60900, 60906, 60947, 60907, 60913, 60941, 60923, 60931, 60924, 60946, 60911, 60926, 60943, 60940, 60934, 60920, 60942, 60916, 60929, 60927, 60905, 60918, 60912, 60902, 60933, 60936, 60901, 60945, 60903, 60919, 60944, 60904, 60922, 60917, 60930, 60908, 60932, 60935, 60914
+
+
+

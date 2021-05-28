@@ -1,0 +1,52 @@
+Date:           Fri May 28 16:53:12 JST 2021
+Machine:        DSE-PC
+Method:         basic
+Execusion time: 10
+
+Alpha: 2
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/data/RN_10K_50P_1S.csv 10000 2 2
+* Log file path: log/basic/210528-165312/RN_10K_50P_1S.txt
+* Execution time: 10
+
+real	0m0.389s
+user	0m0.234s
+sys	0m0.109s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/data/RN_50K_50P_1S.csv 50000 2 2
+* Log file path: log/basic/210528-165312/RN_50K_50P_1S.txt
+* Execution time: 10
+
+real	0m1.184s
+user	0m0.938s
+sys	0m0.203s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/data/RN_100K_50P_1S.csv 100000 2 2
+* Log file path: log/basic/210528-165312/RN_100K_50P_1S.txt
+* Execution time: 10
+
+real	0m2.179s
+user	0m1.969s
+sys	0m0.156s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/data/RN_150K_50P_1S.csv 150000 2 2
+* Log file path: log/basic/210528-165312/RN_150K_50P_1S.txt
+* Execution time: 10
+
+real	0m3.206s
+user	0m2.969s
+sys	0m0.141s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/dnnhs basic /mnt/c/workspace/master-thesis/data/RN_200K_50P_1S.csv 200000 2 2
+* Log file path: log/basic/210528-165312/RN_200K_50P_1S.txt
+* Execution time: 10
+
+real	0m4.125s
+user	0m3.781s
+sys	0m0.250s
+
