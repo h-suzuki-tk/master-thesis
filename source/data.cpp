@@ -170,7 +170,54 @@ int HS::readData(
 	ifs.close();
 
 	return 0;
-}	
+}
+
+
+void HS::readData(
+	Eigen::MatrixXd*   data, 
+	Eigen::VectorXd*   query, 
+	const std::string& path, 
+	const int          size, 
+	const int          dims, 
+	const int          query_id ) {
+
+	assert( size > 0 );
+	assert( dims > 0 );
+	assert( 0 <= query_id && query_id < size );
+
+	*data  = Eigen::MatrixXd( size-1, dims );
+	*query = Eigen::VectorXd( dims );
+
+	// 読み込みモードでファイルをオープン
+	std::ifstream ifs(path);
+	if (ifs.fail()) throw std::runtime_error("Failed to open file.");
+	
+	// 読み込みと格納
+	int load_row = 0;
+	int row = 0;
+	int col = 0;
+	std::string line;
+	std::string s;
+	while (getline(ifs, line)) {
+		
+		std::istringstream ss(line);
+		if ( load_row == query_id ) {
+			while (getline(ss, s, ',')) (*query)(col++) = stod(s);
+		} else {
+			while (getline(ss, s, ',')) (*data)(row, col++) = stod(s);
+			++row;
+		}
+		++load_row; col = 0;
+
+	}
+
+	// 読み込みサイズが合っているかチェック
+	if ( row != size-1 ) {
+		throw std::runtime_error("Failed to read file.");
+	}
+
+	ifs.close();
+}
 
 
 int HS::writeData(
@@ -239,6 +286,19 @@ int HS::writeData(
 	ofs.close();
 	return 0;
 }
+
+
+int HS::rand( 
+	const int min, 
+	const int max ) {
+
+	std::random_device seed_gen;
+    std::mt19937 engine(seed_gen());
+    std::uniform_int_distribution<> und( min, max );
+    
+	return und(engine);
+}
+
 
 // --------------------------------------------------
 //  createRandomData

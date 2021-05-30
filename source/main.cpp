@@ -14,9 +14,9 @@ static const std::vector<std::string> _clustWays = {
 };
 
 void printArgError();
-void runXmeansSearch(const std::string& dataPath, const int& dataSize, const int& dataDims, const Eigen::VectorXd& query);
-void runBasicSearch(const std::string& dataPath, const int& dataSize, const int& dataDim, const Eigen::VectorXd& query, const double& alpha);
-void runGridSearch(const std::string& dataPath, const int& dataSize, const int& dataDim, const Eigen::VectorXd& query, const double& alpha, const int& gridSize, const std::string& gridDataPath);
+void runXmeansSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query);
+void runBasicSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const double& alpha);
+void runGridSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const double& alpha, const int& gridSize, const std::string& gridDataPath, const int queryId);
 void runSplitSearch();
 
 
@@ -62,9 +62,19 @@ int main (int argc, char *argv[]) {
 	const std::string gridDataPath = argc >= 7 ? args[6]       : "";
 	const int         gridSize     = argc >= 8 ? stoi(args[7]) : 0;
 
+	
+	Eigen::MatrixXd data;
+	Eigen::VectorXd query;
+	const int       queryId = HS::rand(0, dataSize-1);
 
-	// クエリの設定
-	Eigen::VectorXd query = HS::randomVector(dataDim);
+
+	// データ, クエリの読み込み
+	try { 
+		HS::readData( &data, &query, dataPath, dataSize, dataDim, queryId );
+	} catch ( const std::exception& e ) {
+		std::cout << e.what() << std::endl; 
+		return 1;
+	}
 
 
 	// 引数の出力
@@ -77,9 +87,9 @@ int main (int argc, char *argv[]) {
 
 
 	// DNNH 検索	
-	if      (clustWay == XMEANS) { runXmeansSearch(dataPath, dataSize, dataDim, query); }
-	else if (clustWay == BASIC)  { runBasicSearch(dataPath, dataSize, dataDim, query, alpha); } 
-	else if (clustWay == GRID)   { runGridSearch(dataPath, dataSize, dataDim, query, alpha, gridSize, gridDataPath); } 
+	if      (clustWay == XMEANS) { runXmeansSearch(data, query); }
+	else if (clustWay == BASIC)  { runBasicSearch(data, query, alpha); } 
+	else if (clustWay == GRID)   { runGridSearch(data, query, alpha, gridSize, gridDataPath, queryId); } 
 	else if (clustWay == SPLIT)  { runSplitSearch(); } 
 	else { assert(!"clustWay should be one of _clustWays."); }
 
@@ -106,28 +116,28 @@ void printArgError() {
 
 
 void runXmeansSearch(
-	const std::string&     dataPath,
-	const int&             dataSize,
-	const int&             dataDims,
+	const Eigen::MatrixXd& data,
 	const Eigen::VectorXd& query) {
 	
-	// データ読み込み・整形
-	cv::Mat data = HS::readData(dataPath, dataSize, dataDims);
-	data *= 100; // OpenCV の kmeans ライブラリに適用するためのスケーリング
+	// データ変換
+	cv::Mat cv_data;
+	cv::eigen2cv( data, cv_data );
+	cv_data.convertTo( cv_data, CV_32F );
+	cv_data *= 100; // OpenCV の kmeans ライブラリに適用するためのスケーリング
 
 	// 検索
 	std::cout << "Starting xmeans DNNH search..." << std::endl;
-	Xmeans xmeans(data, 2, 1);
+	Xmeans xmeans(cv_data, 2, 1);
 	xmeans.run();
 	int n_clus	= xmeans._clusSet.size();
 	std::vector<std::vector<int>> clusSet = xmeans._clusSet;
-	Eigen::MatrixXd _centers = Eigen::MatrixXd(data.rows, data.cols);
+	Eigen::MatrixXd _centers = Eigen::MatrixXd(cv_data.rows, cv_data.cols);
 	_centers << xmeans._centers;
 	double min_sim = DBL_MAX;
 	int num_clus = -1;
 	std::vector<int> clus;
 	for (int i=0; i < clusSet.size(); i++) {
-		double tmp_sim = Xmeans::sim(data, query, clusSet[i], _centers.row(i));
+		double tmp_sim = Xmeans::sim(cv_data, query, clusSet[i], _centers.row(i));
 		if (tmp_sim < min_sim) {
 			num_clus	= i;
 			clus		= clusSet[i];
@@ -145,21 +155,9 @@ void runXmeansSearch(
 
 
 void runBasicSearch(
-	const std::string&     dataPath, 
-	const int&             dataSize, 
-	const int&             dataDim, 
+	const Eigen::MatrixXd& data,
 	const Eigen::VectorXd& query,
 	const double&          alpha) {
-
-	assert(dataSize > 0);
-	assert(dataDim > 0);
-
-	// データ読み込み・整形
-	Eigen::MatrixXd data;
-	if (HS::readData(&data, dataPath, dataSize, dataDim) != 0) {
-		std::cerr << "[E] Failed to read data." << std::endl;
-		return;
-	}
 	
 	// 検索
 	std::cout << "Starting basic DNNH search..." << std::endl;
@@ -181,25 +179,20 @@ void runBasicSearch(
 
 
 void runGridSearch(
-	const std::string&     dataPath, 
-	const int&             dataSize, 
-	const int&             dataDim, 
+	const Eigen::MatrixXd& data,
 	const Eigen::VectorXd& query,
 	const double&          alpha,
 	const int&             gridSize,
-	const std::string&     gridDataPath) { 
+	const std::string&     gridDataPath,
+	const int              queryId) { 
 
-	// データ読み込み・整形
-	Eigen::MatrixXd data;
-	if (HS::readData(&data, dataPath, dataSize, dataDim) != 0) {
-		std::cerr << "[E] Failed to read data." << std::endl;
-		return;
-	}
+	// グリッドデータ読み込み
 	std::vector<std::vector<int>> belongGrid;
-	if (HS::readData(&belongGrid, gridDataPath, dataSize, dataDim) != 0) {
+	if (HS::readData( &belongGrid, gridDataPath, data.rows()+1, data.cols() ) != 0) {
 		std::cerr << "[E] Failed to read grid data." << std::endl;
 		return;
 	}
+	belongGrid.erase( belongGrid.begin() + queryId );
 
 	// 検索
 	std::cout << "Starting grid DNNH search..." << std::endl;

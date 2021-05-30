@@ -8,13 +8,14 @@
 #include <iostream>
 #include <random>
 #include <fstream>
+#include <exception>
 #include <opencv2/core.hpp>
 
 #include <Eigen/Core>
 #include <Eigen/LU>
 
 #define FLOAT_DATA_TYPE	CV_32FC1
-#define INT_DATA_TYPE		CV_32SC1
+#define INT_DATA_TYPE   CV_32SC1
 
 
 namespace HS {
@@ -23,9 +24,11 @@ cv::Mat readData(std::string dataPath, const int dataSize, const int dataDims);
 int readData(Eigen::MatrixXd *buf, const std::string& dataPath, const int& dataSize, const int& dataDim);
 int readData(std::vector<std::vector<double>>* buf, const std::string& dataPath, const int& dataSize, const int& dataDim);
 int readData(std::vector<std::vector<int>>* buf, const std::string& dataPath, const int& dataSize, const int& dataDim);
+void readData(Eigen::MatrixXd *data, Eigen::VectorXd *query, const std::string& path, const int size, const int dims, const int query_id);
 int writeData(cv::Mat dataSet, std::string fileName);
 int writeData(Eigen::MatrixXd dataSet, std::string fileName);
 
+int rand( const int min, const int max );
 int createRandomData(char *fileName, int n_row, int n_col, double min, double max);
 
 int arrangeClustersToClusSet(cv::Mat clusters, std::vector<std::vector<int>>& clusSet);
