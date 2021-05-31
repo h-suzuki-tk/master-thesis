@@ -613,7 +613,7 @@ int HS::DNNHS::Grid::run() {
 		epcells.expand();
 
 	}
-
+	
 	return 0;
 }
 
@@ -641,6 +641,7 @@ HS::DNNHS::Grid::Cell& HS::DNNHS::Grid::belongCell(
 
 HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 	const int core_pt ) {
+	std::chrono::system_clock::time_point s, e;
 	
 	ExpansionGroup   cur_group( this, core_pt );
 	ExpansionGroup   best_group = cur_group;
@@ -657,6 +658,7 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 	while ( !epcells.isOverBound() ) {
 
 		// グループ拡大
+		s = std::chrono::system_clock::now();
 		while ( pts.size() > 0 ) {
 		
 			// 拡大点を見つける
@@ -696,7 +698,6 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 		epcells.expand();
 		HS::insert( pts, epcells.pts() );
 		filterPts( &pts );
-
 	}
 
 	return best_group;
