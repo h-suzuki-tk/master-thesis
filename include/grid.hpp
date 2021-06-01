@@ -140,6 +140,8 @@ class Grid : public DNNHS {
 		Cell*             cell    (const std::vector<int>& idx) { return m_cells[idx]; }
 		double            cellSide()                      const { return m_cell_side; }
 
+		static std::vector<int> belongCell(const Eigen::VectorXd& pt, const double grid_size);
+
 		std::vector<int>&    epCount()   { return m_ep_count; }       
 		std::vector<double>& time   ()   { return m_time; }
 
@@ -156,8 +158,8 @@ class Grid : public DNNHS {
 		std::vector<int>              m_ep_count;
 		std::vector<double>           m_time;
 
-		std::vector<int> belongCell(const HS::DNNHS::Grid::Cells& cells, const Eigen::VectorXd& pt);
-		Cell&            belongCell(const int id);
+		std::vector<int>        belongCell(const HS::DNNHS::Grid::Cells& cells, const Eigen::VectorXd& pt);
+		Cell&                   belongCell(const int id);
 		Group            findGroup(const int core_pt);
 		void             updateBoundCellIdx(const double bound);
 };

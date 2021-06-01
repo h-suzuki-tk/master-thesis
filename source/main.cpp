@@ -16,7 +16,7 @@ static const std::vector<std::string> _clustWays = {
 void printArgError();
 void runXmeansSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query);
 void runBasicSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const double& alpha);
-void runGridSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const double& alpha, const int& gridSize, const std::string& gridDataPath, const int queryId);
+void runGridSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const double& alpha, const int& gridSize, const int queryId);
 void runSplitSearch();
 
 std::chrono::system_clock::time_point g_start, g_end, g_s, g_e;
@@ -79,7 +79,6 @@ int main (int argc, char *argv[]) {
 		return 1;
 	}
 
-
 	// 引数の出力
 	std::cout << "Arguments:" << std::endl;
     std::cout << "* Clustering way: " << clustWay << std::endl;
@@ -92,7 +91,7 @@ int main (int argc, char *argv[]) {
 	// DNNH 検索	
 	if      (clustWay == XMEANS) { runXmeansSearch(data, query); }
 	else if (clustWay == BASIC)  { runBasicSearch(data, query, alpha); } 
-	else if (clustWay == GRID)   { runGridSearch(data, query, alpha, gridSize, gridDataPath, queryId); } 
+	else if (clustWay == GRID)   { runGridSearch(data, query, alpha, gridSize, queryId); } 
 	else if (clustWay == SPLIT)  { runSplitSearch(); } 
 	else { assert(!"clustWay should be one of _clustWays."); }
 
@@ -186,21 +185,16 @@ void runGridSearch(
 	const Eigen::VectorXd& query,
 	const double&          alpha,
 	const int&             gridSize,
-	const std::string&     gridDataPath,
 	const int              queryId) {
 	std::chrono::system_clock::time_point    s, e;
 	std::vector<std::pair<std::string, int>> time;
 
-	g_s = std::chrono::system_clock::now();
-	// グリッドデータ読み込み
-	std::vector<std::vector<int>> belongGrid;
-	if (HS::readData( &belongGrid, gridDataPath, data.rows()+1, data.cols() ) != 0) {
-		std::cerr << "[E] Failed to read grid data." << std::endl;
-		return;
-	}
-	belongGrid.erase( belongGrid.begin() + queryId );
-	g_e = std::chrono::system_clock::now(); 
-	time.emplace_back( std::make_pair("Read data", std::chrono::duration_cast<std::chrono::milliseconds>(g_e-g_s).count()) );
+	// 所属セルの計算
+	s = std::chrono::system_clock::now();
+	std::vector<std::vector<int>> belongGrid( data.rows(), std::vector<int>(data.cols()) );
+	for ( int i=0; i<data.rows(); ++i ) belongGrid[i] = HS::DNNHS::Grid::belongCell( data.row(i), gridSize );
+	e = std::chrono::system_clock::now(); 
+	time.emplace_back( std::make_pair("Read grid data", std::chrono::duration_cast<std::chrono::milliseconds>(e-s).count()) );
 
 	// 検索
 	std::cout << "Starting grid DNNH search..." << std::endl;

@@ -1,0 +1,34 @@
+所属セルの読み込みを追加のファイル読み込みから、最初に読み込んだベクトルデータから計算する方法にした場合
+
+Date:           Tue Jun  1 00:23:22 JST 2021
+Machine:        DESKTOP-TEQI229
+Method:         grid
+Execusion time: 100
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv 230 2 2 /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01_10G.csv 10
+* Log file path: log/grid/210601-002322/SN_01.txt
+* Execution time: 100
+
+real	0m3.653s
+user	0m0.719s
+sys	0m2.266s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/master-thesis/data/test/RN_100K_2KC.csv 100000 2 2 /mnt/c/workspace/master-thesis/master-thesis/data/test/RN_100K_2KC_100G.csv 100
+* Log file path: log/grid/210601-002322/RN_100K_2KC.txt
+* Execution time: 100
+
+real	0m18.036s
+user	0m11.906s
+sys	0m4.578s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/master-thesis/data/test/RN_200K_50P.csv 200000 2 2 /mnt/c/workspace/master-thesis/master-thesis/data/test/RN_200K_50P_100G.csv 100
+* Log file path: log/grid/210601-002322/RN_200K_50P.txt
+* Execution time: 100
+
+real	0m29.790s
+user	0m21.531s
+sys	0m6.828s
+

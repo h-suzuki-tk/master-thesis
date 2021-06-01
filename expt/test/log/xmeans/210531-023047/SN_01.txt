@@ -1,0 +1,422 @@
+Mon May 31 02:30:47 JST 2021
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.738968 0.447087
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 37, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:   0.1849 0.191121
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (20 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.783745 0.505377
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 49, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.332071 0.177749
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 171, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.687135 0.557118
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 38, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.457428 0.815536
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 75, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.133178 0.360473
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+2, 5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.159121 0.223085
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (20 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.555405 0.669931
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 97, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.497689 0.703789
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 21
+* DNNH (21 pts): 
+5, 116, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:  0.80219 0.876664
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189, 194
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.579807 0.733763
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 21
+* DNNH (21 pts): 
+5, 126, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.557764 0.816424
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 111, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.146065 0.192004
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (20 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.861073 0.144638
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 13
+* DNNH (21 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189, 223
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.803629 0.878137
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189, 199
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.326577 0.181944
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 169, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.814811 0.920337
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 21
+* DNNH (21 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189, 196
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.247753 0.227518
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (20 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:  0.57327 0.777063
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 21
+* DNNH (21 pts): 
+5, 66, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.802074 0.926449
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189, 203
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.476318 0.819517
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 107, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.162873 0.184908
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (20 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.687135 0.557118
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 38, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.512758 0.783188
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 21
+* DNNH (21 pts): 
+5, 70, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.818201 0.527972
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 43, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.529056 0.747743
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (21 pts): 
+5, 80, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.536797 0.835606
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 21
+* DNNH (21 pts): 
+5, 85, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.241312 0.164866
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 20
+* DNNH (20 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189
+
+
+Arguments:
+* Clustering way: xmeans
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.834831 0.173983
+
+Starting xmeans DNNH search...
+Ended xmeans DNNH search.
+
+Result:
+* Number of clusters: 18
+* DNNH (21 pts): 
+5, 130, 133, 137, 139, 140, 141, 142, 143, 144, 145, 148, 156, 159, 165, 168, 175, 182, 185, 189, 220
+
+

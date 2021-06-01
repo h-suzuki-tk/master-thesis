@@ -1,0 +1,2202 @@
+Tue Jun  1 01:06:24 JST 2021
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.510256 0.796206
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 5 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (100 %)
+* DNNH (66 pts): 
+114, 120, 70, 73, 121, 76, 91, 81, 105, 82, 67, 72, 79, 101, 117, 83, 86, 99, 100, 60, 113, 106, 110, 84, 77, 66, 78, 64, 92, 119, 109, 69, 128, 122, 125, 75, 112, 123, 94, 115, 102, 116, 61, 103, 85, 118, 62, 111, 65, 74, 97, 98, 96, 93, 71, 68, 95, 88, 89, 80, 127, 90, 108, 107, 124, 87
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:   0.7571 0.469099
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 29): 
+29
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (29 pts): 
+32, 44, 46, 35, 34, 36, 45, 55, 47, 51, 40, 31, 37, 30, 49, 52, 58, 33, 56, 50, 57, 43, 48, 54, 42, 39, 41, 38, 53
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.831731 0.141491
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (16 pts): 
+227, 216, 212, 222, 221, 219, 226, 217, 223, 210, 211, 224, 220, 213, 225, 228
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:  0.39123 0.789542
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 5 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (100 %)
+* DNNH (66 pts): 
+74, 124, 86, 99, 98, 114, 87, 75, 95, 107, 73, 121, 118, 84, 79, 70, 82, 115, 122, 92, 76, 106, 102, 83, 72, 67, 80, 60, 100, 85, 62, 111, 101, 77, 64, 119, 66, 78, 128, 113, 104, 69, 116, 93, 120, 110, 126, 123, 103, 61, 117, 65, 112, 97, 94, 71, 68, 96, 89, 90, 81, 91, 109, 108, 125, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.468193 0.671011
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 8 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 8 ms (100 %)
+* DNNH (66 pts): 
+89, 90, 95, 124, 81, 115, 61, 112, 103, 101, 128, 102, 105, 82, 80, 92, 76, 121, 69, 73, 70, 83, 67, 87, 72, 79, 120, 114, 113, 100, 78, 123, 117, 84, 99, 66, 125, 106, 86, 60, 75, 110, 93, 122, 77, 85, 94, 119, 116, 65, 64, 109, 62, 74, 97, 98, 118, 96, 111, 71, 68, 127, 91, 108, 107, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.551669 0.802546
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 6 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (83.3333 %)
+* DNNH (66 pts): 
+110, 77, 109, 85, 60, 64, 114, 84, 79, 117, 120, 72, 70, 83, 67, 121, 76, 73, 92, 100, 82, 105, 80, 66, 78, 101, 87, 106, 113, 93, 119, 69, 128, 122, 125, 75, 123, 95, 112, 115, 102, 61, 116, 103, 86, 118, 62, 74, 111, 65, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 127, 91, 108, 124, 107, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.497658 0.813714
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 6 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (83.3333 %)
+* DNNH (66 pts): 
+84, 120, 79, 115, 70, 73, 121, 76, 92, 83, 72, 67, 82, 106, 80, 102, 87, 100, 101, 60, 114, 107, 111, 85, 77, 66, 78, 93, 119, 64, 110, 69, 128, 122, 125, 75, 113, 123, 95, 116, 103, 117, 61, 104, 86, 118, 62, 112, 65, 74, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 127, 91, 109, 108, 124, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.558058  0.66625
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 9 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 8 ms (88.8889 %)
+* DNNH (66 pts): 
+96, 65, 68, 102, 69, 128, 125, 116, 122, 77, 79, 100, 92, 66, 67, 82, 105, 71, 75, 91, 121, 81, 101, 70, 99, 114, 78, 72, 120, 112, 115, 61, 110, 119, 117, 83, 60, 76, 86, 84, 113, 106, 109, 111, 64, 123, 74, 94, 103, 85, 118, 62, 73, 97, 98, 93, 90, 95, 88, 80, 89, 127, 108, 124, 107, 87
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.478865 0.887987
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 8 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 7 ms (87.5 %)
+* DNNH (66 pts): 
+118, 64, 85, 60, 84, 117, 114, 120, 79, 106, 70, 73, 72, 99, 83, 67, 121, 76, 91, 110, 77, 82, 105, 100, 80, 87, 113, 101, 66, 78, 75, 94, 123, 62, 109, 119, 92, 69, 128, 122, 125, 112, 115, 102, 86, 103, 61, 116, 111, 65, 74, 97, 98, 96, 93, 71, 68, 95, 89, 90, 81, 127, 108, 107, 124, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.508206 0.692129
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 6 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (83.3333 %)
+* DNNH (66 pts): 
+115, 112, 128, 101, 105, 81, 79, 91, 75, 121, 72, 69, 82, 66, 71, 78, 114, 120, 86, 100, 117, 83, 99, 113, 77, 60, 65, 110, 68, 76, 84, 106, 92, 119, 125, 122, 109, 63, 74, 123, 94, 102, 118, 61, 85, 103, 116, 111, 64, 73, 97, 98, 96, 93, 70, 67, 95, 88, 89, 80, 127, 90, 108, 107, 124, 87
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.250653 0.469733
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 19): 
+19
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (19 pts): 
+16, 10, 23, 11, 15, 21, 14, 13, 22, 12, 20, 24, 27, 28, 18, 19, 17, 25, 26
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.452748 0.253927
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 49): 
+49
+* Elapsed time (total: 2 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (100 %)
+* DNNH (49 pts): 
+136, 160, 154, 149, 150, 135, 134, 187, 138, 179, 173, 147, 170, 169, 172, 168, 153, 151, 183, 158, 175, 155, 182, 152, 176, 163, 180, 185, 178, 165, 177, 162, 132, 186, 166, 131, 157, 146, 139, 130, 133, 174, 156, 144, 164, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:  0.47072 0.173503
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 50): 
+50
+* Elapsed time (total: 3 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (66.6667 %)
+* DNNH (50 pts): 
+171, 187, 179, 134, 135, 150, 138, 160, 154, 149, 173, 136, 147, 170, 172, 169, 168, 153, 151, 158, 155, 183, 182, 175, 152, 176, 163, 180, 165, 185, 178, 177, 162, 132, 186, 166, 131, 157, 146, 139, 130, 133, 174, 156, 144, 164, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.951558 0.161577
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 18): 
+18
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (18 pts): 
+214, 222, 215, 227, 212, 218, 221, 219, 226, 224, 216, 223, 210, 211, 220, 213, 228, 225
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.421763 0.796605
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 7 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 6 ms (85.7143 %)
+* DNNH (66 pts): 
+123, 113, 86, 74, 106, 94, 117, 83, 120, 73, 78, 114, 70, 121, 75, 91, 81, 105, 72, 82, 67, 101, 79, 60, 99, 84, 110, 100, 76, 64, 66, 77, 92, 119, 109, 118, 62, 69, 128, 122, 125, 112, 115, 102, 85, 103, 61, 116, 111, 65, 97, 98, 96, 71, 93, 68, 95, 88, 89, 80, 127, 90, 108, 107, 124, 87
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.312012 0.210657
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 2 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (100 %)
+* DNNH (48 pts): 
+175, 183, 176, 152, 185, 178, 180, 169, 168, 172, 170, 157, 165, 177, 147, 182, 154, 173, 163, 162, 132, 186, 151, 156, 149, 153, 150, 138, 159, 166, 146, 131, 187, 179, 134, 135, 136, 139, 130, 133, 174, 155, 144, 164, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.300487 0.174619
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 2 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (100 %)
+* DNNH (48 pts): 
+177, 180, 178, 176, 175, 183, 152, 153, 185, 169, 168, 172, 170, 158, 147, 182, 164, 163, 132, 186, 151, 155, 173, 149, 157, 154, 150, 138, 160, 166, 131, 146, 187, 134, 135, 179, 136, 139, 130, 133, 174, 156, 144, 165, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.299695 0.224882
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 3 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 3 ms (100 %)
+* DNNH (48 pts): 
+185, 178, 176, 175, 152, 183, 153, 180, 163, 169, 168, 172, 170, 158, 165, 177, 147, 182, 155, 173, 132, 186, 151, 157, 149, 150, 154, 138, 160, 166, 146, 131, 187, 179, 134, 135, 136, 139, 130, 133, 174, 156, 144, 164, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.282729 0.212116
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 5 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 4 ms (80 %)
+* DNNH (48 pts): 
+186, 185, 162, 178, 151, 176, 175, 183, 152, 163, 180, 169, 168, 172, 165, 177, 157, 170, 146, 182, 154, 173, 150, 148, 156, 153, 149, 137, 159, 166, 145, 131, 187, 179, 133, 134, 135, 138, 130, 132, 174, 155, 143, 164, 188, 181, 141, 142
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.283715 0.215513
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 3 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (66.6667 %)
+* DNNH (48 pts): 
+132, 186, 179, 177, 152, 176, 184, 153, 163, 164, 181, 170, 169, 173, 166, 178, 158, 171, 147, 183, 155, 174, 151, 149, 157, 154, 150, 138, 160, 167, 146, 131, 187, 180, 134, 135, 136, 139, 130, 133, 175, 156, 144, 165, 188, 182, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.737461 0.549024
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 29): 
+29
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (29 pts): 
+57, 53, 42, 38, 40, 50, 51, 54, 36, 34, 35, 48, 58, 47, 33, 56, 45, 46, 32, 44, 37, 31, 30, 55, 43, 49, 39, 41, 52
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.469782 0.783371
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 8 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 7 ms (87.5 %)
+* DNNH (66 pts): 
+113, 123, 75, 106, 94, 117, 84, 120, 73, 79, 114, 70, 121, 76, 91, 82, 72, 83, 67, 105, 101, 80, 60, 99, 85, 110, 100, 77, 66, 64, 78, 119, 92, 109, 69, 128, 122, 125, 112, 102, 115, 116, 61, 103, 118, 62, 86, 111, 65, 74, 97, 98, 96, 93, 71, 68, 95, 88, 89, 81, 127, 90, 108, 107, 124, 87
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.922539 0.159007
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 18): 
+18
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (18 pts): 
+214, 222, 215, 212, 227, 218, 219, 221, 226, 224, 216, 223, 210, 211, 220, 213, 228, 225
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:  0.80338 0.886072
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 20): 
+20
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (20 pts): 
+205, 207, 193, 200, 195, 201, 206, 196, 203, 198, 190, 191, 197, 202, 199, 194, 192, 208, 204, 1
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:  0.79122 0.207575
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (16 pts): 
+228, 213, 225, 211, 226, 217, 221, 220, 210, 223, 219, 227, 224, 222, 216, 212
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.130152 0.922485
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 88): 
+21, 67
+* Elapsed time (total: 8 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 6 ms (75 %)
+* DNNH (67 pts): 
+127, 73, 98, 97, 85, 123, 113, 86, 74, 94, 106, 72, 117, 120, 83, 61, 78, 69, 114, 81, 121, 91, 75, 101, 105, 82, 71, 66, 79, 59, 99, 84, 63, 110, 76, 100, 118, 65, 77, 112, 128, 103, 115, 68, 92, 119, 109, 125, 102, 122, 60, 116, 64, 111, 96, 93, 70, 67, 95, 88, 80, 89, 90, 108, 107, 124, 87
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.0343282  0.772184
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 86): 
+66, 20
+* Elapsed time (total: 7 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 6 ms (85.7143 %)
+* DNNH (20 pts): 
+25, 11, 20, 14, 12, 21, 10, 22, 9, 13, 15, 19, 23, 24, 27, 28, 17, 18, 16, 26
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.270918 0.501889
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 19): 
+19
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (19 pts): 
+25, 18, 19, 17, 16, 24, 14, 28, 10, 11, 23, 15, 13, 22, 21, 20, 12, 26, 27
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.839327 0.203828
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (16 pts): 
+220, 222, 226, 219, 227, 223, 216, 212, 217, 224, 210, 211, 221, 213, 225, 228
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.768112 0.133843
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (16 pts): 
+216, 223, 210, 226, 221, 218, 227, 219, 215, 222, 211, 224, 220, 212, 228, 225
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.517522  0.79884
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 5 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 4 ms (80 %)
+* DNNH (66 pts): 
+79, 120, 70, 73, 121, 76, 92, 82, 106, 83, 67, 72, 80, 102, 117, 84, 87, 114, 100, 60, 107, 101, 111, 85, 77, 66, 78, 64, 93, 119, 110, 69, 128, 122, 125, 75, 113, 123, 95, 115, 103, 116, 61, 104, 86, 118, 62, 112, 65, 74, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 127, 91, 109, 108, 124, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.225245 0.496507
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 19): 
+19
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (19 pts): 
+20, 12, 11, 22, 10, 13, 21, 14, 15, 19, 23, 24, 27, 28, 17, 18, 16, 26, 25
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.166023 0.173943
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 57): 
+57
+* Elapsed time (total: 8 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 7 ms (87.5 %)
+* DNNH (57 pts): 
+147, 140, 5, 158, 141, 184, 167, 143, 142, 188, 181, 164, 174, 155, 137, 130, 144, 139, 133, 156, 132, 186, 178, 177, 185, 165, 162, 180, 176, 175, 151, 183, 152, 163, 157, 168, 169, 145, 182, 172, 170, 146, 154, 150, 173, 166, 148, 131, 153, 149, 138, 159, 179, 187, 134, 135, 136
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.794169 0.522293
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 18): 
+18
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (18 pts): 
+58, 51, 48, 46, 54, 35, 34, 50, 33, 56, 45, 32, 43, 44, 39, 31, 30, 36
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.445558 0.671833
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 6 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (83.3333 %)
+* DNNH (66 pts): 
+81, 124, 94, 89, 90, 61, 115, 112, 103, 128, 101, 102, 105, 82, 80, 92, 69, 76, 121, 73, 70, 83, 67, 87, 72, 79, 120, 114, 113, 100, 78, 117, 123, 84, 99, 66, 125, 106, 86, 60, 75, 110, 93, 122, 77, 85, 95, 119, 116, 65, 64, 109, 62, 74, 97, 98, 118, 96, 111, 71, 68, 127, 91, 108, 107, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.538551 0.700235
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 10 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 9 ms (90 %)
+* DNNH (66 pts): 
+128, 69, 80, 105, 92, 76, 121, 82, 102, 83, 67, 70, 72, 73, 79, 114, 120, 101, 100, 78, 66, 117, 84, 110, 60, 87, 77, 85, 113, 106, 93, 119, 64, 109, 122, 125, 75, 95, 123, 112, 115, 118, 62, 86, 103, 61, 116, 74, 111, 65, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 127, 91, 108, 124, 107, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.765982 0.922774
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 20): 
+20
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (20 pts): 
+197, 189, 190, 206, 202, 194, 200, 195, 192, 199, 207, 205, 203, 196, 201, 198, 193, 191, 208, 204
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.786122 0.525517
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 18): 
+18
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (18 pts): 
+33, 52, 49, 47, 55, 36, 35, 51, 34, 57, 46, 32, 44, 45, 40, 31, 30, 37
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.513902 0.764002
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 6 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (83.3333 %)
+* DNNH (66 pts): 
+76, 121, 70, 82, 105, 73, 101, 80, 83, 67, 72, 79, 114, 120, 117, 84, 87, 99, 113, 60, 106, 100, 110, 85, 77, 66, 78, 64, 92, 119, 109, 69, 128, 122, 125, 75, 94, 123, 112, 118, 62, 115, 102, 86, 103, 61, 116, 111, 65, 74, 97, 98, 96, 93, 71, 68, 95, 89, 90, 81, 127, 91, 108, 107, 124, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.497658 0.813714
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 6 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (83.3333 %)
+* DNNH (66 pts): 
+84, 120, 79, 115, 70, 73, 121, 76, 92, 83, 72, 67, 82, 106, 80, 102, 87, 100, 101, 60, 114, 107, 111, 85, 77, 66, 78, 93, 119, 64, 110, 69, 128, 122, 125, 75, 113, 123, 95, 116, 103, 117, 61, 104, 86, 118, 62, 112, 65, 74, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 127, 91, 109, 108, 124, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.270918 0.501889
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 19): 
+19
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (19 pts): 
+25, 18, 19, 17, 16, 24, 14, 28, 10, 11, 23, 15, 13, 22, 21, 20, 12, 26, 27
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.175128 0.211876
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 57): 
+57
+* Elapsed time (total: 7 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 6 ms (85.7143 %)
+* DNNH (57 pts): 
+184, 167, 147, 144, 140, 158, 5, 141, 142, 188, 181, 137, 164, 174, 143, 130, 155, 139, 133, 156, 132, 186, 178, 177, 185, 165, 180, 162, 176, 175, 151, 183, 152, 163, 157, 145, 168, 169, 182, 172, 170, 146, 154, 150, 173, 166, 148, 131, 153, 149, 138, 159, 179, 187, 134, 135, 136
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.476318 0.819517
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 7 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 6 ms (85.7143 %)
+* DNNH (66 pts): 
+95, 75, 62, 113, 117, 84, 120, 87, 79, 73, 114, 70, 123, 121, 76, 92, 82, 106, 72, 83, 67, 102, 80, 60, 100, 85, 110, 101, 77, 64, 66, 78, 118, 109, 119, 93, 69, 128, 122, 125, 112, 115, 103, 116, 61, 104, 86, 111, 65, 74, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 127, 91, 108, 107, 124, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.538551 0.700235
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 5 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (100 %)
+* DNNH (66 pts): 
+128, 69, 80, 105, 92, 76, 121, 82, 102, 83, 67, 70, 72, 73, 79, 114, 120, 101, 100, 78, 66, 117, 84, 110, 60, 87, 77, 85, 113, 106, 93, 119, 64, 109, 122, 125, 75, 95, 123, 112, 115, 118, 62, 86, 103, 61, 116, 74, 111, 65, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 127, 91, 108, 124, 107, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.371743 0.193543
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 3 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (66.6667 %)
+* DNNH (48 pts): 
+149, 153, 159, 135, 134, 187, 138, 179, 173, 147, 170, 172, 169, 168, 152, 157, 154, 182, 183, 175, 176, 151, 180, 150, 163, 165, 178, 185, 177, 162, 132, 186, 166, 156, 131, 146, 136, 139, 130, 133, 174, 155, 144, 164, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:  0.82735 0.503535
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 29): 
+29
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (29 pts): 
+55, 43, 33, 58, 49, 51, 47, 54, 36, 35, 46, 50, 56, 34, 32, 44, 40, 45, 31, 30, 37, 57, 48, 53, 42, 41, 39, 38, 52
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.538551 0.700235
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 11 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 9 ms (81.8182 %)
+* DNNH (66 pts): 
+128, 69, 80, 105, 92, 76, 121, 82, 102, 83, 67, 70, 72, 73, 79, 114, 120, 101, 100, 78, 66, 117, 84, 110, 60, 87, 77, 85, 113, 106, 93, 119, 64, 109, 122, 125, 75, 95, 123, 112, 115, 118, 62, 86, 103, 61, 116, 74, 111, 65, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 127, 91, 108, 124, 107, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.536844 0.782939
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 9 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 8 ms (88.8889 %)
+* DNNH (66 pts): 
+67, 82, 121, 75, 91, 70, 105, 81, 79, 72, 78, 114, 120, 101, 117, 83, 86, 113, 99, 106, 60, 100, 110, 84, 76, 66, 77, 64, 74, 94, 123, 118, 62, 109, 119, 92, 69, 128, 122, 125, 112, 115, 102, 85, 103, 61, 116, 73, 111, 65, 97, 98, 96, 93, 71, 68, 95, 88, 89, 80, 127, 90, 108, 124, 107, 87
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.776509 0.202669
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (16 pts): 
+225, 228, 220, 211, 226, 216, 221, 219, 224, 218, 210, 223, 227, 222, 215, 212
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.277054 0.484108
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 19): 
+19
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (19 pts): 
+18, 17, 24, 28, 27, 14, 16, 23, 10, 11, 22, 15, 13, 21, 20, 19, 12, 25, 26
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.390026 0.246067
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 13 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 3 ms (23.0769 %)
+* DNNH (48 pts): 
+159, 153, 148, 149, 135, 134, 187, 137, 179, 173, 146, 170, 172, 169, 168, 152, 157, 154, 182, 183, 175, 176, 151, 150, 180, 163, 165, 178, 185, 177, 162, 132, 186, 166, 156, 131, 145, 130, 138, 133, 174, 155, 143, 164, 188, 181, 141, 142
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.497689 0.703789
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 6 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 6 ms (100 %)
+* DNNH (66 pts): 
+113, 61, 128, 103, 69, 80, 102, 106, 82, 92, 76, 121, 83, 67, 70, 72, 73, 79, 115, 120, 101, 78, 100, 66, 117, 87, 84, 111, 60, 114, 77, 93, 85, 107, 125, 122, 119, 110, 64, 75, 123, 95, 116, 118, 62, 104, 86, 112, 65, 74, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 127, 91, 109, 108, 124, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.502227 0.798338
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 9 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 8 ms (88.8889 %)
+* DNNH (66 pts): 
+79, 115, 70, 73, 121, 76, 92, 83, 67, 72, 82, 106, 80, 102, 101, 100, 118, 84, 87, 60, 114, 107, 111, 85, 77, 66, 78, 64, 93, 120, 110, 69, 128, 122, 125, 75, 113, 123, 95, 116, 103, 117, 61, 104, 86, 119, 62, 112, 65, 74, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 127, 91, 109, 108, 124, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.308585 0.202238
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 2 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (100 %)
+* DNNH (48 pts): 
+176, 183, 152, 153, 185, 178, 164, 163, 180, 186, 132, 170, 169, 166, 177, 173, 158, 171, 147, 182, 155, 151, 174, 157, 149, 154, 150, 138, 160, 167, 131, 146, 187, 179, 134, 135, 136, 139, 130, 133, 175, 156, 144, 165, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.802913 0.166119
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (16 pts): 
+222, 220, 219, 227, 223, 216, 212, 224, 217, 210, 211, 225, 221, 213, 226, 228
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.775898 0.516019
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (16 pts): 
+49, 47, 54, 36, 35, 46, 56, 34, 32, 44, 45, 51, 40, 31, 37, 30
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.445558 0.671833
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 6 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 6 ms (100 %)
+* DNNH (66 pts): 
+81, 124, 94, 89, 90, 61, 115, 112, 103, 128, 101, 102, 105, 82, 80, 92, 69, 76, 121, 73, 70, 83, 67, 87, 72, 79, 120, 114, 113, 100, 78, 117, 123, 84, 99, 66, 125, 106, 86, 60, 75, 110, 93, 122, 77, 85, 95, 119, 116, 65, 64, 109, 62, 74, 97, 98, 118, 96, 111, 71, 68, 127, 91, 108, 107, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.312954 0.203446
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 3 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (66.6667 %)
+* DNNH (48 pts): 
+183, 153, 176, 152, 185, 178, 180, 163, 164, 186, 132, 170, 169, 166, 177, 173, 158, 171, 147, 182, 155, 151, 174, 157, 149, 154, 150, 138, 160, 167, 146, 131, 187, 179, 134, 135, 136, 139, 130, 133, 175, 156, 144, 165, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.282729 0.212116
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 2 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (100 %)
+* DNNH (48 pts): 
+186, 185, 162, 178, 151, 176, 175, 183, 152, 163, 180, 169, 168, 172, 165, 177, 157, 170, 146, 182, 154, 173, 150, 148, 156, 153, 149, 137, 159, 166, 145, 131, 187, 179, 133, 134, 135, 138, 130, 132, 174, 155, 143, 164, 188, 181, 141, 142
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.308585 0.202238
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 3 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (66.6667 %)
+* DNNH (48 pts): 
+176, 183, 152, 153, 185, 178, 164, 163, 180, 186, 132, 170, 169, 166, 177, 173, 158, 171, 147, 182, 155, 151, 174, 157, 149, 154, 150, 138, 160, 167, 131, 146, 187, 179, 134, 135, 136, 139, 130, 133, 175, 156, 144, 165, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.737461 0.549024
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 29): 
+29
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (29 pts): 
+57, 53, 42, 38, 40, 50, 51, 54, 36, 34, 35, 48, 58, 47, 33, 56, 45, 46, 32, 44, 37, 31, 30, 55, 43, 49, 39, 41, 52
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.809975 0.911891
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 13): 
+13
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (13 pts): 
+200, 193, 207, 195, 205, 203, 197, 201, 199, 194, 192, 204, 208
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.802074 0.926449
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 20): 
+20
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (20 pts): 
+206, 198, 190, 191, 195, 201, 196, 193, 200, 207, 205, 203, 197, 202, 199, 194, 192, 208, 204, 1
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.179433 0.211639
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 57): 
+57
+* Elapsed time (total: 6 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 6 ms (100 %)
+* DNNH (57 pts): 
+141, 159, 168, 148, 140, 145, 5, 142, 143, 188, 182, 137, 165, 175, 144, 130, 156, 139, 133, 157, 132, 186, 179, 178, 185, 166, 181, 163, 177, 176, 152, 184, 153, 164, 158, 146, 169, 170, 183, 173, 171, 147, 155, 151, 174, 167, 149, 131, 154, 150, 138, 160, 180, 187, 134, 135, 136
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.250653 0.469733
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 19): 
+19
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (19 pts): 
+16, 10, 23, 11, 15, 21, 14, 13, 22, 12, 20, 24, 27, 28, 18, 19, 17, 25, 26
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.336726 0.172354
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 4 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (50 %)
+* DNNH (48 pts): 
+170, 172, 168, 169, 157, 182, 154, 173, 180, 152, 165, 177, 183, 175, 176, 151, 178, 185, 163, 162, 132, 186, 150, 156, 148, 153, 149, 138, 166, 159, 131, 146, 187, 134, 135, 179, 136, 139, 130, 133, 174, 155, 144, 164, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.308585 0.202238
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 2 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (100 %)
+* DNNH (48 pts): 
+176, 183, 152, 153, 185, 178, 164, 163, 180, 186, 132, 170, 169, 166, 177, 173, 158, 171, 147, 182, 155, 151, 174, 157, 149, 154, 150, 138, 160, 167, 131, 146, 187, 179, 134, 135, 136, 139, 130, 133, 175, 156, 144, 165, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.789408 0.931134
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 20): 
+20
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (20 pts): 
+197, 206, 202, 190, 194, 200, 195, 192, 199, 207, 205, 203, 196, 201, 198, 193, 191, 208, 204, 1
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:  0.33512 0.230401
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 2 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (100 %)
+* DNNH (48 pts): 
+163, 151, 175, 183, 176, 152, 185, 178, 162, 180, 186, 132, 169, 168, 165, 177, 172, 157, 170, 147, 182, 154, 156, 173, 149, 153, 150, 138, 146, 159, 166, 131, 187, 179, 134, 135, 136, 139, 130, 133, 174, 155, 144, 164, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.270918 0.501889
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 19): 
+19
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (19 pts): 
+25, 18, 19, 17, 16, 24, 14, 28, 10, 11, 23, 15, 13, 22, 21, 20, 12, 26, 27
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.300089 0.212414
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 4 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 3 ms (75 %)
+* DNNH (48 pts): 
+179, 177, 176, 184, 152, 153, 181, 170, 169, 173, 171, 158, 166, 178, 147, 183, 155, 174, 164, 163, 132, 186, 151, 157, 149, 154, 150, 138, 160, 167, 146, 131, 187, 180, 134, 135, 136, 139, 130, 133, 175, 156, 144, 165, 188, 182, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.476629 0.652313
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 6 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (83.3333 %)
+* DNNH (66 pts): 
+89, 93, 95, 124, 81, 115, 61, 112, 103, 101, 128, 102, 105, 82, 80, 91, 76, 121, 69, 73, 70, 83, 67, 87, 72, 79, 120, 114, 113, 123, 100, 117, 78, 84, 99, 66, 125, 106, 86, 75, 60, 110, 92, 122, 77, 85, 94, 119, 116, 65, 64, 109, 62, 74, 97, 98, 118, 96, 111, 71, 68, 127, 90, 108, 107, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.826325 0.167572
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (16 pts): 
+220, 224, 226, 219, 227, 222, 216, 212, 217, 223, 210, 211, 221, 213, 225, 228
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.216404 0.501447
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 19): 
+19
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (19 pts): 
+20, 14, 11, 22, 10, 12, 21, 13, 15, 19, 23, 24, 27, 28, 17, 18, 16, 26, 25
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.818201 0.527972
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 29): 
+29
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (29 pts): 
+33, 58, 51, 48, 46, 54, 36, 35, 50, 34, 56, 45, 32, 43, 44, 40, 31, 30, 37, 55, 49, 57, 47, 53, 42, 41, 39, 38, 52
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.204972 0.228827
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 53): 
+48, 3, 2
+* Elapsed time (total: 5 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 3 ms (60 %)
+* DNNH (48 pts): 
+188, 142, 174, 155, 139, 133, 130, 164, 143, 181, 132, 186, 156, 178, 177, 185, 165, 180, 176, 162, 175, 151, 183, 152, 163, 168, 169, 157, 172, 182, 170, 146, 154, 150, 145, 173, 148, 166, 153, 149, 138, 131, 159, 187, 179, 134, 135, 136
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:   0.7571 0.469099
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 29): 
+29
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (29 pts): 
+32, 44, 46, 35, 34, 36, 45, 55, 47, 51, 40, 31, 37, 30, 49, 52, 58, 33, 56, 50, 57, 43, 48, 54, 42, 39, 41, 38, 53
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.241291 0.204553
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 57): 
+57
+* Elapsed time (total: 4 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 3 ms (75 %)
+* DNNH (57 pts): 
+156, 139, 133, 188, 142, 143, 165, 130, 144, 181, 168, 184, 141, 148, 145, 137, 159, 140, 5, 157, 132, 186, 178, 177, 185, 166, 163, 180, 176, 175, 152, 183, 153, 164, 158, 146, 169, 170, 182, 173, 171, 147, 155, 151, 174, 167, 149, 131, 154, 150, 138, 160, 179, 187, 134, 135, 136
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.765982 0.922774
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 20): 
+20
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (20 pts): 
+197, 189, 190, 206, 202, 194, 200, 195, 192, 199, 207, 205, 203, 196, 201, 198, 193, 191, 208, 204
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.527612 0.715112
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 7 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 7 ms (100 %)
+* DNNH (66 pts): 
+103, 69, 65, 97, 71, 68, 126, 117, 123, 78, 80, 101, 93, 66, 67, 83, 106, 72, 76, 92, 122, 82, 102, 70, 100, 115, 79, 73, 121, 113, 116, 61, 111, 120, 118, 84, 60, 77, 87, 85, 114, 107, 110, 112, 64, 124, 75, 104, 95, 86, 119, 62, 74, 98, 99, 94, 96, 89, 90, 81, 128, 91, 109, 108, 125, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.162873 0.184908
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 57): 
+57
+* Elapsed time (total: 4 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 3 ms (75 %)
+* DNNH (57 pts): 
+145, 167, 141, 184, 140, 158, 5, 142, 143, 188, 181, 164, 137, 174, 155, 130, 144, 139, 133, 156, 132, 186, 178, 177, 185, 165, 162, 180, 176, 175, 151, 183, 152, 163, 157, 168, 169, 146, 182, 172, 170, 147, 154, 150, 173, 166, 148, 131, 153, 149, 138, 159, 179, 187, 134, 135, 136
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.557764 0.816424
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 6 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (83.3333 %)
+* DNNH (66 pts): 
+77, 85, 60, 64, 100, 114, 84, 79, 117, 120, 70, 72, 83, 67, 121, 76, 73, 92, 82, 106, 80, 101, 66, 78, 102, 87, 107, 113, 75, 95, 123, 118, 62, 110, 119, 93, 69, 128, 122, 125, 112, 115, 103, 86, 104, 61, 116, 74, 111, 65, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 127, 91, 109, 124, 108, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.765282 0.196838
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (16 pts): 
+213, 228, 221, 211, 226, 222, 220, 225, 217, 219, 210, 224, 227, 223, 216, 212
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.747799 0.478157
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 29): 
+29
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (29 pts): 
+44, 56, 32, 43, 45, 34, 35, 54, 46, 50, 31, 36, 30, 39, 48, 51, 58, 33, 55, 49, 42, 57, 47, 53, 41, 38, 40, 37, 52
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.213591 0.195635
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 57): 
+57
+* Elapsed time (total: 6 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (83.3333 %)
+* DNNH (57 pts): 
+188, 174, 155, 139, 133, 130, 164, 143, 181, 142, 167, 184, 141, 147, 144, 137, 158, 140, 5, 156, 132, 186, 178, 177, 185, 165, 162, 180, 176, 175, 151, 183, 152, 163, 157, 145, 168, 169, 182, 172, 170, 146, 154, 150, 173, 166, 148, 131, 153, 149, 138, 159, 179, 187, 134, 135, 136
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.734223 0.500595
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 29): 
+29
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (29 pts): 
+50, 34, 36, 35, 54, 56, 32, 45, 43, 44, 46, 31, 37, 30, 48, 51, 58, 33, 55, 49, 42, 57, 47, 53, 41, 39, 40, 38, 52
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.299695 0.224882
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 2 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (100 %)
+* DNNH (48 pts): 
+185, 178, 176, 175, 152, 183, 153, 180, 163, 169, 168, 172, 170, 158, 165, 177, 147, 182, 155, 173, 132, 186, 151, 157, 149, 150, 154, 138, 160, 166, 146, 131, 187, 179, 134, 135, 136, 139, 130, 133, 174, 156, 144, 164, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.765282 0.196838
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (16 pts): 
+213, 228, 221, 211, 226, 222, 220, 225, 217, 219, 210, 224, 227, 223, 216, 212
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.738968 0.447087
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 29): 
+29
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (29 pts): 
+43, 32, 56, 45, 35, 34, 36, 44, 54, 46, 50, 39, 31, 48, 51, 30, 58, 33, 55, 49, 42, 57, 47, 53, 41, 38, 40, 37, 52
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.794169 0.522293
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 18): 
+18
+* Elapsed time (total: 2 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (18 pts): 
+58, 51, 48, 46, 54, 35, 34, 50, 33, 56, 45, 32, 43, 44, 39, 31, 30, 36
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:  0.78531 0.122693
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (16 pts): 
+217, 210, 211, 226, 225, 213, 221, 228, 222, 220, 219, 224, 227, 223, 216, 212
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.29754 0.17456
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 4 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 3 ms (75 %)
+* DNNH (48 pts): 
+166, 180, 158, 169, 173, 170, 171, 182, 147, 155, 153, 183, 176, 177, 152, 178, 185, 164, 174, 163, 132, 186, 151, 149, 157, 154, 150, 138, 160, 167, 131, 146, 187, 134, 135, 179, 136, 139, 130, 133, 175, 156, 144, 165, 188, 181, 142, 143
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.554144 0.723789
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 10 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 9 ms (90 %)
+* DNNH (66 pts): 
+125, 122, 116, 77, 92, 66, 100, 111, 119, 67, 82, 71, 99, 79, 110, 121, 75, 91, 69, 114, 105, 78, 81, 120, 72, 76, 60, 84, 117, 83, 101, 109, 128, 86, 106, 113, 64, 74, 112, 102, 115, 123, 94, 118, 62, 61, 103, 85, 73, 65, 97, 98, 96, 93, 70, 68, 95, 88, 80, 89, 127, 90, 108, 124, 107, 87
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.796459 0.871687
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 20): 
+20
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (20 pts): 
+192, 194, 199, 202, 204, 205, 197, 208, 207, 193, 200, 195, 201, 206, 196, 203, 198, 190, 191, 1
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.666609 0.526829
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 29): 
+29
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (29 pts): 
+38, 42, 48, 57, 53, 40, 51, 52, 58, 54, 36, 49, 35, 34, 47, 33, 56, 45, 46, 32, 44, 37, 31, 30, 55, 43, 50, 39, 41
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.202262 0.519887
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 27): 
+9, 18
+* Elapsed time (total: 1 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 0 ms (0 %)
+* DNNH (18 pts): 
+22, 13, 15, 11, 10, 23, 21, 14, 16, 20, 24, 25, 27, 28, 18, 19, 17, 26
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.597346 0.729839
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 66): 
+66
+* Elapsed time (total: 5 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 5 ms (100 %)
+* DNNH (66 pts): 
+122, 125, 78, 93, 66, 101, 69, 67, 83, 72, 80, 100, 76, 121, 92, 106, 70, 115, 82, 79, 73, 120, 102, 111, 128, 117, 84, 60, 77, 85, 119, 87, 114, 107, 110, 64, 75, 95, 123, 113, 116, 103, 118, 62, 86, 104, 61, 74, 112, 65, 98, 99, 97, 94, 71, 68, 96, 89, 81, 90, 127, 91, 109, 124, 108, 88
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.861073 0.144638
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (16 pts): 
+227, 219, 216, 212, 222, 220, 226, 217, 223, 210, 211, 224, 221, 213, 225, 228
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.839327 0.203828
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 16): 
+16
+* Elapsed time (total: 0 ms): 
+Read grid data: 0 ms (-nan %)
+Create object: 0 ms (-nan %)
+Run search: 0 ms (-nan %)
+* DNNH (16 pts): 
+220, 222, 226, 219, 227, 223, 216, 212, 217, 224, 210, 211, 221, 213, 225, 228
+
+
+
+Arguments:
+* Clustering way: grid
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.300487 0.174619
+* Grid size: 10
+
+Starting grid DNNH search...
+Ended grid DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Expansion count (total: 48): 
+48
+* Elapsed time (total: 2 ms): 
+Read grid data: 0 ms (0 %)
+Create object: 0 ms (0 %)
+Run search: 2 ms (100 %)
+* DNNH (48 pts): 
+177, 180, 178, 176, 175, 183, 152, 153, 185, 169, 168, 172, 170, 158, 147, 182, 164, 163, 132, 186, 151, 155, 173, 149, 157, 154, 150, 138, 160, 166, 131, 146, 187, 134, 135, 179, 136, 139, 130, 133, 174, 156, 144, 165, 188, 181, 142, 143
+
+
+
