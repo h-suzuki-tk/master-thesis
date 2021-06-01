@@ -551,7 +551,7 @@ HS::DNNHS::Grid::Grid(
 	DNNHS(data, query, alpha),
 	m_grid_size(gridSize),
 	m_cell_side(1.0/gridSize),
-	m_belong_cell(belongCell),
+	m_belong_cell( belongCell ),
 	m_cells( this, belongCell ),
 	m_ep_count( ) {
 
@@ -613,7 +613,7 @@ int HS::DNNHS::Grid::run() {
 		epcells.expand();
 
 	}
-
+	
 	return 0;
 }
 
@@ -639,8 +639,23 @@ HS::DNNHS::Grid::Cell& HS::DNNHS::Grid::belongCell(
 }
 
 
+std::vector<int> HS::DNNHS::Grid::belongCell(
+	const Eigen::VectorXd& pt, 
+	const double           grid_size ) {
+
+	double           side = 1.0 / grid_size;
+	std::vector<int> index( pt.size() );
+	std::transform( pt.data(), pt.data()+pt.size(), index.begin(), [&](const double& x) {
+		return ( x == 1.0 ) ? ( grid_size-1 ) : ( std::floor(x/side) );
+	} );
+	
+	return index;
+}
+
+
 HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 	const int core_pt ) {
+	std::chrono::system_clock::time_point s, e;
 	
 	ExpansionGroup   cur_group( this, core_pt );
 	ExpansionGroup   best_group = cur_group;
@@ -657,6 +672,7 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 	while ( !epcells.isOverBound() ) {
 
 		// グループ拡大
+		s = std::chrono::system_clock::now();
 		while ( pts.size() > 0 ) {
 		
 			// 拡大点を見つける
@@ -696,7 +712,6 @@ HS::DNNHS::Group HS::DNNHS::Grid::findGroup(
 		epcells.expand();
 		HS::insert( pts, epcells.pts() );
 		filterPts( &pts );
-
 	}
 
 	return best_group;
@@ -720,3 +735,4 @@ void HS::DNNHS::Grid::updateBoundCellIdx(
 			return a > ( gridSize() - 1 ) ? ( gridSize() - 1 ) : a;
 	} );
 }
+		

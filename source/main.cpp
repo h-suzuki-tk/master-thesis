@@ -16,9 +16,11 @@ static const std::vector<std::string> _clustWays = {
 void printArgError();
 void runXmeansSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query);
 void runBasicSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const double& alpha);
-void runGridSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const double& alpha, const int& gridSize, const std::string& gridDataPath, const int queryId);
+void runGridSearch(const Eigen::MatrixXd& data, const Eigen::VectorXd& query, const double& alpha, const int& gridSize, const int queryId);
 void runSplitSearch();
 
+std::chrono::system_clock::time_point g_start, g_end, g_s, g_e;
+double                                g_total;
 
 int main (int argc, char *argv[]) {
 
@@ -67,6 +69,7 @@ int main (int argc, char *argv[]) {
 	Eigen::VectorXd query;
 	const int       queryId = HS::rand(0, dataSize-1);
 
+	g_start = std::chrono::system_clock::now();
 
 	// データ, クエリの読み込み
 	try { 
@@ -75,7 +78,6 @@ int main (int argc, char *argv[]) {
 		std::cout << e.what() << std::endl; 
 		return 1;
 	}
-
 
 	// 引数の出力
 	std::cout << "Arguments:" << std::endl;
@@ -89,7 +91,7 @@ int main (int argc, char *argv[]) {
 	// DNNH 検索	
 	if      (clustWay == XMEANS) { runXmeansSearch(data, query); }
 	else if (clustWay == BASIC)  { runBasicSearch(data, query, alpha); } 
-	else if (clustWay == GRID)   { runGridSearch(data, query, alpha, gridSize, gridDataPath, queryId); } 
+	else if (clustWay == GRID)   { runGridSearch(data, query, alpha, gridSize, queryId); } 
 	else if (clustWay == SPLIT)  { runSplitSearch(); } 
 	else { assert(!"clustWay should be one of _clustWays."); }
 
@@ -183,35 +185,52 @@ void runGridSearch(
 	const Eigen::VectorXd& query,
 	const double&          alpha,
 	const int&             gridSize,
-	const std::string&     gridDataPath,
-	const int              queryId) { 
+	const int              queryId) {
+	std::chrono::system_clock::time_point    s, e;
+	std::vector<std::pair<std::string, int>> time;
 
-	// グリッドデータ読み込み
-	std::vector<std::vector<int>> belongGrid;
-	if (HS::readData( &belongGrid, gridDataPath, data.rows()+1, data.cols() ) != 0) {
-		std::cerr << "[E] Failed to read grid data." << std::endl;
-		return;
-	}
-	belongGrid.erase( belongGrid.begin() + queryId );
+	// 所属セルの計算
+	s = std::chrono::system_clock::now();
+	std::vector<std::vector<int>> belongGrid( data.rows(), std::vector<int>(data.cols()) );
+	for ( int i=0; i<data.rows(); ++i ) belongGrid[i] = HS::DNNHS::Grid::belongCell( data.row(i), gridSize );
+	e = std::chrono::system_clock::now(); 
+	time.emplace_back( std::make_pair("Read grid data", std::chrono::duration_cast<std::chrono::milliseconds>(e-s).count()) );
 
 	// 検索
 	std::cout << "Starting grid DNNH search..." << std::endl;
+
+	s = std::chrono::system_clock::now(); 
 	HS::DNNHS::Grid dsg(data, query, alpha, gridSize, belongGrid);
+	e = std::chrono::system_clock::now(); 
+	time.emplace_back( std::make_pair("Create object", std::chrono::duration_cast<std::chrono::milliseconds>(e-s).count()) );
+	
+	s = std::chrono::system_clock::now(); 
 	if (dsg.run() != 0) {
 		std::cerr << "[E] Failed to run grid DNNH search." << std::endl;
 		return;
 	}
+	e = std::chrono::system_clock::now(); 
+	time.emplace_back( std::make_pair("Run search", std::chrono::duration_cast<std::chrono::milliseconds>(e-s).count()) );
+
 	std::cout << "Ended grid DNNH search." << std::endl << std::endl;
+
+	g_end   = std::chrono::system_clock::now();
+	g_total = std::chrono::duration_cast<std::chrono::milliseconds>(g_end-g_start).count();
 
 	// 出力
 	std::cout << "Result:" << std::endl;
 	std::cout << "* Lower/upper cluster size: " << dsg.LOWER_CLUSTER_SIZE << "/" << dsg.UPPER_CLUSTER_SIZE << std::endl;
 	std::cout << "* Expansion count (total: " << std::accumulate( dsg.epCount().begin(), dsg.epCount().end(), 0 )  << "): \n";
-	HS::printVector(dsg.epCount());
-	std::cout << std::endl;
+	HS::printVector(dsg.epCount()); std::cout << std::endl;
+	std::cout << "* Elapsed time (total: " << g_total << " ms): " << std::endl;
+	for ( const auto& t : time ) {
+		std::cout << t.first << ": " << t.second << " ms (" << ((t.second / g_total) * 100) << " %)" << std::endl;;
+	} 
 	std::cout << "* DNNH (" << dsg.result().size() << " pts): " << std::endl;
 	HS::printVector(dsg.result().ids());
 	std::cout << std::endl;
+
+	
 }
 
 

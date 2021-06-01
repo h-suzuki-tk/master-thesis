@@ -5,6 +5,7 @@
 #include <cassert>
 #include <queue>
 #include <cmath>
+#include <chrono>
 #include "data.hpp"
 #include "dnnhs.hpp"
 
@@ -138,7 +139,11 @@ class Grid : public DNNHS {
 		Cells&            cells   ()                            { return m_cells; }
 		Cell*             cell    (const std::vector<int>& idx) { return m_cells[idx]; }
 		double            cellSide()                      const { return m_cell_side; }
-		std::vector<int>& epCount ()                            { return m_ep_count; }         
+
+		static std::vector<int> belongCell(const Eigen::VectorXd& pt, const double grid_size);
+
+		std::vector<int>&    epCount()   { return m_ep_count; }       
+		std::vector<double>& time   ()   { return m_time; }
 
     protected:
 
@@ -149,10 +154,12 @@ class Grid : public DNNHS {
 		Cells                         m_cells;
 		std::vector<int>              m_lower_bound_cell_index;
 		std::vector<int>              m_upper_bound_cell_index;
+		
 		std::vector<int>              m_ep_count;
+		std::vector<double>           m_time;
 
-		std::vector<int> belongCell(const HS::DNNHS::Grid::Cells& cells, const Eigen::VectorXd& pt);
-		Cell&            belongCell(const int id);
+		std::vector<int>        belongCell(const HS::DNNHS::Grid::Cells& cells, const Eigen::VectorXd& pt);
+		Cell&                   belongCell(const int id);
 		Group            findGroup(const int core_pt);
 		void             updateBoundCellIdx(const double bound);
 };

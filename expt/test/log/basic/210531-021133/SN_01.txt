@@ -1,0 +1,162 @@
+Mon May 31 02:11:33 JST 2021
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.322185 0.200685
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (229)
+* DNNH: 
+184, 176, 177, 152, 186, 179, 163, 164, 187, 132, 181, 170, 166, 178, 169, 173, 158, 171, 147, 183, 155, 157, 151, 174, 149, 154, 150, 138, 160, 167, 146, 131, 188, 180, 134, 135, 136, 139, 130, 133, 175, 156, 144, 165, 189, 182, 142, 143
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.259323 0.543519
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (229)
+* DNNH: 
+28, 29, 25, 14, 18, 19, 17, 16, 24, 10, 11, 23, 15, 13, 22, 21, 20, 12, 26
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.493639 0.711016
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (229)
+* DNNH: 
+116, 61, 129, 103, 69, 80, 102, 106, 82, 92, 76, 122, 83, 67, 70, 72, 73, 79, 115, 121, 101, 78, 100, 66, 126, 93, 123, 111, 118, 84, 60, 87, 77, 85, 120, 114, 107, 110, 64, 75, 124, 95, 117, 119, 62, 104, 86, 112, 65, 74, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 128, 91, 109, 108, 125, 88
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.332071 0.177749
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (229)
+* DNNH: 
+173, 169, 170, 158, 147, 183, 155, 174, 181, 166, 153, 178, 184, 176, 177, 152, 179, 186, 164, 163, 132, 187, 151, 157, 149, 154, 150, 138, 167, 160, 131, 146, 188, 134, 180, 135, 136, 139, 130, 133, 175, 156, 144, 165, 189, 182, 142, 143
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.436957 0.641801
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (229)
+* DNNH: 
+96, 81, 94, 89, 90, 116, 61, 113, 104, 129, 102, 103, 106, 82, 80, 92, 76, 122, 69, 73, 70, 83, 67, 87, 72, 79, 121, 115, 114, 101, 78, 118, 124, 84, 100, 66, 126, 107, 86, 60, 75, 111, 93, 123, 77, 85, 95, 120, 117, 65, 64, 110, 62, 74, 98, 99, 119, 97, 112, 71, 68, 128, 91, 109, 108, 88
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.328204 0.186337
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (229)
+* DNNH: 
+169, 173, 171, 147, 158, 183, 155, 174, 181, 166, 153, 178, 184, 176, 177, 152, 179, 186, 164, 163, 132, 187, 151, 157, 149, 154, 150, 138, 167, 160, 131, 146, 188, 180, 134, 135, 136, 139, 130, 133, 175, 156, 144, 165, 189, 182, 142, 143
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.312012 0.210657
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (229)
+* DNNH: 
+176, 184, 177, 153, 186, 179, 181, 170, 169, 173, 171, 158, 166, 178, 147, 183, 155, 174, 164, 163, 132, 187, 151, 157, 149, 154, 150, 138, 160, 167, 146, 131, 188, 180, 134, 135, 136, 139, 130, 133, 175, 156, 144, 165, 189, 182, 142, 143
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.502227 0.798338
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (229)
+* DNNH: 
+79, 115, 70, 73, 122, 76, 92, 83, 67, 72, 82, 106, 80, 102, 101, 100, 118, 84, 87, 60, 114, 107, 111, 85, 77, 66, 78, 64, 93, 120, 110, 69, 129, 123, 126, 75, 113, 124, 95, 116, 103, 117, 61, 104, 86, 119, 62, 112, 65, 74, 98, 99, 97, 94, 71, 68, 96, 89, 90, 81, 128, 91, 109, 108, 125, 88
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query: 0.747799 0.478157
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (229)
+* DNNH: 
+45, 57, 32, 44, 46, 35, 36, 55, 47, 51, 31, 37, 30, 40, 49, 52, 59, 33, 56, 50, 43, 58, 48, 54, 42, 39, 41, 38, 53
+
+
+
+Arguments:
+* Clustering way: basic
+* Dataset: /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv (230 pts, 2 dims)
+* Query:  0.35066 0.166599
+
+Starting basic DNNH search...
+Ended basic DNNH search.
+
+Result:
+* Lower/upper cluster size: 10/100
+* Total processed core points (filterd): 1 (229)
+* DNNH: 
+147, 171, 173, 169, 170, 158, 183, 155, 181, 166, 153, 178, 184, 176, 177, 152, 179, 186, 164, 163, 132, 187, 151, 157, 149, 154, 150, 138, 167, 160, 131, 146, 188, 134, 135, 180, 136, 139, 130, 133, 175, 156, 144, 165, 189, 142, 182, 143
+
+
+

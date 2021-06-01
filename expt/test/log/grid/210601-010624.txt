@@ -1,0 +1,36 @@
+データセットからクエリを選ぶ際
+読み込んでから消す方法を採った場合
+
+Date:           Tue Jun  1 01:06:24 JST 2021
+Machine:        DESKTOP-TEQI229
+Method:         grid
+Execusion time: 100
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01.csv 230 2 2 /mnt/c/workspace/master-thesis/master-thesis/data/test/SN_01_10G.csv 10
+* Log file path: log/grid/210601-010624/SN_01.txt
+* Execution time: 100
+
+real	0m3.640s
+user	0m0.609s
+sys	0m2.359s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/master-thesis/data/test/RN_100K_2KC.csv 100000 2 2 /mnt/c/workspace/master-thesis/master-thesis/data/test/RN_100K_2KC_100G.csv 100
+* Log file path: log/grid/210601-010624/RN_100K_2KC.txt
+* Execution time: 100
+
+real	0m16.720s
+user	0m11.406s
+sys	0m4.375s
+
+Arguments:
+* Command: /mnt/c/workspace/master-thesis/master-thesis/dnnhs grid /mnt/c/workspace/master-thesis/master-thesis/data/test/RN_200K_50P.csv 200000 2 2 /mnt/c/workspace/master-thesis/master-thesis/data/test/RN_200K_50P_100G.csv 100
+* Log file path: log/grid/210601-010624/RN_200K_50P.txt
+* Execution time: 100
+/mnt/c/workspace/master-thesis/master-thesis/expt/exetime.sh: line 35:  6748 Segmentation fault      (core dumped) ${CMD} &>> ${LOG_FILE}
+
+real	0m32.799s
+user	0m24.984s
+sys	0m6.328s
+
